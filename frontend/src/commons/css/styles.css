@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1.6rem;
+    line-height: 1.7;
+}
+
+a {
+    cursor: pointer;
+    font-family: inherit;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background: none;
+    padding: 1rem;
+    font-size: 1.4rem;
+}
+
+input, textarea, select {
+    border: none;
+    font-family: inherit;
+}
