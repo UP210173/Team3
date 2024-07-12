@@ -3,7 +3,7 @@ import './clima.css';
 
 const clima = (props) => {
   return (
-    <div><p>Clima</p></div>
+    <div><p>Climass</p></div>
   );
 }
 
