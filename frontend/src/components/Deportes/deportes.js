@@ -3,7 +3,7 @@ import './deporte.css';
 
 const deportes = (props) => {
   return (
-    <div><p>Deportes</p></div>
+    <div><p>Deportess</p></div>
   );
 }
 
