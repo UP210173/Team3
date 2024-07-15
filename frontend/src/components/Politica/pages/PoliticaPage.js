@@ -1,10 +1,10 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Link } from 'react-router-dom';
 
-export const InicioPage = () => {
+export const PoliticaPage = () => {
   return (
     <div>
       <AppBar position="static">
@@ -25,15 +25,47 @@ export const InicioPage = () => {
         </Toolbar>
       </AppBar>
       <Container>
-        <Grid container spacing={2}>
-          <Grid item xs={12}>
-            {/* Slider placeholder */}
-            <div style={{ height: 200, backgroundColor: '#ccc', marginTop: 20 }}></div>
+        <Grid container spacing={2} style={{ marginTop: 20 }}>
+          <Grid item xs={12} md={8}>
+            <Card>
+              <CardContent style={{ height: 300, backgroundColor: '#000', color: '#fff' }}>
+                <Typography variant="h4" component="div">
+                  POLÍTICA
+                </Typography>
+                <Typography variant="h6" component="div">
+                  Nueva presidenta de México arma gabinete con miembros del gobierno saliente y exfuncionarios
+                </Typography>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6">Últimas Noticias</Typography>
+            <List>
+              <ListItem>
+                <ListItemText primary="Checo Pérez con la urgencia de repuntar en el GP de España" secondary="23:30" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <ListItemText primary="Scaloni y jugadores de Argentina se quejan de la cancha tras debut" secondary="23:45" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <ListItemText primary="Julián Quiñones dejó al América luego de un año y tres títulos" secondary="23:54" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <ListItemText primary="Yucatán mantiene liderazgo en seguridad con la tasa delictiva" secondary="23:59" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+            </List>
           </Grid>
           <Grid item xs={12}>
-            <Typography variant="h6">Lo más importante del momento</Typography>
+            <Typography variant="h6">Noticias Mundiales</Typography>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} md={4}>
                 <Card>
                   <CardMedia
                     component="img"
@@ -42,13 +74,15 @@ export const InicioPage = () => {
                     alt="Placeholder image"
                   />
                   <CardContent>
+                    <Typography variant="h6">UCRANIA</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      EE.UU. amplía su política para permitir que Ucrania contraataque a Rusia
                     </Typography>
+                    <VisibilityOffIcon />
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} md={4}>
                 <Card>
                   <CardMedia
                     component="img"
@@ -57,13 +91,15 @@ export const InicioPage = () => {
                     alt="Placeholder image"
                   />
                   <CardContent>
+                    <Typography variant="h6">CHINA</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Escenas impactantes: guardacostas chinos atacan barcos filipinos
                     </Typography>
+                    <VisibilityOffIcon />
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} sm={4}>
+              <Grid item xs={12} md={4}>
                 <Card>
                   <CardMedia
                     component="img"
@@ -72,58 +108,19 @@ export const InicioPage = () => {
                     alt="Placeholder image"
                   />
                   <CardContent>
+                    <Typography variant="h6">EUROPA</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      El volcán Etna vuelve a la actividad con un llamativo fenómeno
                     </Typography>
+                    <VisibilityOffIcon />
                   </CardContent>
                 </Card>
               </Grid>
             </Grid>
-          </Grid>
-          <Grid item xs={12} sm={8}>
-            <List>
-              <ListItem>
-                <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." secondary="12 hours ago" />
-                <RemoveRedEyeIcon />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." secondary="12 hours ago" />
-                <RemoveRedEyeIcon />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." secondary="12 hours ago" />
-                <RemoveRedEyeIcon />
-              </ListItem>
-            </List>
-          </Grid>
-          <Grid item xs={12} sm={4}>
-            <Typography variant="h6">Opiniones</Typography>
-            <List>
-              <ListItem>
-                <ListItemText primary="Jennifer Sanchez" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                <VisibilityOffIcon />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Elizabeth Lupone" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                <VisibilityOffIcon />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Stacy Jordan" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                <VisibilityOffIcon />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Jane Doe" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                <VisibilityOffIcon />
-              </ListItem>
-            </List>
           </Grid>
         </Grid>
       </Container>
     </div>
   );
 }
+
