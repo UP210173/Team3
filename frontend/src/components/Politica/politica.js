@@ -3,7 +3,7 @@ import './politica.css';
 
 const politica = (props) => {
   return (
-    <div><p>Política</p></div>
+    <div><p>Políticas</p></div>
   );
 }
 

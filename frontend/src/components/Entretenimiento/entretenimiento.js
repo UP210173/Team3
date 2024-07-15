@@ -3,7 +3,7 @@ import './entretenimiento.css';
 
 const entretenimiento = (props) => {
   return (
-    <div><p>Entretenimientos</p></div>
+    <div><p>Entretenimientoss</p></div>
   );
 }
 
