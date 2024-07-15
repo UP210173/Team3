@@ -17,7 +17,7 @@ export const PoliticaPage = () => {
             <Tab label="Tendencias" component={Link} to="/tendencias" />
             <Tab label="Deportes" component={Link} to="/deportes" />
             <Tab label="Entretenimiento" component={Link} to="/entretenimiento" />
-            <Tab label="Política" component={Link} to="/politica" />
+            <Tab label="Políticas" component={Link} to="/politica" />
             <Tab label="Cine" component={Link} to="/cine" />
           </Tabs>
           <Button color="inherit" component={Link} to="/subscribe">Subscribe</Button>
