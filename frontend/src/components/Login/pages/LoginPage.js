@@ -22,11 +22,13 @@ export const LoginPage = () => {
               label="Tu Correo Electrónico" 
               type='email' 
             />
-            <TextField 
-              fullWidth
-              label="Tu Contraseña" 
-              type='password' 
-            />
+            <Box>
+              <TextField 
+                fullWidth
+                label="Tu Contraseña" 
+                type='password' 
+              />
+            </Box>
             <Button>Iniciar sesión</Button>
           </Box>
         </Box>  
