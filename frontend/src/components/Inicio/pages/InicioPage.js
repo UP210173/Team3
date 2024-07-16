@@ -13,7 +13,15 @@ export const InicioPage = () => {
             CMS UPA
           </Typography>
           <Tabs textColor="inherit">
+<<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <Tab label="Inicio" component={Link} to="/inicio" />
+=======
+            <Tab label="Inicio" component={Link} to="/" />
+>>>>>>> Stashed changes
+=======
+            <Tab label="Inicio" component={Link} to="/" />
+>>>>>>> Stashed changes
             <Tab label="Tendencias" component={Link} to="/tendencias" />
             <Tab label="Deportes" component={Link} to="/deportes" />
             <Tab label="Entretenimiento" component={Link} to="/entretenimiento" />
@@ -127,3 +135,5 @@ export const InicioPage = () => {
     </div>
   );
 }
+
+export default InicioPage;
