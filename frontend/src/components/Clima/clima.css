@@ -101,4 +101,5 @@ aside {
     float: right;
     font-style: italic;
     background-color: lightgray;
+    border-radius:10px;
 }
