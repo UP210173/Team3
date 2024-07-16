@@ -1,12 +1,9 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { LoginPage } from './components/Login'
-<<<<<<< Updated upstream
 import { InicioPage } from './components/Inicio'
 import { PoliticaPage } from './components/Politica'
-=======
-import { PoliticaPage } from './components/Politica'
 import { InicioPage } from './components/Inicio'
->>>>>>> Stashed changes
+import { DeportesPage } from './components/Deportes'
 
 export const RouterApp = () => {
   return (
@@ -15,6 +12,7 @@ export const RouterApp = () => {
         <Route path='login' element={ <LoginPage /> } />
         <Route path='inicio' element={ <InicioPage /> } />
         <Route path='politica' element={ <PoliticaPage /> } />
+        <Route path='deportes' element={ <DeportesPage /> } />
       </Routes>
     </BrowserRouter>
   )
