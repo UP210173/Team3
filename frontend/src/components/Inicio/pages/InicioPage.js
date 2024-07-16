@@ -14,7 +14,11 @@ export const InicioPage = () => {
           </Typography>
           <Tabs textColor="inherit">
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
             <Tab label="Inicio" component={Link} to="/inicio" />
+=======
+            <Tab label="Inicio" component={Link} to="/" />
+>>>>>>> Stashed changes
 =======
             <Tab label="Inicio" component={Link} to="/" />
 >>>>>>> Stashed changes
@@ -131,3 +135,5 @@ export const InicioPage = () => {
     </div>
   );
 }
+
+export default InicioPage;
