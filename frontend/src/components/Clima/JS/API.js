@@ -44,35 +44,35 @@ window.addEventListener('load', () => {
           console.log(data.weather[0].main)
           switch (data.weather[0].main) {
             case 'TORMENTA':
-              iconoAnimado.src = 'animated/thunder.svg'
+              iconoAnimado.src = 'IMG_API/thunder.svg'
               console.log('TORMENTA');
               break;
             case 'LLOVIZNA':
-              iconoAnimado.src = 'animated/rainy-2.svg'
+              iconoAnimado.src = 'IMG_API/rainy-2.svg'
               console.log('LLOVIZNA');
               break;
             case 'LLUVIA':
-              iconoAnimado.src = 'animated/rainy-7.svg'
+              iconoAnimado.src = 'IMG_API/rainy-7.svg'
               console.log('LLUVIA');
               break;
             case 'NIEVE':
-              iconoAnimado.src = 'animated/snowy-6.svg'
+              iconoAnimado.src = 'IMG_API/snowy-6.svg'
               console.log('NIEVE');
               break;
             case 'LIMPIO':
-              iconoAnimado.src = 'animated/day.svg'
+              iconoAnimado.src = 'IMG_API/day.svg'
               console.log('LIMPIO');
               break;
             case 'ATMOSFERA':
-              iconoAnimado.src = 'animated/weather.svg'
+              iconoAnimado.src = 'IMG_API/weather.svg'
               console.log('ATMOSFERA');
               break;
             case 'NUBES':
-              iconoAnimado.src = 'animated/cloudy-day-1.svg'
+              iconoAnimado.src = 'IMG_API/cloudy-day-1.svg'
               console.log('NUBES');
               break;
             default:
-              iconoAnimado.src = 'animated/cloudy-day-1.svg'
+              iconoAnimado.src = 'IMG_API/cloudy-day-1.svg'
               console.log('por defecto');
           }
 
