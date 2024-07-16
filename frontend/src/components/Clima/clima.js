@@ -1,48 +1,86 @@
-import React from 'react';
-import './clima.css';
+window.addEventListener('load', () => {
+  let lon
+  let lat
 
-// Obtener la ubicación del usuario
-navigator.geolocation.getCurrentPosition(success, error);
+  let temperaturaValor = document.getElementById('temperatura-valor')
+  let temperaturaDescripcion = document.getElementById('temperatura-descripcion')
 
-function success(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    getWeatherData(latitude, longitude);
-}
+  let ubicacion = document.getElementById('ubicacion')
+  let iconoAnimado = document.getElementById('icono-animado')
 
-function error() {
-    console.error('No se pudo obtener la ubicación');
-}
+  let vientoVelocidad = document.getElementById('viento-velocidad')
 
-function getWeatherData(lat, lon) {
-    const apiKey = 'TU_API_KEY_DE_OPENWEATHERMAP'; // Reemplaza con tu API key
-    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
 
-    fetch(url)
-        .then(response => response.json())
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(posicion => {
+      //console.log(posicion.coords.latitude)
+      lon = posicion.coords.longitude
+      lat = posicion.coords.latitude
+      //ubicación actual    
+      const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=44cf67d92b7a7db10e1c7cc20e3b0d6b&units=metric`
+
+      fetch(url)
+        .then(response => { return response.json() })
         .then(data => {
-            const ctx = document.getElementById('weatherChart').getContext('2d');
-            const chartData = {
-                labels: ['Temperatura'],
-                datasets: [{
-                    label: 'Clima Actual',
-                    data: [data.main.temp],
-                    backgroundColor: ['rgba(75, 192, 192, 0.2)'],
-                    borderColor: ['rgba(75, 192, 192, 1)'],
-                    borderWidth: 1
-                }]
-            };
-            const weatherChart = new Chart(ctx, {
-                type: 'bar',
-                data: chartData,
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    }
-                }
-            });
+          //console.log(data)
+
+          let temp = Math.round(data.main.temp)
+          //console.log(temp)
+          temperaturaValor.textContent = `${temp} ° C`
+
+          //console.log(data.weather[0].description)
+          let desc = data.weather[0].description
+          temperaturaDescripcion.textContent = desc.toUpperCase()
+          ubicacion.textContent = data.name
+
+          vientoVelocidad.textContent = `${data.wind.speed} m/s`
+
+          //para iconos estáticos
+          //const urlIcon = `http://openweathermap.org/img/wn/${iconCode}.png`                     
+          //icono.src = urlIcon
+          //console.log(data.weather[0].icon)
+
+          //para iconos dinámicos
+          console.log(data.weather[0].main)
+          switch (data.weather[0].main) {
+            case 'TORMENTA':
+              iconoAnimado.src = 'animated/thunder.svg'
+              console.log('TORMENTA');
+              break;
+            case 'LLOVIZNA':
+              iconoAnimado.src = 'animated/rainy-2.svg'
+              console.log('LLOVIZNA');
+              break;
+            case 'LLUVIA':
+              iconoAnimado.src = 'animated/rainy-7.svg'
+              console.log('LLUVIA');
+              break;
+            case 'NIEVE':
+              iconoAnimado.src = 'animated/snowy-6.svg'
+              console.log('NIEVE');
+              break;
+            case 'LIMPIO':
+              iconoAnimado.src = 'animated/day.svg'
+              console.log('LIMPIO');
+              break;
+            case 'ATMOSFERA':
+              iconoAnimado.src = 'animated/weather.svg'
+              console.log('ATMOSFERA');
+              break;
+            case 'NUBES':
+              iconoAnimado.src = 'animated/cloudy-day-1.svg'
+              console.log('NUBES');
+              break;
+            default:
+              iconoAnimado.src = 'animated/cloudy-day-1.svg'
+              console.log('por defecto');
+          }
+
         })
-        .catch(error => console.error('Error al obtener los datos del clima:', error));
-}
+        .catch(error => {
+          console.log(error)
+        })
+    })
+
+  }
+})
