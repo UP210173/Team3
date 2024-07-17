@@ -1,31 +1,33 @@
 import React from 'react';
-import { Box, Container, Grid, Typography, Card, CardMedia, CardContent, AppBar, Tabs, Tab, Button } from '@mui/material';
+import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
 
-function App() {
+export const EntretenimientoPage = () => {
   return (
-    <Container maxWidth="lg">
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static" color="default">
-          <Tabs
-            indicatorColor="primary"
-            textColor="primary"
-            variant="fullWidth"
-          >
-            <Tab label="Inicio" />
-            <Tab label="Tendencias" />
-            <Tab label="Deportes" />
-            <Tab label="Entretenimiento" />
-            <Tab label="Política" />
-            <Tab label="Cine" />
+    <div>
+      <AppBar position="static">
+        <Toolbar>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            CMS UPA
+          </Typography>
+          <Tabs textColor="inherit">
+            <Tab label="Inicio" component={Link} to="/inicio" />
+            <Tab label="Tendencias" component={Link} to="/tendencias" />
+            <Tab label="Deportes" component={Link} to="/deportes" />
+            <Tab label="Entretenimiento" component={Link} to="/entretenimiento" />
+            <Tab label="Política" component={Link} to="/politica" />
+            <Tab label="Cine" component={Link} to="/cine" />
           </Tabs>
-        </AppBar>
-      </Box>
-      <Box my={4}>
-        <Typography variant="h2" align="center">CMS UPA</Typography>
-        <Typography variant="h6" align="center">Tuesday, February 9, 2024</Typography>
-        <Grid container spacing={4} mt={2}>
+          <Button color="inherit" component={Link} to="/subscribe">Subscribe</Button>
+          <Button color="inherit" component={Link} to="/login">Login</Button>
+        </Toolbar>
+      </AppBar>
+      <Container>
+        <Grid container spacing={2} style={{ marginTop: 20 }}>
           <Grid item xs={12} md={8}>
             <Card>
               <CardMedia
@@ -35,25 +37,29 @@ function App() {
                 alt="Main news"
               />
               <CardContent>
-                <Typography variant="h5">How Republicans Will Try Again to Impeach Alex</Typography>
-                <Typography variant="body2" color="textSecondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</Typography>
+                <Typography variant="h4" component="div">
+                  ENTRENTENIMIENTO
+                </Typography>
+                <Typography variant="h6" component="div">
+                  Cómo el éxito de Barbie ha cambiado la percepción del cine
+                </Typography>
               </CardContent>
             </Card>
             <Box mt={2}>
               <Card>
                 <CardContent>
-                  <Typography variant="h6">National Impeachment Live Vote</Typography>
+                  <Typography variant="h6">Noticias de entretenimiento en vivo</Typography>
                   <Swiper spaceBetween={10} slidesPerView={1} pagination={{ clickable: true }}>
                     <SwiperSlide>
                       <Box>
-                        <Typography variant="body1">Vote A</Typography>
-                        <Typography variant="body2" color="textSecondary">Details about Vote A...</Typography>
+                        <Typography variant="body1">Noticia A</Typography>
+                        <Typography variant="body2" color="textSecondary">Detalles sobre Noticia A...</Typography>
                       </Box>
                     </SwiperSlide>
                     <SwiperSlide>
                       <Box>
-                        <Typography variant="body1">Vote B</Typography>
-                        <Typography variant="body2" color="textSecondary">Details about Vote B...</Typography>
+                        <Typography variant="body1">Noticia B</Typography>
+                        <Typography variant="body2" color="textSecondary">Detalles sobre Noticia B...</Typography>
                       </Box>
                     </SwiperSlide>
                   </Swiper>
@@ -62,43 +68,87 @@ function App() {
             </Box>
           </Grid>
           <Grid item xs={12} md={4}>
-            <Card>
-              <CardContent>
-                <Typography variant="h6">When the Breakup Ruins Your Favorite Foods</Typography>
-                <Typography variant="body2" color="textSecondary">Lorem ipsum dolor sit amet, consectetur adipiscing elit...</Typography>
-              </CardContent>
-              <CardMedia
-                component="img"
-                height="140"
-                image="https://via.placeholder.com/400x200"
-                alt="Food news"
-              />
-            </Card>
-            <Box mt={2}>
-              <Card>
-                <CardContent>
-                  <Typography variant="h6">Trending</Typography>
-                  <Swiper spaceBetween={10} slidesPerView={1} pagination={{ clickable: true }}>
-                    <SwiperSlide>
-                      <Box>
-                        <Typography variant="body1">Trending News 1</Typography>
-                        <Typography variant="body2" color="textSecondary">Details about Trending News 1...</Typography>
-                      </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Box>
-                        <Typography variant="body1">Trending News 2</Typography>
-                        <Typography variant="body2" color="textSecondary">Details about Trending News 2...</Typography>
-                      </Box>
-                    </SwiperSlide>
-                  </Swiper>
-                </CardContent>
-              </Card>
-            </Box>
+            <Typography variant="h6">Últimas Noticias</Typography>
+            <List>
+              <ListItem>
+                <ListItemText primary="Nuevo álbum de Taylor Swift rompe récords" secondary="23:30" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <ListItemText primary="Premios Oscar 2024: Nominaciones y sorpresas" secondary="23:45" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <ListItemText primary="El regreso de Friends: ¿Qué podemos esperar?" secondary="23:54" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <ListItemText primary="Análisis: La evolución del cine de superhéroes" secondary="23:59" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+            </List>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h6">Noticias Mundiales</Typography>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={4}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://via.placeholder.com/150"
+                    alt="Placeholder image"
+                  />
+                  <CardContent>
+                    <Typography variant="h6">EE.UU.</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      La expansión de Hollywood hacia el streaming: ¿Es el futuro?
+                    </Typography>
+                    <VisibilityOffIcon />
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://via.placeholder.com/150"
+                    alt="Placeholder image"
+                  />
+                  <CardContent>
+                    <Typography variant="h6">REINO UNIDO</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Festival de cine de Londres: Lo más destacado del año
+                    </Typography>
+                    <VisibilityOffIcon />
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://via.placeholder.com/150"
+                    alt="Placeholder image"
+                  />
+                  <CardContent>
+                    <Typography variant="h6">JAPÓN</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      El auge del anime en la cultura occidental
+                    </Typography>
+                    <VisibilityOffIcon />
+                  </CardContent>
+                </Card>
+              </Grid>
+            </Grid>
           </Grid>
         </Grid>
-      </Box>
-    </Container>
+      </Container>
+    </div>
   );
 }
-
