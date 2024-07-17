@@ -4,6 +4,7 @@ import { InicioPage } from './components/Inicio'
 import { PoliticaPage } from './components/Politica'
 import { DeportesPage } from './components/Deportes'
 import { TendenciasPage } from './components/Tendencias'
+import { EntretenimientoPage } from './components/Entretenimiento'
 
 export const RouterApp = () => {
   return (
@@ -14,6 +15,7 @@ export const RouterApp = () => {
         <Route path='politica' element={ <PoliticaPage /> } />
         <Route path='deportes' element={ <DeportesPage /> } />
         <Route path='tendencias' element={ <TendenciasPage /> } />
+        <Route path='Entretenimiento' element={ <EntretenimientoPage /> } />
       </Routes>
     </BrowserRouter>
   )
