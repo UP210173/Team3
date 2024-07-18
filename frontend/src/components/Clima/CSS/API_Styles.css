@@ -1,6 +1,5 @@
-
 #contenedor {
-    background-color: rgb(255, 0, 157);
+    background-color: lightgray;
     border-radius: 20px 20px 20px 20px;
     text-align: center;
     display: flex;
@@ -12,8 +11,7 @@
 
 #caja1,
 #caja2,
-#caja3,
-#caja4 {
+#caja3 {
     display: grid;
     place-items: center;
     margin-top: 2%;
