@@ -5,3 +5,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.nav-active {
+  font-family: 'Roboto', sans-serif;
+  background-color: #1874d0;
+  width: 100%;
+  height: 100%;
+  font-weight: bold;
+  color: #fff;
+}
+
+.nav {
+  font-family: 'Roboto', sans-serif;
+  color: #000;
+}

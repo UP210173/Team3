@@ -7,7 +7,6 @@ import { PoliticaPage } from './components/Politica/pages/PoliticaPage'
 import { DeportesPage } from './components/Deportes/pages/DeportesPage'
 import { TendenciasPage } from './components/Tendencias/pages/TendenciasPage'
 
-
 export const RouterApp = () => {
   return (
     <BrowserRouter>
