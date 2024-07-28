@@ -1,5 +1,7 @@
+import { LayoutCMS } from "../../common";
+
 export const DeportesPage = (props) => {
   return (
-    <div><p>Deportesss</p></div>
+    <LayoutCMS><h1>Deportes</h1></LayoutCMS>
   );
 }

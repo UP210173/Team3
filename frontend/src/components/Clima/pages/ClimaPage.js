@@ -1,5 +1,9 @@
+import { LayoutCMS } from "../../common"
+
 export const ClimaPage = () => {
   return (
-    <div>ClimaPage</div>
+    <LayoutCMS>
+    <h1>Clima</h1>
+    </LayoutCMS>
   )
 }

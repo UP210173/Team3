@@ -3,10 +3,11 @@ import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardCont
 import { Link } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { LayoutCMS } from '../../common';
 
 export const PoliticaPage = () => {
   return (
-    <div>
+    <LayoutCMS>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -120,7 +121,7 @@ export const PoliticaPage = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </LayoutCMS>
   );
 }
 

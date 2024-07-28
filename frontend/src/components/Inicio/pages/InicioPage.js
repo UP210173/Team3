@@ -1,12 +1,10 @@
-import React from 'react'
-import { Header } from '../../common/components/Header'
-import { Navigation } from '../../common/components/Navigation'
+import { Typography } from '@mui/material'
+import { LayoutCMS } from '../../common'
 
 export const InicioPage = () => {
   return (
-    <div>
-      <Header />
-      <Navigation />
-    </div>
+    <LayoutCMS>
+      <h1>Inicio</h1>
+    </LayoutCMS>
   )
 }
