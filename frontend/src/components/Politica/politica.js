@@ -6,7 +6,7 @@ const politica = (props) => {
     <div><p>Políticas</p></div>
   );
 }
-function Policy() {
+export function PoliticaPage() {
   const policyContainer = document.createElement('div');
   policyContainer.className = 'policy-container';
 
@@ -39,5 +39,3 @@ function generateNewsCard(title, description, imageUrl) {
     </div>
   `;
 }
-
-export default politica;

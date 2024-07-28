@@ -1,7 +1,6 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import { LoginPage } from './components/Login/pages/LoginPage'
 import { RegisterPage } from './components/Login/pages/RegisterPage'
-import { LoginPage } from './components/Login'
 import { InicioPage } from './components/Inicio'
 import { PoliticaPage } from './components/Politica'
 import { TendenciasPage } from './components/Tendencias'

@@ -6,6 +6,7 @@ import {
   Typography,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
+import backgroundLogin from '../../../assets/img/background.png';
 
 export const LayouLogin = ({ 
   children, 
@@ -22,7 +23,11 @@ export const LayouLogin = ({
       flexDirection={'column'}
       justifyContent={'center'}
       alignItems={'center'}
-      sx={{ backgroundColor: '#6aa9e9' }}
+      sx={{ 
+        backgroundRepeat: "no-repeat",
+        backgroundSize: 'container',
+        backgroundColor: '#6aa9e9', 
+        backgroundImage: `url(${backgroundLogin})`}}
       height={'100vh'}
     >
       <Grid
