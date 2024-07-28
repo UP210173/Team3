@@ -6,6 +6,7 @@ import { ClimaPage } from './components/Clima/pages/ClimaPage';
 import { PoliticaPage } from './components/Politica/pages/PoliticaPage'
 import { DeportesPage } from './components/Deportes/pages/DeportesPage'
 import { TendenciasPage } from './components/Tendencias/pages/TendenciasPage'
+import { EntretenimientoPage } from './components/Entretenimiento/pages/EntretenimientoPage';
 
 export const RouterApp = () => {
   return (
@@ -15,6 +16,7 @@ export const RouterApp = () => {
         <Route path='registrar' element={ <RegisterPage /> } />
         <Route path='inicio' element={ <InicioPage /> } />
         <Route path='clima' element={ <ClimaPage/> } />
+        <Route path='entretenimiento' element={ <EntretenimientoPage /> } />
         <Route path='politica' element={ <PoliticaPage /> } />
         <Route path='deportes' element={ <DeportesPage /> } />
         <Route path='tendencias' element={ <TendenciasPage /> } />

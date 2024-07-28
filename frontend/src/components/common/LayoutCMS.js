@@ -1,5 +1,16 @@
-export const LayoutCMS = () => {
+import { Navigation } from "./components/Navigation"
+import { Header } from "./components/Header"
+import { Container } from "@mui/material"
+
+export const LayoutCMS = ({ children }) => {
   return (
-    <div>LayoutCMS</div>
+    <div>
+      <Header />
+      <Navigation />
+
+      <Container maxWidth="xl">
+        { children }
+      </Container>
+    </div>
   )
 }

@@ -1,8 +1,13 @@
 import React from 'react';
+import { LayoutCMS } from '../../common';
 
 export const TendenciasPage = (props) => {
   return (
-    <div><p>Tendencias</p></div>
+    <LayoutCMS>
+      <h1>
+        Tendencias
+      </h1>
+    </LayoutCMS>
   );
 }
 

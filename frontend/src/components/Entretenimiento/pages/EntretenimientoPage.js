@@ -1,8 +1,7 @@
-import React from 'react';
-import './entretenimiento.css';
+import { LayoutCMS } from '../../common';
 
 export const EntretenimientoPage = (props) => {
   return (
-    <div><p>Entretenimientoss</p></div>
+    <LayoutCMS><h1>Entretenimientos</h1></LayoutCMS>
   );
 }
