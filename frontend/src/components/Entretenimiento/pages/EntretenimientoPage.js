@@ -38,7 +38,7 @@ export const EntretenimientoPage = () => {
               <Typography variant="body2">Total: 213</Typography>
             </Paper>
             <Typography variant="body2" color="textSecondary" style={{ marginTop: 20 }}>
-              Source: Office of the Clerk, U.S. House of Representatives
+              Source: Office of the Clerk, U.S. House of Representative
             </Typography>
             <Card style={{ marginTop: 20 }}>
               <CardMedia
