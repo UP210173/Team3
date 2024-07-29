@@ -156,9 +156,7 @@ export const EntretenimientoPage = () => {
       </Container>
     </div>
   );
+
 }
-<<<<<<< Updated upstream
-=======
 
 
->>>>>>> Stashed changes
