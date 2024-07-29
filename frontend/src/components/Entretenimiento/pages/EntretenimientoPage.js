@@ -18,7 +18,7 @@ export const EntretenimientoPage = () => {
             <Tab label="Política" component={Link} to="/politica" />
             <Tab label="Cine" component={Link} to="/cine" />
           </Tabs>
-          <Button color="inherit" component={Link} to="/subscribe">Subscribe</Button>
+          <Button color="inherit" component={Link} to="/subscribe">Subscribete</Button>
           <Button color="inherit" component={Link} to="/login">Login</Button>
         </Toolbar>
       </AppBar>
