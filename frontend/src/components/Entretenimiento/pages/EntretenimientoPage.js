@@ -134,7 +134,7 @@ export const EntretenimientoPage = () => {
                   <CardContent>
                     <Typography variant="h6">JAPÓN</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      El auge del anime en la cultura occidental
+                      El auge del anime JAPÓN
                     </Typography>
                     <VisibilityOffIcon />
                   </CardContent>
