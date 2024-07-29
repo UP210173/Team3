@@ -1,6 +1,14 @@
 import React from 'react';
+
 import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Paper } from '@mui/material';
 import { Link } from 'react-router-dom';
+
+import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Box } from '@mui/material';
+import { Link } from 'react-router-dom';
+import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { Swiper, SwiperSlide } from 'swiper/react';
+
 
 export const EntretenimientoPage = () => {
   return (
@@ -17,6 +25,7 @@ export const EntretenimientoPage = () => {
             <Tab label="Entretenimiento" component={Link} to="/entretenimiento" />
             <Tab label="Política" component={Link} to="/politica" />
             <Tab label="Cine" component={Link} to="/cine" />
+            <Tab label="Clima" component={Link} to="/clima" />
           </Tabs>
           <Button color="inherit" component={Link} to="/subscribe">Subscribete</Button>
           <Button color="inherit" component={Link} to="/login">Login</Button>
@@ -65,6 +74,7 @@ export const EntretenimientoPage = () => {
                 image="https://via.placeholder.com/600x200"
                 alt="Video thumbnail"
               />
+
             </Card>
           </Grid>
           <Grid item xs={12} md={4}>
@@ -115,10 +125,65 @@ export const EntretenimientoPage = () => {
               <Divider />
               <ListItem>
                 <ListItemText primary="Don Swanson" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
+
+              <CardContent>
+                <Typography variant="h4" component="div">
+                  ENTRENTENIMIENTO
+                </Typography>
+                <Typography variant="h6" component="div">
+                  Cómo el éxito de Barbie ha cambiado la percepción del cine
+                </Typography>
+              </CardContent>
+            </Card>
+            <Box mt={2}>
+              <Card>
+                <CardContent>
+                  <Typography variant="h6">Noticias de entretenimiento en vivo</Typography>
+                  <Swiper spaceBetween={10} slidesPerView={1} pagination={{ clickable: true }}>
+                    <SwiperSlide>
+                      <Box>
+                        <Typography variant="body1">Noticia A</Typography>
+                        <Typography variant="body2" color="textSecondary">Detalles sobre Noticia A...</Typography>
+                      </Box>
+                    </SwiperSlide>
+                    <SwiperSlide>
+                      <Box>
+                        <Typography variant="body1">Noticia B</Typography>
+                        <Typography variant="body2" color="textSecondary">Detalles sobre Noticia B...</Typography>
+                      </Box>
+                    </SwiperSlide>
+                  </Swiper>
+                </CardContent>
+              </Card>
+            </Box>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6">Últimas Noticias</Typography>
+            <List>
+              <ListItem>
+                <ListItemText primary="Nuevo álbum de Taylor Swift rompe récords" secondary="23:30" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <ListItemText primary="Premios Oscar 2024: Nominaciones y sorpresas" secondary="23:45" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <ListItemText primary="El regreso de Friends: ¿Qué podemos esperar?" secondary="23:54" />
+                <RemoveRedEyeIcon />
+              </ListItem>
+              <Divider />
+              <ListItem>
+                <ListItemText primary="Análisis: La evolución del cine de superhéroes" secondary="23:59" />
+                <RemoveRedEyeIcon />
+
               </ListItem>
             </List>
           </Grid>
           <Grid item xs={12}>
+
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <Typography variant="h6">More Stories</Typography>
@@ -148,6 +213,59 @@ export const EntretenimientoPage = () => {
                     image="https://via.placeholder.com/300x200"
                     alt="Placeholder image"
                   />
+
+            <Typography variant="h6">Noticias Mundiales</Typography>
+            <Grid container spacing={2}>
+              <Grid item xs={12} md={4}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://via.placeholder.com/150"
+                    alt="Placeholder image"
+                  />
+                  <CardContent>
+                    <Typography variant="h6">EE.UU.</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      La expansión de Hollywood hacia el streaming: ¿Es el futuro?
+                    </Typography>
+                    <VisibilityOffIcon />
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://via.placeholder.com/150"
+                    alt="Placeholder image"
+                  />
+                  <CardContent>
+                    <Typography variant="h6">REINO UNIDO</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      Festival de cine de Londres: Lo más destacado del año
+                    </Typography>
+                    <VisibilityOffIcon />
+                  </CardContent>
+                </Card>
+              </Grid>
+              <Grid item xs={12} md={4}>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://via.placeholder.com/150"
+                    alt="Placeholder image"
+                  />
+                  <CardContent>
+                    <Typography variant="h6">JAPÓN</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      El auge del anime en la cultura occidental
+                    </Typography>
+                    <VisibilityOffIcon />
+                  </CardContent>
+
                 </Card>
               </Grid>
             </Grid>
@@ -158,5 +276,3 @@ export const EntretenimientoPage = () => {
   );
 
 }
-
-
