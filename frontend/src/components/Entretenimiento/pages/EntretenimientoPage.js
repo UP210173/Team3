@@ -8,7 +8,6 @@ import { Link } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.min.css';
 
 
 export const EntretenimientoPage = () => {
