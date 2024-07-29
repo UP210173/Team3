@@ -21,6 +21,7 @@ export const EntretenimientoPage = () => {
             <Tab label="Entretenimiento" component={Link} to="/entretenimiento" />
             <Tab label="Política" component={Link} to="/politica" />
             <Tab label="Cine" component={Link} to="/cine" />
+            <Tab label="Clima" component={Link} to="/clima" />
           </Tabs>
           <Button color="inherit" component={Link} to="/subscribe">Subscribe</Button>
           <Button color="inherit" component={Link} to="/login">Login</Button>
