@@ -148,23 +148,11 @@ export const ClimaPage = () => {
             </Paper>
           </Grid>
 
-          <Grid item xs={12} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '300px', flexDirection: 'column' }}>
-            <Typography variant="h6" gutterBottom>Opiniones</Typography>
-            <AutoPlaySwipeableViews interval={3900}>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6">Opiniones</Typography>
+            <AutoPlaySwipeableViews interval={3000}>
               {comments.map((comment, index) => (
-                <Card key={index} sx={{
-                  width: '300px',
-                  height: '200px',
-                  margin: '0 auto',
-                  '&:hover': {
-                    backgroundColor: '#e0e0e0',
-                  },
-                  transition: 'background-color 0.3s ease',
-                  display: 'flex',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  textAlign: 'center'
-                }}>
+                <Card key={index} style={{ padding: '10px' }}>
                   <CardContent>
                     <Typography variant="body1"><strong>{comment.name}</strong></Typography>
                     <Typography variant="body2" color="text.secondary">{comment.comment}</Typography>
