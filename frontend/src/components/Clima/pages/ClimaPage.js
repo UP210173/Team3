@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -104,51 +105,78 @@ export const ClimaPage = () => {
               />
             </Card>
           </Grid>
+          
           <Grid item xs={12}>
-            <Paper>
+            <Paper elevation={3}>
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell>#</TableCell>
-                    <TableCell>Nombre</TableCell>
-                    <TableCell>Región</TableCell>
-                    <TableCell>Intensidad</TableCell>
-                    <TableCell>Descripción</TableCell>
+                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>#</TableCell>
+                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Nombre</TableCell>
+                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Región</TableCell>
+                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Intensidad</TableCell>
+                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Descripción</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  <TableRow>
-                    <TableCell>1</TableCell>
-                    <TableCell>Tormenta Alex</TableCell>
-                    <TableCell>Costa Este</TableCell>
-                    <TableCell>Alta</TableCell>
-                    <TableCell>Tormenta con vientos fuertes y lluvias intensas.</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>2</TableCell>
-                    <TableCell>Inundaciones Noroeste</TableCell>
-                    <TableCell>Noroeste</TableCell>
-                    <TableCell>Moderada</TableCell>
-                    <TableCell>Lluvias continuas causando inundaciones en áreas bajas.</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>3</TableCell>
-                    <TableCell>Ola de Calor Sur</TableCell>
-                    <TableCell>Sur</TableCell>
-                    <TableCell>Alta</TableCell>
-                    <TableCell>Temperaturas extremas superando los 40°C.</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>4</TableCell>
-                    <TableCell>Incendios Oeste</TableCell>
-                    <TableCell>Oeste</TableCell>
-                    <TableCell>Alta</TableCell>
-                    <TableCell>Riesgo de incendios debido a condiciones secas.</TableCell>
-                  </TableRow>
+                  {[
+                    { id: 1, name: 'Tormenta Alex', region: 'Costa Este', intensity: 'Alta', description: 'Tormenta con vientos fuertes y lluvias intensas.' },
+                    { id: 2, name: 'Inundaciones Noroeste', region: 'Noroeste', intensity: 'Moderada', description: 'Lluvias continuas causando inundaciones en áreas bajas.' },
+                    { id: 3, name: 'Ola de Calor Sur', region: 'Sur', intensity: 'Alta', description: 'Temperaturas extremas superando los 40°C.' },
+                    { id: 4, name: 'Incendios Oeste', region: 'Oeste', intensity: 'Alta', description: 'Riesgo de incendios debido a condiciones secas.' },
+                  ].map((row) => (
+                    <TableRow key={row.id} hover>
+                      <TableCell>{row.id}</TableCell>
+                      <TableCell>{row.name}</TableCell>
+                      <TableCell>{row.region}</TableCell>
+                      <TableCell>{row.intensity}</TableCell>
+                      <TableCell>{row.description}</TableCell>
+                    </TableRow>
+                  ))}
                 </TableBody>
               </Table>
             </Paper>
           </Grid>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
           <Grid item xs={12} md={4}>
             <Typography variant="h6">Opiniones</Typography>
             <List>
