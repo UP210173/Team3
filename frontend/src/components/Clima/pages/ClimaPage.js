@@ -1,9 +1,19 @@
-
 import React from 'react';
-import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
+import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, Button, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
 import { Link } from 'react-router-dom';
+import SwipeableViews from 'react-swipeable-views';
+import { autoPlay } from 'react-swipeable-views-utils';
+
+const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const ClimaPage = () => {
+  const comments = [
+    { name: 'Juan Pérez', comment: 'El cambio climático está afectando cada vez más nuestras vidas diarias.' },
+    { name: 'Ana Gómez', comment: 'Es crucial estar informado sobre las alertas climáticas para tomar medidas adecuadas.' },
+    { name: 'Carlos Rodríguez', comment: 'Los incendios forestales son una amenaza creciente que debemos abordar con urgencia.' },
+    { name: 'Laura Fernández', comment: 'La prevención y preparación son claves para mitigar los efectos de los desastres climáticos.' },
+  ];
+
   return (
     <div>
       <AppBar position="static">
@@ -138,64 +148,18 @@ export const ClimaPage = () => {
             </Paper>
           </Grid>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
           <Grid item xs={12} md={4}>
             <Typography variant="h6">Opiniones</Typography>
-            <List>
-              <ListItem>
-                <ListItemText primary="Juan Pérez" secondary="El cambio climático está afectando cada vez más nuestras vidas diarias." />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Ana Gómez" secondary="Es crucial estar informado sobre las alertas climáticas para tomar medidas adecuadas." />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Carlos Rodríguez" secondary="Los incendios forestales son una amenaza creciente que debemos abordar con urgencia." />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Laura Fernández" secondary="La prevención y preparación son claves para mitigar los efectos de los desastres climáticos." />
-              </ListItem>
-            </List>
+            <AutoPlaySwipeableViews interval={3000}>
+              {comments.map((comment, index) => (
+                <Card key={index} style={{ padding: '10px' }}>
+                  <CardContent>
+                    <Typography variant="body1"><strong>{comment.name}</strong></Typography>
+                    <Typography variant="body2" color="text.secondary">{comment.comment}</Typography>
+                  </CardContent>
+                </Card>
+              ))}
+            </AutoPlaySwipeableViews>
           </Grid>
         </Grid>
       </Container>
