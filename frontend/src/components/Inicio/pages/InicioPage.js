@@ -1,4 +1,3 @@
-import React from 'react';
 import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button } from '@mui/material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
@@ -127,5 +126,3 @@ export const InicioPage = () => {
     </div>
   );
 }
-
-export default InicioPage;

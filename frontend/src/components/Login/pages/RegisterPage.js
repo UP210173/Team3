@@ -1,31 +1,36 @@
-import { useState } from 'react';
-import { LayouLogin } from '../layout/LayoutLogin';
 import { Button, InputAdornment, TextField } from '@mui/material';
+import { LayouLogin } from '../layout/LayoutLogin';
+import { useState } from 'react';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 
-export const LoginPage = () => {
+export const RegisterPage = () => {
   const [isPasswordShowed, setisPasswordShowed] = useState(false);
 
   return (
-    <LayouLogin 
-      title='Iniciar Sesión' 
-      navPage='/registrar' 
-      textPage='Crear Una' 
-      buttonText='Ingresar a cuenta'
-      outlineText='No tienes una cuenta?'
+    <LayouLogin
+      title="Registra una cuenta"
+      navPage="/login"
+      textPage="Ingresa"
+      buttonText="Crear una cuenta"
+      outlineText='Ya tienes una cuenta?'
     >
       <TextField
-        placeholder="Ingresa tu correo"
+        placeholder="Ingresa tu nombre"
         fullWidth
-        label="Correo"
+        label="Nombre"
         type="email"
       />
-
+      <TextField
+        placeholder="Registra un correo"
+        fullWidth
+        label="Ingresa un correo electrónico"
+        type="email"
+      />
       <TextField
         fullWidth
-        placeholder="Ingresa tu contraseña"
-        label="Tu Contraseña"
+        placeholder="Crea una contraseña de 8 caracteres"
+        label="Ingresa una contraseña"
         type={`${isPasswordShowed ? 'text' : 'password'}`}
         InputProps={{
           startAdornment: (

@@ -11,6 +11,7 @@ export const RouterApp = () => {
     <BrowserRouter>
       <Routes>
         <Route path='login' element={ <LoginPage /> } />
+        <Route path='registrar' element={ <RegisterPage /> } />
         <Route path='inicio' element={ <InicioPage /> } />
         <Route path='politica' element={ <PoliticaPage /> } />
         <Route path='deportes' element={ <DeportesPage /> } />
