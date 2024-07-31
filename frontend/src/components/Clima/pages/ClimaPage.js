@@ -1,11 +1,11 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, Button, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
 import { Link } from 'react-router-dom';
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
+// import SwipeableViews from 'react-swipeable-views';
+// import { autoPlay } from 'react-swipeable-views-utils';
 import { LayoutCMS } from '../../common';
 
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+// const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
 export const ClimaPage = () => {
   const comments = [
@@ -17,24 +17,6 @@ export const ClimaPage = () => {
 
   return (
     <LayoutCMS>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            CMS UPA
-          </Typography>
-          <Tabs textColor="inherit">
-            <Tab label="Inicio" component={Link} to="/inicio" />
-            <Tab label="Tendencias" component={Link} to="/tendencias" />
-            <Tab label="Deportes" component={Link} to="/deportes" />
-            <Tab label="Entretenimiento" component={Link} to="/entretenimiento" />
-            <Tab label="Política" component={Link} to="/politica" />
-            <Tab label="Cine" component={Link} to="/cine" />
-            <Tab label="Clima" component={Link} to="/clima" />
-          </Tabs>
-          <Button color="inherit" component={Link} to="/subscribe">Subscribe</Button>
-          <Button color="inherit" component={Link} to="/login">Login</Button>
-        </Toolbar>
-      </AppBar>
       <Container>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
           <Grid item xs={12}>
@@ -151,7 +133,7 @@ export const ClimaPage = () => {
 
           <Grid item xs={12} md={4}>
             <Typography variant="h6">Opiniones</Typography>
-            <AutoPlaySwipeableViews interval={3000}>
+            {/* <AutoPlaySwipeableViews interval={3000}>
               {comments.map((comment, index) => (
                 <Card key={index} style={{ padding: '10px' }}>
                   <CardContent>
@@ -160,7 +142,7 @@ export const ClimaPage = () => {
                   </CardContent>
                 </Card>
               ))}
-            </AutoPlaySwipeableViews>
+            </AutoPlaySwipeableViews> */}
           </Grid>
         </Grid>
       </Container>
