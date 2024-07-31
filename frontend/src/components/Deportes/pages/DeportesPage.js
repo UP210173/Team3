@@ -1,10 +1,11 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { LayoutCMS } from '../../common';
 
 export const DeportesPage = () => {
   return (
-    <div>
+    <LayoutCMS>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -171,7 +172,7 @@ export const DeportesPage = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </LayoutCMS>
   );
 }
 

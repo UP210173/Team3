@@ -3,10 +3,11 @@ import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardCont
 import { Link } from 'react-router-dom';
 import { Carousel } from 'react-responsive-carousel';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { LayoutCMS } from '../../common';
 
 export const TendenciasPage = () => {
   return (
-    <div>
+    <LayoutCMS>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -136,7 +137,7 @@ export const TendenciasPage = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </LayoutCMS>
   );
 }
 

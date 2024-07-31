@@ -2,10 +2,11 @@ import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardCont
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { Link } from 'react-router-dom';
+import { LayoutCMS } from '../../common/LayoutCMS';
 
 export const InicioPage = () => {
   return (
-    <div>
+    <LayoutCMS>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -124,6 +125,6 @@ export const InicioPage = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </LayoutCMS>
   );
 }

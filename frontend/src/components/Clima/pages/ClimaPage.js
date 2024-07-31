@@ -3,6 +3,7 @@ import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardCont
 import { Link } from 'react-router-dom';
 import SwipeableViews from 'react-swipeable-views';
 import { autoPlay } from 'react-swipeable-views-utils';
+import { LayoutCMS } from '../../common';
 
 const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
 
@@ -15,7 +16,7 @@ export const ClimaPage = () => {
   ];
 
   return (
-    <div>
+    <LayoutCMS>
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
@@ -163,6 +164,6 @@ export const ClimaPage = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </LayoutCMS>
   );
 }
