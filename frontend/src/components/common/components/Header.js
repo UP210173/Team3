@@ -1,4 +1,5 @@
 import { Box, Stack, Button, ListItem, Container, Typography } from '@mui/material';
+import { Link } from 'react-router-dom';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
@@ -20,8 +21,8 @@ export const Header = () => {
           <Typography component={"h1"} variant='h4' fontWeight={900} textAlign={"center"}>CMS Noticias</Typography>
         </Box>
         <Box sx={{ width: "100%", display: "flex", flexDirection: "row", gap: "20px", justifyContent: "flex-end"}}>
-          <Button variant="contained">Subscribe</Button>
-          <Button variant="contained">Log In</Button>
+          <Link to="/registrar"><Button variant="contained">Subscribete</Button></Link>
+          <Link to="/login"><Button variant="contained">Log In</Button></Link>
         </Box>
       </Stack>
     </Container>
