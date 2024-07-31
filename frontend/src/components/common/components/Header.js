@@ -4,7 +4,7 @@ import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 
 export const Header = () => {
   return (
-    <Container maxWidth="xl" sx={{ margin: "10px auto"}}>
+    <Container maxWidth="xl" sx={{ margin: "10px auto 20px"}}>
       <Stack direction="row" alignItems={"center"} justifyContent={"center"} spacing={2}>
         <ListItem sx={{ display: "flex", flexDirection: "column"}}>
           <Box sx={{ width: "100%", display: "flex", justifyContent: "flex-start", gap: "30px", marginBottom: "10px"}}>

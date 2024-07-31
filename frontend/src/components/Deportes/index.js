@@ -1,1 +1,1 @@
-export * from "./pages/DeportesPage"
+export * from './pages/DeportesPage';
