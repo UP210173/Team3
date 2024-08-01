@@ -13,7 +13,6 @@ export const LayouLogin = ({
   title = 'Título de la página', 
   navPage = '', 
   textPage = '', 
-  buttonText="",
   outlineText = ""
 }) => {
   return (
@@ -64,14 +63,7 @@ export const LayouLogin = ({
           </Typography>
           <Divider />
 
-          <Box component={'form'} mb={6} mt={3}>
-            <Box display={'flex'} flexDirection={'column'} gap={2}>
-              { children }
-              <Button variant="contained" sx={{ backgroundColor: '#000' }}>
-                { buttonText }
-              </Button>
-            </Box>
-          </Box>
+          { children }
 
           <Box display={'flex'} justifyContent={'space-between'} alignContent={'center'} mt={3}>
             <Typography component={'p'}>{ outlineText }</Typography>
