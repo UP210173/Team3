@@ -1,1 +1,1 @@
-export * from "./pages/ClimaPage"
+export * from './pages/ClimaPage';

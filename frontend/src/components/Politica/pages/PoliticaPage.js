@@ -3,28 +3,11 @@ import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardCont
 import { Link } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import { LayoutCMS } from '../../common';
 
 export const PoliticaPage = () => {
   return (
-    <div>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            CMS UPA
-          </Typography>
-          <Tabs textColor="inherit">
-            <Tab label="Inicio" component={Link} to="/inicio" />
-            <Tab label="Tendencias" component={Link} to="/tendencias" />
-            <Tab label="Deportes" component={Link} to="/deportes" />
-            <Tab label="Entretenimiento" component={Link} to="/entretenimiento" />
-            <Tab label="Política" component={Link} to="/politica" />
-            <Tab label="Cine" component={Link} to="/cine" />
-            <Tab label="Clima" component={Link} to="/clima" />
-          </Tabs>
-          <Button color="inherit" component={Link} to="/subscribe">Subscribe</Button>
-          <Button color="inherit" component={Link} to="/login">Login</Button>
-        </Toolbar>
-      </AppBar>
+    <LayoutCMS>
       <Container>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
           <Grid item xs={12} md={8}>
@@ -121,7 +104,7 @@ export const PoliticaPage = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </LayoutCMS>
   );
 }
 

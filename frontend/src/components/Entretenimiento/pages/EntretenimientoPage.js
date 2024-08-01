@@ -1,31 +1,15 @@
 import React from 'react';
-import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Box } from '@mui/material';
+import {
+  AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Box
+} from '@mui/material';
 import { Link } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { LayoutCMS } from '../../common';
 
 export const EntretenimientoPage = () => {
   return (
-    <div>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            CMS UPA
-          </Typography>
-          <Tabs textColor="inherit">
-            <Tab label="Inicio" component={Link} to="/inicio" />
-            <Tab label="Tendencias" component={Link} to="/tendencias" />
-            <Tab label="Deportes" component={Link} to="/deportes" />
-            <Tab label="Entretenimiento" component={Link} to="/entretenimiento" />
-            <Tab label="Política" component={Link} to="/politica" />
-            <Tab label="Cine" component={Link} to="/cine" />
-            <Tab label="Clima" component={Link} to="/clima" />
-          </Tabs>
-          <Button color="inherit" component={Link} to="/subscribe">Subscribe</Button>
-          <Button color="inherit" component={Link} to="/login">Login</Button>
-        </Toolbar>
-      </AppBar>
+    <LayoutCMS>
       <Container>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
           <Grid item xs={12} md={8}>
@@ -38,7 +22,7 @@ export const EntretenimientoPage = () => {
               />
               <CardContent>
                 <Typography variant="h4" component="div">
-                  ENTRENTENIMIENTO
+                  ENTRETENIMIENTO
                 </Typography>
                 <Typography variant="h6" component="div">
                   Cómo el éxito de Barbie ha cambiado la percepción del cine
@@ -49,20 +33,15 @@ export const EntretenimientoPage = () => {
               <Card>
                 <CardContent>
                   <Typography variant="h6">Noticias de entretenimiento en vivo</Typography>
-                  <Swiper spaceBetween={10} slidesPerView={1} pagination={{ clickable: true }}>
-                    <SwiperSlide>
-                      <Box>
-                        <Typography variant="body1">Noticia A</Typography>
-                        <Typography variant="body2" color="textSecondary">Detalles sobre Noticia A...</Typography>
-                      </Box>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                      <Box>
-                        <Typography variant="body1">Noticia B</Typography>
-                        <Typography variant="body2" color="textSecondary">Detalles sobre Noticia B...</Typography>
-                      </Box>
-                    </SwiperSlide>
-                  </Swiper>
+                  <List>
+                    <ListItem>
+                      <ListItemText primary="Noticia A" secondary="Detalles sobre Noticia A..." />
+                    </ListItem>
+                    <Divider />
+                    <ListItem>
+                      <ListItemText primary="Noticia B" secondary="Detalles sobre Noticia B..." />
+                    </ListItem>
+                  </List>
                 </CardContent>
               </Card>
             </Box>
@@ -139,7 +118,7 @@ export const EntretenimientoPage = () => {
                   <CardContent>
                     <Typography variant="h6">JAPÓN</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      El auge del anime en la cultura occidental
+                      El auge del anime JAPÓN
                     </Typography>
                     <VisibilityOffIcon />
                   </CardContent>
@@ -149,7 +128,6 @@ export const EntretenimientoPage = () => {
           </Grid>
         </Grid>
       </Container>
-    </div>
+    </LayoutCMS>
   );
 }
-
