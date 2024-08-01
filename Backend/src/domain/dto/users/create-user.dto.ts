@@ -16,6 +16,7 @@ export class RegisterUserDto {
     if ( !firstName ) return ['El nombre es obligatorio', undefined ];
     if ( !lastName ) return ['El apellido es obligatorio', undefined ];
     if ( !regularExps.email.test( email )  ) return ['Email no valido', undefined]
+    if ( !password ) return ['La contraseña es obligatoria', undefined]
     if ( password.length < 8 ) return ['La contraseña debe contener mínimo 8 caracteres', undefined]
 
     return [ undefined, new RegisterUserDto( firstName, lastName, email, password ) ]
