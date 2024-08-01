@@ -1,10 +1,7 @@
 import axios from 'axios';
-import { getEnvVariables } from './cmsApi';
-
-const { VITE_API_URL } = getEnvVariables();
 
 const cmsApi = axios.create({
-  baseURL: VITE_API_URL,
+  baseURL: 'http://localhost:4000/api',
 });
 
 cmsApi.interceptors.request.use((config) => {

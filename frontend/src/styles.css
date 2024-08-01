@@ -20,3 +20,24 @@
   font-family: 'Roboto', sans-serif;
   color: #000;
 }
+
+.alert {
+  position: fixed;
+  left: 50%;
+  top: -100%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
+  border-radius: 5px;
+  width: 20rem;
+  transition: all .4s;
+}
+
+.alert-show {
+  top: 2%;
+}
+
+.alert-hidden {
+  top: -100%;
+}

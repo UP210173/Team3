@@ -4,6 +4,7 @@ import { useState } from 'react';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useForm } from '../../common/hooks';
+import { useLogin } from '../hooks/useLogin';
 
 const formData = {
   firstName: '',
@@ -22,7 +23,7 @@ const formValidations = {
     'Correo valido necesario',
   ],
   password: [
-    (value) => value.length > 8,
+    (value) => value.length >= 8,
     'La contraseña debe contener mínimo 8 caracteres',
   ],
 };
@@ -44,6 +45,8 @@ export const RegisterPage = () => {
     formState,
   } = useForm(formData, formValidations);
 
+  const { registerUser } = useLogin();
+
   const onRegisterUser = ( e ) => {
     e.preventDefault();
 
@@ -52,7 +55,7 @@ export const RegisterPage = () => {
       return;
     };
 
-    console.log(formState)
+    registerUser(formState)
   }
 
   return (

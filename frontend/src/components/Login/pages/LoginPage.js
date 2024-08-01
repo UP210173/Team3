@@ -4,6 +4,7 @@ import { Box, Button, InputAdornment, TextField, Typography } from '@mui/materia
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { useForm } from '../../common/hooks';
+import { useLogin } from '../hooks/useLogin';
 
 const formData = {
   email: '',
@@ -21,6 +22,7 @@ export const LoginPage = () => {
     email, password, onInputChange, formState, 
     emailValid, passwordValid, isFormValid 
   } = useForm( formData, formValidations );
+  const { loginUser } = useLogin();
 
   const onLoginUser = ( e ) => {
     e.preventDefault();
@@ -30,7 +32,7 @@ export const LoginPage = () => {
       return;
     }
 
-    console.log(formState)
+    // loginUser( formState );
 
   }
 
