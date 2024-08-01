@@ -1,7 +1,7 @@
 import { RegisterUserDto, LoginUserDto } from '../../domain/dto/users';
 import { prisma } from '../../data/postgres';
 import { CustomError } from '../../domain/errors';
-import { bcryptAdapter } from '../../config';
+import { bcryptAdapter, jwtGenerator } from '../../config';
 
 export class AuthService {
   // DI
@@ -37,21 +37,34 @@ export class AuthService {
 
   public async loginUser( loginUserDto: LoginUserDto ) {
 
-    const user = await prisma.user.findUnique({
-      where: { email: loginUserDto.email }
-    });
-
-    if ( !user ) {
-      throw CustomError.notFound(`Email ${loginUserDto.email} no existe`);
+    try {
+      const user = await prisma.user.findUnique({
+        where: { email: loginUserDto.email }
+      });
+  
+      if ( !user ) {
+        throw CustomError.notFound(`Email ${loginUserDto.email} no existe`);
+      }
+  
+      const isCorrectPassword = bcryptAdapter.compare( loginUserDto.password, user.password );
+  
+      if ( !isCorrectPassword ) {
+        throw CustomError.unauthorized('Contraseña incorrecta');
+      }
+  
+      const token = await jwtGenerator.generateToken({ id: user.id });
+  
+      if ( !token ) {
+        throw CustomError.internalServerError('Error al crear token');
+      }
+  
+      return {
+        user,
+        token
+      }
+    } catch (error) {
+      throw CustomError.internalServerError(`${error}`);
     }
-
-    const isCorrectPassword = bcryptAdapter.compare( loginUserDto.password, user.password );
-
-    if ( !isCorrectPassword ) {
-      throw CustomError.unauthorized('Contraseña incorrecta');
-    }
-
-    
 
   }
 
