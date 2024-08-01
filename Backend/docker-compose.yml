@@ -1,14 +1,14 @@
-version: '3.1'
+version: '3.8'
 
 services:
-  mysql:
-    image: mysql
+  postgres-db:
+    image: postgres:15.3
     restart: always
     environment:
-      MYSQL_USER: ${MYSQL_USER}
-      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
-      - ./my/own/datadir:/var/lib/mysql
-    ports: 
-     - 8080:8080
+      - ./postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432

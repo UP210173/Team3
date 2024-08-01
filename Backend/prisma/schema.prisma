@@ -1,0 +1,48 @@
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["prismaSchemaFolder"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_URL")
+}
+
+model User {
+  id String @id @default( uuid() )
+  firstName String @db.VarChar(100)
+  lastName String @db.VarChar(100)
+  email String @unique
+  password String @db.VarChar(8)
+  News News[]
+}
+
+model Categories {
+  id String @id @default( uuid() )
+  categoryName String 
+  News News[]
+}
+
+model SubCategories {
+  id String @id @default( uuid() )
+  subcategoryName String
+  News News[]
+}
+
+model News {
+  id String @id @default( uuid() )
+  title String
+  body String
+  publish_date DateTime @default( now() )
+  img String
+  country String
+
+  author String
+  User User @relation(fields: [author], references: [id])
+
+  category String
+  Category Categories @relation( fields: [category], references: [id])
+
+  subcategory String
+  SubCategory SubCategories @relation(fields: [subcategory], references: [id])
+}
