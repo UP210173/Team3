@@ -30,8 +30,12 @@
   padding: 1rem;
   box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
   border-radius: 5px;
-  width: 20rem;
+  width: fit-content;
   transition: all .4s;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
 }
 
 .alert-show {
@@ -40,4 +44,14 @@
 
 .alert-hidden {
   top: -100%;
+}
+
+.alert-error {
+  color: rgb(128, 42, 42);
+  border-color: currentColor;
+}
+
+.alert-success {
+  color: rgb(26, 65, 26);
+  border-color: currentColor;
 }

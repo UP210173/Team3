@@ -9,16 +9,23 @@ export const startRegisteringUser = ( userInformation = {} ) => {
 
     try {
 
-      const { data } = await cmsApi.post('/auth/register', userInformation )
-      const { user } = data;
+      await cmsApi.post('/auth/register', userInformation )
 
-      dispatch( login( user ) );
-      dispatch( setMessage('Usuario creado correctamente') )
+      dispatch( setMessage({
+        isOpen: true,
+        content: 'Usuario creado correctamente',
+        type: 'success'
+      }))
 
     } catch (error) {
       
-      console.log(error);
+      const { error: errorMessage } = error.response.data;
 
+      dispatch( setMessage({
+        isOpen: true,
+        content: errorMessage,
+        type: 'error'
+      }))
     }
 
     dispatch( setIsLoading( false ) )

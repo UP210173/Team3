@@ -1,9 +1,9 @@
 import { Box, Button, InputAdornment, TextField, Typography } from '@mui/material';
 import { LayouLogin } from '../layout/LayoutLogin';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { useForm } from '../../common/hooks';
+import { useForm, useUI } from '../../common/hooks';
 import { useLogin } from '../hooks/useLogin';
 
 const formData = {
@@ -37,26 +37,35 @@ export const RegisterPage = () => {
     email,
     password,
     isFormValid,
-    onInputChange,
     firstNameValid,
     lastNameValid,
     emailValid,
     passwordValid,
     formState,
+    onInputChange,
+    onResetForm,
   } = useForm(formData, formValidations);
 
   const { registerUser } = useLogin();
+
+  const { showAlert, message: { type } } = useUI();
 
   const onRegisterUser = ( e ) => {
     e.preventDefault();
 
     if ( !isFormValid ) {
-      alert('El registro no ha sido llenado correctamente');
+      showAlert('El registro no ha sido llenado correctamente', 'error');
       return;
     };
 
-    registerUser(formState)
+    registerUser(formState);
   }
+
+  useEffect(() => {
+    if ( type === 'success' ) {
+      onResetForm();
+    }
+  }, [ type ]);
 
   return (
     <LayouLogin
