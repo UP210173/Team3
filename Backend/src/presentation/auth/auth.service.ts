@@ -1,6 +1,7 @@
 import { RegisterUserDto } from '../../domain/dto/users/create-user.dto';
 import { prisma } from '../../data/postgres';
 import { CustomError } from '../../domain/errors';
+import { bcryptAdapter } from '../../config';
 
 export class AuthService {
   // DI
@@ -16,8 +17,14 @@ export class AuthService {
     }
 
     try {
+
+      const hashPassword = bcryptAdapter.hash( registerUserDto.password );
+
       const newUser = await prisma.user.create({
-        data: registerUserDto!,
+        data: {
+          ...registerUserDto,
+          password: hashPassword
+        },
       });
 
       return { user: newUser };
