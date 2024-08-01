@@ -20,6 +20,8 @@ export const RouterApp = () => {
         <Route path='politica' element={ <PoliticaPage /> } />
         <Route path='deportes' element={ <DeportesPage /> } />
         <Route path='tendencias' element={ <TendenciasPage /> } />
+        <Route path='Entretenimiento' element={ <EntretenimientoPage /> } />
+        <Route path='clima' element={ <ClimaPage /> } />
       </Routes>
     </BrowserRouter>
   )

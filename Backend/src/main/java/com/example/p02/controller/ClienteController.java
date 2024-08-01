@@ -65,6 +65,8 @@ public class ClienteController {
     return "form";
   }
 
+}
+/* 
   @GetMapping("/form") // "Crear cliente" Boton
   public String crear(Model model) {
     String edoCivil[] = { "Soltero", "Casado", "Divorciado" };
@@ -93,3 +95,4 @@ public class ClienteController {
  
 
 }
+*/
