@@ -1,9 +1,9 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { LayouLogin } from '../layout/LayoutLogin';
 import { Box, Button, InputAdornment, TextField, Typography } from '@mui/material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
-import { useForm } from '../../common/hooks';
+import { useForm, useUI } from '../../common/hooks';
 import { useLogin } from '../hooks/useLogin';
 
 const formData = {
@@ -18,23 +18,31 @@ const formValidations = {
 
 export const LoginPage = () => {
   const [isPasswordShowed, setisPasswordShowed] = useState(false);
+
   const { 
     email, password, onInputChange, formState, 
-    emailValid, passwordValid, isFormValid 
+    emailValid, passwordValid, isFormValid, onResetForm
   } = useForm( formData, formValidations );
-  const { loginUser } = useLogin();
+
+  const { loginUser, user: { status } } = useLogin();
+  const { showAlert } = useUI();
 
   const onLoginUser = ( e ) => {
     e.preventDefault();
 
     if ( !isFormValid ) {
-      alert('El formulario no ha sido llenado correctamente');
+      showAlert('El formulario no ha sido llenado correctamente', 'error');
       return;
     }
 
-    // loginUser( formState );
-
+    loginUser( formState );
   }
+
+  useEffect(() => {
+    if ( status === 'authorized' ) {
+      onResetForm();
+    }
+  }, [ status ] )
 
   return (
     <LayouLogin 

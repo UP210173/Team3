@@ -32,3 +32,39 @@ export const startRegisteringUser = ( userInformation = {} ) => {
 
   }
 }
+
+export const startLoggingUser = ( userCrendentials = {} ) => {
+  return async ( dispatch ) => {
+
+    dispatch( setIsLoading( true ) )
+
+    try {
+
+      const { data } = await cmsApi.post('/auth/login', userCrendentials )
+      const { user: { password, ...restUser }, token } = data;
+
+      localStorage.setItem('cms', JSON.stringify( token ) );
+
+      dispatch( login( restUser ) );
+
+      dispatch( setMessage({
+        isOpen: true,
+        content: `Bienvenido ${ restUser.firstName } ${restUser.lastName}`,
+        type: 'success'
+      }))
+
+    } catch (error) {
+      
+      const { error: errorMessage } = error.response.data;
+
+      dispatch( setMessage({
+        isOpen: true,
+        content: errorMessage,
+        type: 'error'
+      }))
+    }
+
+    dispatch( setIsLoading( false ) )
+
+  }
+}

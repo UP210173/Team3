@@ -1,9 +1,12 @@
 import { Box, Stack, Button, ListItem, Container, Typography } from '@mui/material';
-import { Link } from 'react-router-dom';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import { useLogin } from '../../Login/hooks/useLogin';
 
 export const Header = () => {
+
+  const { logoutUser } = useLogin();
+
   return (
     <Container maxWidth="xl" sx={{ margin: "10px auto 20px"}}>
       <Stack direction="row" alignItems={"center"} justifyContent={"center"} spacing={2}>
@@ -21,8 +24,7 @@ export const Header = () => {
           <Typography component={"h1"} variant='h4' fontWeight={900} textAlign={"center"}>CMS Noticias</Typography>
         </Box>
         <Box sx={{ width: "100%", display: "flex", flexDirection: "row", gap: "20px", justifyContent: "flex-end"}}>
-          <Link to="/registrar"><Button variant="contained">Subscribete</Button></Link>
-          <Link to="/login"><Button variant="contained">Log In</Button></Link>
+          <Button onClick={ logoutUser } variant='contained'>Salir</Button>
         </Box>
       </Stack>
     </Container>

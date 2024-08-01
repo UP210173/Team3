@@ -1,5 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { startRegisteringUser } from '../../common/store/auth/auth.thunk';
+import { startLoggingUser, startRegisteringUser } from '../../common/store/auth/auth.thunk';
+import { logout } from '../../common/store/auth/auth.slice';
+import { setMessage } from '../../common/store/ui/ui.slice';
 
 export const useLogin = () => {
     
@@ -11,7 +13,17 @@ export const useLogin = () => {
   }
 
   const loginUser = ( userCredentials = {} ) => {
+    dispatch( startLoggingUser( userCredentials ) )
+  }
 
+  const logoutUser = () => {
+    dispatch( logout() );
+    dispatch( setMessage({
+      isOpen: true,
+      content: 'Hasta la próxima',
+      type: 'success'
+    }) );
+    localStorage.removeItem('cms');
   }
 
   return {
@@ -20,6 +32,7 @@ export const useLogin = () => {
 
     registerUser,
     loginUser,
+    logoutUser,
   }
 
 }
