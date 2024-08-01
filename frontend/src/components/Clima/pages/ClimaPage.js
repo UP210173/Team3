@@ -1,18 +1,11 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, Button, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import SwipeableViews from 'react-swipeable-views';
-import { autoPlay } from 'react-swipeable-views-utils';
-
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
-=======
 // import SwipeableViews from 'react-swipeable-views';
 // import { autoPlay } from 'react-swipeable-views-utils';
 import { LayoutCMS } from '../../common';
 
 // const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
->>>>>>> Development
 
 export const ClimaPage = () => {
   const comments = [
@@ -140,11 +133,7 @@ export const ClimaPage = () => {
 
           <Grid item xs={12} md={4}>
             <Typography variant="h6">Opiniones</Typography>
-<<<<<<< HEAD
-            <AutoPlaySwipeableViews interval={3000}>
-=======
             {/* <AutoPlaySwipeableViews interval={3000}>
->>>>>>> Development
               {comments.map((comment, index) => (
                 <Card key={index} style={{ padding: '10px' }}>
                   <CardContent>
@@ -153,11 +142,7 @@ export const ClimaPage = () => {
                   </CardContent>
                 </Card>
               ))}
-<<<<<<< HEAD
-            </AutoPlaySwipeableViews>
-=======
             </AutoPlaySwipeableViews> */}
->>>>>>> Development
           </Grid>
         </Grid>
       </Container>
