@@ -1,10 +1,23 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { setAsideMenu } from "../store/ui.slice";
 
 export const useUI = () => {
 
-    const { aside } = useSelector( store => store.ui );
+    const dispath = useDispatch();
+    const { asideMenu } = useSelector( store => store.ui );
+
+    const openAsideMenu = () => {
+        dispath( setAsideMenu({ isOpen: true }) )
+    }
+
+    const closeAsideMenu = () => {
+        dispath( setAsideMenu({ isOpen: false }) )
+    }
 
     return {
-        aside
+        asideMenu,
+
+        openAsideMenu,
+        closeAsideMenu
     }
 }
