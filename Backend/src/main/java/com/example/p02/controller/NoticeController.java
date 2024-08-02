@@ -36,12 +36,12 @@ public class NoticeController {
         return ResponseEntity.ok(noticiaService.getNoticias());
     }
 
-    @GetMapping("/noticia/{id}")
+    @GetMapping("/Noticia/{id}")
     public ResponseEntity<Optional<Notice>> getNoticia(@PathVariable Long id){
         return ResponseEntity.ok(noticiaService.getNoticia(id));
     }   
 
-    @PostMapping("/noticia/")
+    @PostMapping("/Noticia/")
     public Notice createNoticia(@RequestBody Notice noticia) {
         return this.noticiaService.saveNoticia(noticia);
     }
