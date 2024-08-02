@@ -1,6 +1,8 @@
-import { Box, Button, Container, ListItem, Stack, Typography } from "@mui/material"
+import { Link } from "react-router-dom"
+import { Box, Button, ListItem, Stack, Typography } from "@mui/material"
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import { dateFormat } from "../../common/helpers/dateFormat";
 
 export const HeaderListNotices = () => {
   return (
@@ -11,7 +13,7 @@ export const HeaderListNotices = () => {
             <SearchOutlinedIcon />
         </Box>
         <Box width={"100%"}>
-            <Typography component={"p"} variant='body2' fontWeight={700}>Tuesday, February 13, 2024</Typography>
+            <Typography component={"p"} variant='body2' fontWeight={700}>{ dateFormat() }</Typography>
             <Typography component={"p"} variant='caption'>Today's Paper</Typography>
         </Box>
         </ListItem>
@@ -21,7 +23,9 @@ export const HeaderListNotices = () => {
         <Box sx={{ width: "100%", display: "flex", flexDirection: "row", gap: "20px", justifyContent: "flex-end"}}>
             <Box width={"fit-content"} component="div" sx={{ display: "flex", flexDirection: "column", alignItems: "flex-end" }}>
                 <Typography mb={1} className="photo-circle" variant="h6">D</Typography>
-                <Button variant="contained">Agregar Noticia</Button>
+                <Link to="/nueva-noticia">
+                    <Button variant="contained">Agregar Noticia</Button>
+                </Link>
             </Box>
         </Box>
     </Stack>
