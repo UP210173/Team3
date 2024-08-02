@@ -43,6 +43,6 @@ public class UserController {
 
     @PostMapping("/usuario/")
     public User createUsuario(@RequestBody User usuario) {
-        return this.usuarioService.saveUser(usuario);
+        return this.usuarioService.saveUsuario(usuario);
     }
 }

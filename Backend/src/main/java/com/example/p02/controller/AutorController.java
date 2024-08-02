@@ -1,4 +1,4 @@
-package com.example.backend.controller;
+package com.example.p02.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.p02.model.Autor;
-import com.example.p02.model.Noticia;
+import com.example.p02.model.Notice;
 import com.example.p02.service.AutorService;
 
 import org.springframework.web.bind.annotation.GetMapping;

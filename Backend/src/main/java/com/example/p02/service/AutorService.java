@@ -6,32 +6,32 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.p02.model.Cliente;
-import com.example.p02.repository.ClienteRepository;
+import com.example.p02.model.Autor;
+import com.example.p02.model.Notice;
+import com.example.p02.repository.AutorRepository;
 
 @Service
-public class ClienteService {
-    private final ClienteRepository clienteRepository;
+public class AutorService {
+    private final AutorRepository autorRepository;
 
     @Autowired
-    public ClienteService(ClienteRepository clienteRepository) {
-        this.clienteRepository = clienteRepository;
+    public AutorService(AutorRepository autorRepository) {
+        this.autorRepository = autorRepository;
     }
 
-    public List<Cliente> getClientes() {
-        return clienteRepository.findAll();
+    public List<Autor> getAutors(){
+        return autorRepository.findAll();
     }
-
-    public Optional<Cliente> getCliente(Long id) {
-        return clienteRepository.findById(id);    }
     
-    public void eliminar(Long id) {
-        clienteRepository.deleteById(id);
+    public Optional<Autor>getAutor(Long id){
+        return autorRepository.findById(id);
+    }
+    
+    public Autor saveAutor(Autor autor) {
+        return autorRepository.save(autor);
     }
 
-    public void guardar(Cliente cliente) {
-        clienteRepository.save(cliente);  // Altas y Cambios
-}
-
-    
+    public void eliminar(Long id){
+        autorRepository.deleteById(id);
+    }
 }
