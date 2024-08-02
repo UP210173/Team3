@@ -81,6 +81,9 @@ export const LayouLogin = ({
           </Box>
 
         </Grid>
+        <Link to={"/inicio"} style={{ textDecoration: "none" }}>
+          <Typography mt={2} textAlign={"right"} color={"#fff"}>Ver todas las noticias</Typography>
+        </Link>
       </Grid>
     </Grid>
   );
