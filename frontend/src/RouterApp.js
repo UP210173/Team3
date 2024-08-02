@@ -8,6 +8,7 @@ import { DeportesPage } from './components/Deportes/pages/DeportesPage'
 import { TendenciasPage } from './components/Tendencias/pages/TendenciasPage'
 import { EntretenimientoPage } from './components/Entretenimiento/pages/EntretenimientoPage';
 import { NewNoticePage } from './components/NewNotice/pages/NewNoticePage';
+import { ListNoticies } from './components/ListNotices/page/ListNoticies';
 
 export const RouterApp = () => {
   return (
@@ -21,9 +22,8 @@ export const RouterApp = () => {
         <Route path='politica' element={ <PoliticaPage /> } />
         <Route path='deportes' element={ <DeportesPage /> } />
         <Route path='tendencias' element={ <TendenciasPage /> } />
-        <Route path='Entretenimiento' element={ <EntretenimientoPage /> } />
-        <Route path='clima' element={ <ClimaPage /> } />
-        <Route path='NewNotice' element={ <NewNoticePage /> } />
+        <Route path='new-notice' element={ <NewNoticePage /> } />
+        <Route path='list-notices' element={ <ListNoticies /> } />
       </Routes>
     </BrowserRouter>
   )
