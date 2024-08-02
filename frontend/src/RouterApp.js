@@ -7,6 +7,7 @@ import { PoliticaPage } from './components/Politica/pages/PoliticaPage'
 import { DeportesPage } from './components/Deportes/pages/DeportesPage'
 import { TendenciasPage } from './components/Tendencias/pages/TendenciasPage'
 import { EntretenimientoPage } from './components/Entretenimiento/pages/EntretenimientoPage';
+import { NewNoticePage } from './components/NewNotice/pages/NewNoticePage';
 
 export const RouterApp = () => {
   return (
@@ -22,6 +23,7 @@ export const RouterApp = () => {
         <Route path='tendencias' element={ <TendenciasPage /> } />
         <Route path='Entretenimiento' element={ <EntretenimientoPage /> } />
         <Route path='clima' element={ <ClimaPage /> } />
+        <Route path='NewNotice' element={ <NewNoticePage /> } />
       </Routes>
     </BrowserRouter>
   )
