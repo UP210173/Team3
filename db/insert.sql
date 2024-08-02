@@ -1,16 +1,18 @@
-INSERT INTO usuario (nombre, correo, contra) VALUES 
+USE p02;
+
+INSERT INTO usuario (nombre, email, contrasena) VALUES  
 ('Cristian Morales', 'cristian.morales@example.com', '1234'),
 ('Jesus Chavez', 'jesus.chavez@example.com', '5678'),
 ('Danna Sanchez', 'danna.sanchez@example.com', '9012');
 
-INSERT INTO autor (nombre, biografia, registro) VALUES 
+INSERT INTO autor (nombre, biografia, fecha_registro) VALUES 
 ('Mario López', 'Mario es un periodista con especialización en reportajes sobre medio ambiente y cambio climático.', '2010-11-05'),
 ('Claudia Martínez', 'Claudia es una periodista destacada en el ámbito de la salud y la medicina, con más de 15 años de experiencia.', '2006-06-12'),
 ('Fernando Gutiérrez', 'Fernando es un autor y periodista que cubre temas de política y relaciones internacionales.', '2015-09-30'),
 ('Isabel Pérez', 'Isabel es una periodista enfocada en temas culturales y sociales, con múltiples premios por sus reportajes.', '2012-02-18');
 
 
-INSERT INTO noticia (titulo, contenido, resumen, fecha, url, id_autor) VALUES 
+INSERT INTO noticia (titulo, contenido, resumen, fecha_publicacion, url, id_autor) VALUES 
 ('AVANZA CONSTRUCCIÓN DEL NUEVO PARQUE METROPOLITANO EN AGUASCALIENTES','El gobierno municipal de Aguascalientes anunció que la construcción del nuevo Parque Metropolitano ha alcanzado un avance del 60%. El proyecto, que se desarrolla en la zona norte de la ciudad, incluirá áreas verdes, juegos infantiles, canchas deportivas y un lago artificial. La alcaldesa Leo Montañez destacó la importancia de este espacio para fomentar la convivencia familiar y el esparcimiento de los ciudadanos.','El gobierno municipal de Aguascalientes anunció que la construcción del nuevo Parque Metropolitano ha alcanzado un avance del 60%.','2024-07-25','https://noticiasags.com/nuevo-parque-metropolitano','1'),
 
 ('INAUGURAN NUEVO CENTRO DE SALUD EN EL BARRIO DE LA PURÍSIMA','Con el objetivo de mejorar la atención médica en Aguascalientes, el presidente municipal Leo Montañez inauguró un nuevo centro de salud en el barrio de La Purísima. El centro cuenta con modernas instalaciones y equipos médicos de última generación. Durante el evento, Montañez resaltó la importancia de acercar los servicios de salud a la comunidad y mejorar la calidad de vida de los habitantes.','El presidente municipal Leo Montañez inauguró un nuevo centro de salud en el barrio de La Purísima.','2024-07-26','https://saludags.com/centro-de-salud-la-purisima','2'),
