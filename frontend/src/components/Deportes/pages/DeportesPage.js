@@ -25,12 +25,12 @@ export const DeportesPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://tvazteca.brightspotcdn.com/98/7f/814862b949a491253cc74484f13d/mazatlan-vs-nashville-leagues-cup.jpeg"
                     alt="Placeholder image"
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      A paragraph of text with an <MuiLink href="#">unassigned link</MuiLink>.
+                    mazatlan vs nashville partido que se lleva mazatlan por un marcador 2-0 <MuiLink href="#">link</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -40,12 +40,12 @@ export const DeportesPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://www.tudn.com/api/image/x/us/futbol/tormenta-electrica-retrasa-el-inicio-del-segundo-tiempo-entre-toluca-y-chicago-video"
                     alt="Placeholder image"
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      A paragraph of text with an <MuiLink href="#">unassigned link</MuiLink>.
+                    Tormenta retrasa segundo tiempo del Toluca vs Chicago Fire <MuiLink href="#">unassigned link</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -55,12 +55,12 @@ export const DeportesPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://cdn.milenio.com/uploads/media/2024/07/30/fc-juarez-vs-dallas-canal.jpeg"
                     alt="Placeholder image"
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      A paragraph of text with an <MuiLink href="#">unassigned link</MuiLink>.
+                    FC DALLAS 0-2 FC JUÁREZ | Salieron BRAVOS los fronterizos <MuiLink href="#">unassigned link</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -82,7 +82,7 @@ export const DeportesPage = () => {
               <CardMedia
                 component="img"
                 height="200"
-                image="https://via.placeholder.com/200"
+                image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
                 alt="Placeholder image"
               />
             </Card>
