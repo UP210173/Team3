@@ -70,7 +70,7 @@ export const PoliticaPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://phantom-elmundo.unidadeditorial.es/28d7f96fee3de612b821d9742518b176/crop/0x0/3072x2048/resize/600/assets/multimedia/imagenes/2024/07/29/17222334156043.jpg"
                     alt="Placeholder image"
                   />
                   <CardContent>
@@ -87,7 +87,7 @@ export const PoliticaPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://www.losreplicantes.com/images/photoday/2000/2971/c.jpg"
                     alt="Placeholder image"
                   />
                   <CardContent>
@@ -104,7 +104,7 @@ export const PoliticaPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://image.ondacero.es/clipping/cmsimages02/2021/09/21/650E9B8B-D471-4E83-AAFC-41674A258C71/98.jpg?crop=1250,703,x0,y66&width=1900&height=1069&optimize=high&format=webply"
                     alt="Placeholder image"
                   />
                   <CardContent>
