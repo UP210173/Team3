@@ -14,7 +14,7 @@ export const RouterApp = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='login' element={ <LoginPage /> } />
+        <Route path='/' element={ <LoginPage /> } />
         <Route path='registrar' element={ <RegisterPage /> } />
         <Route path='inicio' element={ <InicioPage /> } />
         <Route path='clima' element={ <ClimaPage/> } />
@@ -22,8 +22,8 @@ export const RouterApp = () => {
         <Route path='politica' element={ <PoliticaPage /> } />
         <Route path='deportes' element={ <DeportesPage /> } />
         <Route path='tendencias' element={ <TendenciasPage /> } />
-        <Route path='new-notice' element={ <NewNoticePage /> } />
-        <Route path='list-notices' element={ <ListNoticies /> } />
+        <Route path='nueva-notice' element={ <NewNoticePage /> } />
+        <Route path='lista-notices' element={ <ListNoticies /> } />
       </Routes>
     </BrowserRouter>
   )
