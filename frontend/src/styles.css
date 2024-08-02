@@ -42,3 +42,26 @@ img {
   text-align: center;
   box-shadow: 0 5px 5px rgba(0, 0, 0, .15);
 }
+
+.aside {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: #fff;
+  width: 20rem;
+  height: 100vh;
+  padding: 1rem;
+  border-right: 1px solid #ddd;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .5);
+  transition: all .4s ease;
+}
+
+.aside-hiden {
+  transform: translateX(-100%);
+}
+
+.aside-show {
+  transform: translateX(0%);
+}
+
