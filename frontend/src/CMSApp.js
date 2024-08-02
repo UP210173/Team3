@@ -6,7 +6,9 @@ import { Aside } from "./components/common/components/Aside"
 export const CMSApp = () => {
   return (
     <Provider store={store}>
-      <RouterApp />
+      <div className="cms">
+        <RouterApp />
+      </div>
       <Aside />
     </Provider>
   )
