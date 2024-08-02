@@ -27,7 +27,7 @@ export const Header = () => {
         </Box>
         <Box sx={{ width: "100%", display: "flex", flexDirection: "row", gap: "20px", justifyContent: "flex-end"}}>
           <Link to="/registrar"><Button variant="contained">Subscribete</Button></Link>
-          <Link to="/login"><Button variant="contained">Log In</Button></Link>
+          <Link to="/"><Button variant="contained">Log In</Button></Link>
         </Box>
       </Stack>
     </Container>

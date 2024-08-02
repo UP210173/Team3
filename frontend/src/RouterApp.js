@@ -14,18 +14,21 @@ import { Aside } from './components/common';
 export const RouterApp = () => {
   return (
     <BrowserRouter>
-        <Routes>
-          <Route path='/' element={ <LoginPage /> } />
-          <Route path='registrar' element={ <RegisterPage /> } />
-          <Route path='inicio' element={ <InicioPage /> } />
-          <Route path='clima' element={ <ClimaPage/> } />
-          <Route path='entretenimiento' element={ <EntretenimientoPage /> } />
-          <Route path='politica' element={ <PoliticaPage /> } />
-          <Route path='deportes' element={ <DeportesPage /> } />
-          <Route path='tendencias' element={ <TendenciasPage /> } />
-          <Route path='nueva-noticia' element={ <NewNoticePage /> } />
-          <Route path='lista-noticias' element={ <ListNoticies /> } />
-        </Routes>
+        <div className='cms'>
+          <Routes>
+            <Route path='/' element={ <LoginPage /> } />
+            <Route path='registrar' element={ <RegisterPage /> } />
+            <Route path='inicio' element={ <InicioPage /> } />
+            <Route path='clima' element={ <ClimaPage/> } />
+            <Route path='entretenimiento' element={ <EntretenimientoPage /> } />
+            <Route path='politica' element={ <PoliticaPage /> } />
+            <Route path='deportes' element={ <DeportesPage /> } />
+            <Route path='tendencias' element={ <TendenciasPage /> } />
+            <Route path='nueva-noticia' element={ <NewNoticePage /> } />
+            <Route path='lista-noticias' element={ <ListNoticies /> } />
+          </Routes>
+        </div>
+        <Aside />
     </BrowserRouter>
   )
 }
