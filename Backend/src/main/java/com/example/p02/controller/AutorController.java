@@ -29,17 +29,17 @@ public class AutorController {
         this.autorService = autorService;
     }
     
-    @GetMapping({"/allAutors"})
+    @GetMapping({"/allAutores"})
     public ResponseEntity<List<Autor>> getClientes(){
         return ResponseEntity.ok(autorService.getAutors());
     }
 
-    @GetMapping("/autor/{id}")
+    @GetMapping("/Autor/{id}")
     public ResponseEntity<Optional<Autor>> getAutor(@PathVariable Long id){
         return ResponseEntity.ok(autorService.getAutor(id));
     }   
 
-    @PostMapping("/autor/")
+    @PostMapping("/Autor/")
     public Autor createNoticia(@RequestBody Autor autor) {
         return this.autorService.saveAutor(autor);
     }
