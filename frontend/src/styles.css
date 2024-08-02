@@ -20,3 +20,19 @@
   font-family: 'Roboto', sans-serif;
   color: #000;
 }
+
+.photo-circle {
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(212, 76, 99);
+  color: #fff;
+  font-weight: bold;
+  font-size: 2rem;
+  border: 1px solid #ddd;
+  text-align: center;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, .15);
+}
