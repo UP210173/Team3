@@ -11,27 +11,27 @@ import com.example.p02.repository.UserRepository;
 
 @Service
 public class UserService {
-    private final UserRepository userRepository;
+    private final UserRepository usuarioRepository;
 
     @Autowired
-    public UserService(UserRepository clienteRepository) {
-        this.userRepository = clienteRepository;
+    public UserService(UserRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
     }
-
-    public List<User> getClientes() {
-        return userRepository.findAll();
+ 
+    public List<User> getAllUsers(){
+        return usuarioRepository.findAll();
     }
-
-    public Optional<User> getCliente(Long id) {
-        return userRepository.findById(id);    }
     
-    public void eliminar(Long id) {
-        userRepository.deleteById(id);
+    public Optional<User>getUserbyId(Long id){
+        return usuarioRepository.findById(id);
+    }
+    
+    public User saveUsuario(User usuario) {
+        return usuarioRepository.save(usuario);
     }
 
-    public void guardar(User user) {
-        userRepository.save(user);  // Altas y Cambios
-}
+    public void deleteUser(Long id){
+        usuarioRepository.deleteById(id);
+    }
 
-    
 }
