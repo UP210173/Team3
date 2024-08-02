@@ -17,12 +17,12 @@ export const EntretenimientoPage = () => {
               <CardMedia
                 component="img"
                 height="240"
-                image="https://via.placeholder.com/800x400"
+                image="https://www.puromarketing.com/uploads/img/contents/2023/kiYbDK4qFmjt29zc56C3/upload/20230720122846.webp?rand=20230720122846"
                 alt="Main news"
               />
               <CardContent>
                 <Typography variant="h4" component="div">
-                  ENTRETENIMIENTO
+                  Noticias Entretenimiento
                 </Typography>
                 <Typography variant="h6" component="div">
                   Cómo el éxito de Barbie ha cambiado la percepción del cine
@@ -78,7 +78,7 @@ export const EntretenimientoPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://s3.amazonaws.com/businessinsider.mx/wp-content/uploads/2022/08/11163321/Business_Insider_Mexico_recisio%CC%81n.jpg"
                     alt="Placeholder image"
                   />
                   <CardContent>
@@ -95,13 +95,13 @@ export const EntretenimientoPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://www.larepublica.ec/wp-content/uploads/2021/10/fESTIVAL-DE-CINE-DE-LONDRES-2021.jpg"
                     alt="Placeholder image"
                   />
                   <CardContent>
                     <Typography variant="h6">REINO UNIDO</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Festival de cine de Londres: Lo más destacado del año
+                      Festival de cine de Londres: Lo más destacado del año.
                     </Typography>
                     <VisibilityOffIcon />
                   </CardContent>
@@ -112,13 +112,13 @@ export const EntretenimientoPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://stateless-fueradefoco.storage.googleapis.com/wp-content/uploads/2022/12/29214736/anime-crecimiento-2022-1-1024x622.webp"
                     alt="Placeholder image"
                   />
                   <CardContent>
                     <Typography variant="h6">JAPÓN</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      El auge del anime JAPÓN
+                      El auge del anime JAPÓN esta creciendo a niveles exhorbitantes.
                     </Typography>
                     <VisibilityOffIcon />
                   </CardContent>

@@ -41,8 +41,8 @@ public class UserController {
         return ResponseEntity.ok(usuarioService.getUserbyId(id));
     }
 
-    @PostMapping("/usuario/")
+    @PostMapping("/Usuario/")
     public User createUsuario(@RequestBody User usuario) {
-        return this.usuarioService.saveUser(usuario);
+        return this.usuarioService.saveUsuario(usuario);
     }
 }
