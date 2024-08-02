@@ -3,13 +3,17 @@ import { Box, Button, ListItem, Stack, Typography } from "@mui/material"
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import { dateFormat } from "../../common/helpers/dateFormat";
+import { useUI } from "../../common/hooks/useUI";
 
 export const HeaderListNotices = () => {
+
+    const { openAsideMenu } = useUI()
+
   return (
     <Stack direction="row" alignItems={"center"} justifyContent={"center"} spacing={2} mb={5}>
         <ListItem sx={{ display: "flex", flexDirection: "column"}}>
         <Box sx={{ width: "100%", display: "flex", justifyContent: "flex-start", gap: "30px", marginBottom: "10px"}}>
-            <MenuOutlinedIcon />
+            <MenuOutlinedIcon sx={{ cursor: "pointer"}} onClick={ openAsideMenu } />
             <SearchOutlinedIcon />
         </Box>
         <Box width={"100%"}>
