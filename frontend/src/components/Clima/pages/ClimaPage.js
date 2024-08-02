@@ -31,12 +31,12 @@ export const ClimaPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://www.elheraldodetabasco.com.mx/local/yr6zdg-a1.jpg/ALTERNATES/LANDSCAPE_400/a1.jpg"
                     alt="Tormenta"
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      A paragraph of text with an <MuiLink href="#">unassigned link</MuiLink>.
+                      Tormentas eléctricas y vientos fuertes azotan el país, dejando daños a su paso <MuiLink href="#">unassigned link</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -46,12 +46,12 @@ export const ClimaPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://enfoquenoticias.com.mx/wp-content/uploads/2022/09/lluvias.jpg"
                     alt="Lluvias"
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      A paragraph of text with an <MuiLink href="#">unassigned link</MuiLink>.
+                      Fuertes lluvias causan inundaciones en varias regiones del país <MuiLink href="#">unassigned link</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -61,39 +61,57 @@ export const ClimaPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://www.shutterstock.com/image-photo/heat-thermometer-shows-temperature-hot-600nw-2472353719.jpg"
                     alt="Calor"
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      A paragraph of text with an <MuiLink href="#">unassigned link</MuiLink>.
+                      Ola de calor extremo azota varias regiones del país <MuiLink href="#">unassigned link</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
             </Grid>
           </Grid>
+
           <Grid item xs={12} md={8}>
-            <Typography variant="h6">Videos y Reportajes</Typography>
-            <Card>
-              <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </Typography>
-              </CardContent>
-            </Card>
+            <Paper elevation={3} style={{ padding: 16, marginTop: 20 }}>
+              <Typography variant="h6" style={{ marginBottom: 16 }}>Videos y Reportajes</Typography>
+              <Grid container spacing={2}>
+                <Grid item xs={12} sm={6} md={4}>
+                  <Card>
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoawR8SeTG2IL_5fsTkaeViU0wvxOhMAujyw&s"
+                      alt="Tormentas"
+                    />
+                    <CardContent>
+                      <Typography variant="body2" color="text.secondary">
+                        Tormentas eléctricas dejan daños significativos en el sur <MuiLink href="#">unassigned link</MuiLink>.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+                <Grid item xs={12} sm={6} md={4}>
+                  <Card>
+                    <CardMedia
+                      component="img"
+                      height="140"
+                      image="https://i.ytimg.com/vi/DwjsrdTWUaU/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AH-BIAC6AKKAgwIABABGEsgWChlMA8=&rs=AOn4CLBEjuArHFxdBEtgUul7vbVIEw0IwA"
+                      alt="Sequía"
+                    />
+                    <CardContent>
+                      <Typography variant="body2" color="text.secondary">
+                        Sequía prolongada afecta la producción agrícola en el oeste <MuiLink href="#">unassigned link</MuiLink>.
+                      </Typography>
+                    </CardContent>
+                  </Card>
+                </Grid>
+              </Grid>
+            </Paper>
           </Grid>
-          <Grid item xs={12} md={4}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image="https://via.placeholder.com/200"
-                alt="Entrevista"
-              />
-            </Card>
-          </Grid>
-          
+
           <Grid item xs={12}>
             <Paper elevation={3}>
               <Table>
