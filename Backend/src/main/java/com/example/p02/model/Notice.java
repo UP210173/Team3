@@ -7,20 +7,27 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import java.time.*;
 
 @Data
 @Entity
-@Table(name="usuario")
-public class User {
+@Table(name="noticia")
+public class Notice {
     @Id
-    @Column(name="id_usuario")
+    @Column(name="id_noticia")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long idUsuario;
+    private Long idNoticia;
 
-    private String nombre;
+    private String titulo;
 
-    private String email;
+    private String contenido;
 
-    private String contrasena;
+    private String resumen;
+
+    private LocalDate fechaPublicacion;
+
+    private String url;
+
+    private Long idAutor;
    
 }

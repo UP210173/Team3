@@ -7,20 +7,21 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.Data;
+import java.time.*;
 
 @Data
 @Entity
-@Table(name="usuario")
-public class User {
+@Table(name="autor")
+public class Autor {
     @Id
-    @Column(name="id_usuario")
+    @Column(name="id_autor")
     @GeneratedValue(strategy=GenerationType.IDENTITY)
-    private Long idUsuario;
+    private Long idAutor;
 
     private String nombre;
 
-    private String email;
+    private String biografia;
 
-    private String contrasena;
-   
+    private LocalDate fechaRegistro;
+    
 }
