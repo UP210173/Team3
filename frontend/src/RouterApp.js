@@ -22,8 +22,8 @@ export const RouterApp = () => {
         <Route path='politica' element={ <PoliticaPage /> } />
         <Route path='deportes' element={ <DeportesPage /> } />
         <Route path='tendencias' element={ <TendenciasPage /> } />
-        <Route path='nueva-notice' element={ <NewNoticePage /> } />
-        <Route path='lista-notices' element={ <ListNoticies /> } />
+        <Route path='nueva-noticia' element={ <NewNoticePage /> } />
+        <Route path='lista-noticias' element={ <ListNoticies /> } />
       </Routes>
     </BrowserRouter>
   )
