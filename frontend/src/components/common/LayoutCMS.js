@@ -4,13 +4,13 @@ import { Container } from "@mui/material"
 
 export const LayoutCMS = ({ children }) => {
   return (
-    <div>
-      <Header />
-      <Navigation />
+      <>
+        <Header />
+        <Navigation />
 
-      <Container maxWidth="xl">
-        { children }
-      </Container>
-    </div>
+        <Container maxWidth="xl">
+          { children }
+        </Container>
+      </>
   )
 }

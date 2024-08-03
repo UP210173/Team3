@@ -29,7 +29,7 @@ export const RegisterPage = () => {
   return (
     <LayouLogin
       title="Registra una cuenta"
-      navPage="/login"
+      navPage="/"
       textPage="Ingresa"
       buttonText="Crear una cuenta"
       outlineText='Ya tienes una cuenta?'
