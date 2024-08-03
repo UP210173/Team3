@@ -1,7 +1,9 @@
+import React, { useEffect, useState } from 'react';
 import { Typography, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button } from '@mui/material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { LayoutCMS } from '../../common/LayoutCMS';
+import Opiniones from '../../opiniones/Opiniones';
 
 export const InicioPage = () => {
   return (
@@ -20,7 +22,7 @@ export const InicioPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://www.shutterstock.com/image-photo/heat-thermometer-shows-temperature-hot-600nw-2472353719.jpg"
                     alt="Placeholder image"
                   />
                   <CardContent>
@@ -35,7 +37,7 @@ export const InicioPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
                     alt="Placeholder image"
                   />
                   <CardContent>
@@ -50,7 +52,7 @@ export const InicioPage = () => {
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://via.placeholder.com/150"
+                    image="https://www.puromarketing.com/uploads/img/contents/2023/kiYbDK4qFmjt29zc56C3/upload/20230720122846.webp?rand=20230720122846"
                     alt="Placeholder image"
                   />
                   <CardContent>
@@ -80,32 +82,12 @@ export const InicioPage = () => {
               </ListItem>
             </List>
           </Grid>
-          <Grid item xs={12} sm={4}>
+          <Grid item xs={12} md={4}>
             <Typography variant="h6">Opiniones</Typography>
-            <List>
-              <ListItem>
-                <ListItemText primary="Jennifer Sanchez" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                <VisibilityOffIcon />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Elizabeth Lupone" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                <VisibilityOffIcon />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Stacy Jordan" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                <VisibilityOffIcon />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Jane Doe" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-                <VisibilityOffIcon />
-              </ListItem>
-            </List>
+            <Opiniones />
           </Grid>
         </Grid>
       </Container>
     </LayoutCMS>
   );
-}
+};

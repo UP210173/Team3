@@ -1,15 +1,10 @@
+// src/components/Clima/pages/ClimaPage.jsx
 import React from 'react';
-import { AppBar, Toolbar, Typography, Container, Grid, Card, CardContent, CardMedia, Paper, Table, TableBody, TableCell, TableHead, TableRow, List, ListItem, ListItemText, Link as MuiLink } from '@mui/material';
+import { AppBar, Toolbar, Typography, Container, Grid, Card, CardContent, CardMedia, Paper, Table, TableBody, TableCell, TableHead, TableRow, Link as MuiLink } from '@mui/material';
 import { LayoutCMS } from '../../common';
+import Opiniones from '../../opiniones/Opiniones';
 
 export const ClimaPage = () => {
-  const comments = [
-    { name: 'Juan Pérez', comment: 'El cambio climático está afectando cada vez más nuestras vidas diarias.' },
-    { name: 'Ana Gómez', comment: 'Es crucial estar informado sobre las alertas climáticas para tomar medidas adecuadas.' },
-    { name: 'Carlos Rodríguez', comment: 'Los incendios forestales son una amenaza creciente que debemos abordar con urgencia.' },
-    { name: 'Laura Fernández', comment: 'La prevención y preparación son claves para mitigar los efectos de los desastres climáticos.' },
-  ];
-
   return (
     <LayoutCMS>
       <Container>
@@ -146,16 +141,7 @@ export const ClimaPage = () => {
 
           <Grid item xs={12} md={4}>
             <Typography variant="h6">Opiniones</Typography>
-            <List>
-              {comments.map((comment, index) => (
-                <ListItem key={index}>
-                  <ListItemText
-                    primary={<Typography variant="body1"><strong>{comment.name}</strong></Typography>}
-                    secondary={<Typography variant="body2" color="text.secondary">{comment.comment}</Typography>}
-                  />
-                </ListItem>
-              ))}
-            </List>
+            <Opiniones />
           </Grid>
         </Grid>
       </Container>

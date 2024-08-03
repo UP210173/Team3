@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 // import { Carousel } from 'react-responsive-carousel';
 // import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { LayoutCMS } from '../../common';
+import Opiniones from '../../opiniones/Opiniones';
 
 export const TendenciasPage = () => {
   return (
@@ -129,23 +130,7 @@ export const TendenciasPage = () => {
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="h6">Opiniones</Typography>
-            <List>
-              <ListItem>
-                <ListItemText primary="Janet Sacrando" secondary="Excepteur sint occaecat cupidatat non proident." />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Elizabeth Lupone" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Stacy Jordan" secondary="Excepteur sint occaecat cupidatat non proident." />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Jane Doe" secondary="Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
-              </ListItem>
-            </List>
+            <Opiniones />
           </Grid>
         </Grid>
       </Container>

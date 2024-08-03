@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { LayoutCMS } from '../../common';
+import Opiniones from '../../opiniones/Opiniones';
+
 
 export const DeportesPage = () => {
   return (
@@ -30,7 +32,7 @@ export const DeportesPage = () => {
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                    mazatlan vs nashville partido que se lleva mazatlan por un marcador 2-0 <MuiLink href="#">link</MuiLink>.
+                      mazatlan vs nashville partido que se lleva mazatlan por un marcador 2-0 <MuiLink href="#">link</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -45,7 +47,7 @@ export const DeportesPage = () => {
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                    Tormenta retrasa segundo tiempo del Toluca vs Chicago Fire <MuiLink href="#">unassigned link</MuiLink>.
+                      Tormenta retrasa segundo tiempo del Toluca vs Chicago Fire <MuiLink href="#">unassigned link</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -60,7 +62,7 @@ export const DeportesPage = () => {
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                    FC DALLAS 0-2 FC JUÁREZ | Salieron BRAVOS los fronterizos <MuiLink href="#">unassigned link</MuiLink>.
+                      FC DALLAS 0-2 FC JUÁREZ | Salieron BRAVOS los fronterizos <MuiLink href="#">unassigned link</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -134,28 +136,10 @@ export const DeportesPage = () => {
           </Grid>
           <Grid item xs={12} md={4}>
             <Typography variant="h6">Opiniones</Typography>
-            <List>
-              <ListItem>
-                <ListItemText primary="Jennifer Sanchez" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Elizabeth Lupone" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Stacy Jordan" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-              </ListItem>
-              <Divider />
-              <ListItem>
-                <ListItemText primary="Jane Doe" secondary="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
-              </ListItem>
-            </List>
+            <Opiniones />
           </Grid>
         </Grid>
       </Container>
     </LayoutCMS>
   );
-}
-
-
+};
