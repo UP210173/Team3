@@ -17,6 +17,14 @@ import { Link } from "react-router-dom";
 import { LayoutCMS } from "../../common";
 import Opiniones from "../../opiniones/Opiniones";
 
+// Estilos para la animación de las tarjetas
+const cardStyles = {
+  transition: "transform 0.3s ease-in-out",
+  "&:hover": {
+    transform: "scale(1.05)",
+  },
+};
+
 export const TendenciasPage = () => {
   return (
     <LayoutCMS>
@@ -33,7 +41,7 @@ export const TendenciasPage = () => {
                 <Typography variant="h6">Noticias Clima</Typography>
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="80"
@@ -50,7 +58,7 @@ export const TendenciasPage = () => {
                     </Card>
                   </Grid>
                   <Grid item xs={6}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="80"
@@ -67,7 +75,7 @@ export const TendenciasPage = () => {
                   </Grid>
 
                   <Grid item xs={12}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="140"
@@ -91,7 +99,7 @@ export const TendenciasPage = () => {
                 <Typography variant="h6">Política</Typography>
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="80"
@@ -107,7 +115,7 @@ export const TendenciasPage = () => {
                     </Card>
                   </Grid>
                   <Grid item xs={6}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="80"
@@ -123,7 +131,7 @@ export const TendenciasPage = () => {
                     </Card>
                   </Grid>
                   <Grid item xs={12}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="140"
@@ -152,7 +160,7 @@ export const TendenciasPage = () => {
                 <Typography variant="h6">Entretenimiento</Typography>
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="80"
@@ -169,7 +177,7 @@ export const TendenciasPage = () => {
                     </Card>
                   </Grid>
                   <Grid item xs={6}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="80"
@@ -185,7 +193,7 @@ export const TendenciasPage = () => {
                     </Card>
                   </Grid>
                   <Grid item xs={12}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="140"
@@ -209,7 +217,7 @@ export const TendenciasPage = () => {
                 <Typography variant="h6">Deportes</Typography>
                 <Grid container spacing={2}>
                   <Grid item xs={6}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="80"
@@ -225,7 +233,7 @@ export const TendenciasPage = () => {
                     </Card>
                   </Grid>
                   <Grid item xs={6}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="80"
@@ -241,7 +249,7 @@ export const TendenciasPage = () => {
                     </Card>
                   </Grid>
                   <Grid item xs={12}>
-                    <Card>
+                    <Card sx={cardStyles}>
                       <CardMedia
                         component="img"
                         height="140"
