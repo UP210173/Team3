@@ -45,4 +45,11 @@ public class UserController {
     public User createUsuario(@RequestBody User usuario) {
         return this.usuarioService.saveUsuario(usuario);
     }
+
+    @GetMapping("/comentarios")
+        public List<Object[]> comentariosPorUsuario(){
+         return usuarioService.comentariosPorUsuario();
+        
+    }
 }
+

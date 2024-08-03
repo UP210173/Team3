@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import com.example.p02.model.User;
@@ -33,5 +34,10 @@ public class UserService {
     public void deleteUser(Long id){
         usuarioRepository.deleteById(id);
     }
+    
+    public List<Object[]> comentariosPorUsuario(){
+        return usuarioRepository.comentariosPorUsuario();
+    }
 
+    
 }
