@@ -1,12 +1,20 @@
 import React from 'react';
-import { Typography, Container, Grid, Card, CardContent, CardMedia, Link as MuiLink, Divider } from '@mui/material';
+import { Typography, Container, Grid, Card, CardContent, CardMedia, Link as MuiLink, Divider, Box } from '@mui/material';
 import { LayoutCMS } from '../../common';
 import Opiniones from '../../opiniones/Opiniones';
 
 export const ClimaPage = () => {
+  // Estilos para el efecto de hover
+  const hoverEffectStyles = {
+    transition: 'transform 0.3s ease-in-out',
+    '&:hover': {
+      transform: 'scale(1.05)', // Efecto de agrandamiento al pasar el mouse
+    },
+  };
+
   return (
     <LayoutCMS>
-      {/* Divider line below the main layout */}
+      {/* Línea divisoria debajo del diseño principal */}
       <Divider style={{ marginTop: 20, marginBottom: 20 }} />
 
       <Container>
@@ -14,7 +22,7 @@ export const ClimaPage = () => {
           {/* Columna principal con noticia destacada y últimas noticias */}
           <Grid item xs={12} md={8}>
             {/* Noticia principal grande */}
-            <Card>
+            <Card sx={hoverEffectStyles}>
               <CardMedia
                 component="img"
                 height="400" // Ajustar el tamaño a una imagen más grande
@@ -33,10 +41,9 @@ export const ClimaPage = () => {
             <Typography variant="h6" align="center" style={{ marginTop: 20 }}>Últimas Noticias</Typography>
             <Divider style={{ marginBottom: 20 }} />
             <Grid container spacing={2}>
-
               {/* Noticia 1 */}
               <Grid item xs={12} sm={4} md={4}>
-                <Card>
+                <Card sx={hoverEffectStyles}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -53,7 +60,7 @@ export const ClimaPage = () => {
 
               {/* Noticia 2 */}
               <Grid item xs={12} sm={4} md={4}>
-                <Card>
+                <Card sx={hoverEffectStyles}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -70,7 +77,7 @@ export const ClimaPage = () => {
 
               {/* Noticia 3 */}
               <Grid item xs={12} sm={4} md={4}>
-                <Card>
+                <Card sx={hoverEffectStyles}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -88,7 +95,7 @@ export const ClimaPage = () => {
               {/* Agrega más tarjetas de noticias si es necesario */}
               {/* Noticia 4 */}
               <Grid item xs={12} sm={4} md={4}>
-                <Card>
+                <Card sx={hoverEffectStyles}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -105,7 +112,7 @@ export const ClimaPage = () => {
 
               {/* Noticia 5 */}
               <Grid item xs={12} sm={4} md={4}>
-                <Card>
+                <Card sx={hoverEffectStyles}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -122,7 +129,7 @@ export const ClimaPage = () => {
 
               {/* Noticia 6 */}
               <Grid item xs={12} sm={4} md={4}>
-                <Card>
+                <Card sx={hoverEffectStyles}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -136,7 +143,6 @@ export const ClimaPage = () => {
                   </CardContent>
                 </Card>
               </Grid>
-
             </Grid>
           </Grid>
 
@@ -144,7 +150,7 @@ export const ClimaPage = () => {
           <Grid item xs={12} md={4}>
             {/* Noticia sobre lluvias */}
             <Grid item xs={12}>
-              <Card>
+              <Card sx={hoverEffectStyles}>
                 <CardMedia
                   component="img"
                   height="140"
@@ -159,15 +165,17 @@ export const ClimaPage = () => {
               </Card>
             </Grid>
 
-            {/* Divider line below the main layout */}
+            {/* Línea divisoria debajo del diseño principal */}
             <Divider style={{ marginTop: 20, marginBottom: 20 }} />
 
-            {/* Componente de opiniones */}
-            <Opiniones />
+            {/* Componente de opiniones con efecto hover */}
+            <Box sx={hoverEffectStyles}>
+              <Opiniones />
+            </Box>
           </Grid>
         </Grid>
 
-        {/* Divider line below the main layout */}
+        {/* Línea divisoria debajo del diseño principal */}
         <Divider style={{ marginTop: 20, marginBottom: 20 }} />
 
         {/* Footer */}
