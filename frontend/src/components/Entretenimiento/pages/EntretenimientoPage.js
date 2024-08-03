@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { LayoutCMS } from '../../common';
+import Opiniones from '../../opiniones/Opiniones';
 
 export const EntretenimientoPage = () => {
   return (

@@ -3,9 +3,28 @@ import { LayouLogin } from '../layout/LayoutLogin';
 import { useState } from 'react';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
+import axios from 'axios';
 
 export const RegisterPage = () => {
-  const [isPasswordShowed, setisPasswordShowed] = useState(false);
+  const [isPasswordShowed, setIsPasswordShowed] = useState(false);
+  const [nombre, setNombre] = useState('');
+  const [email, setEmail] = useState('');
+  const [contrasena, setContrasena] = useState('');
+
+  const handleRegister = async () => {
+    try {
+      const response = await axios.post('/api/auth/register', {
+        nombre,
+        email,
+        contrasena,
+      });
+      console.log(response.data);
+      // Redirigir o mostrar mensaje de éxito
+    } catch (error) {
+      console.error('Error al registrar el usuario', error);
+      // Mostrar mensaje de error
+    }
+  };
 
   return (
     <LayouLogin
@@ -19,13 +38,17 @@ export const RegisterPage = () => {
         placeholder="Ingresa tu nombre"
         fullWidth
         label="Nombre"
-        type="email"
+        type="text"
+        value={nombre}
+        onChange={(e) => setNombre(e.target.value)}
       />
       <TextField
         placeholder="Registra un correo"
         fullWidth
         label="Ingresa un correo electrónico"
         type="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
       />
       <TextField
         fullWidth
@@ -35,7 +58,7 @@ export const RegisterPage = () => {
         InputProps={{
           startAdornment: (
             <InputAdornment
-              onClick={() => setisPasswordShowed(!isPasswordShowed)}
+              onClick={() => setIsPasswordShowed(!isPasswordShowed)}
               sx={{ cursor: 'pointer' }}
               position="start"
             >
@@ -43,7 +66,10 @@ export const RegisterPage = () => {
             </InputAdornment>
           ),
         }}
+        value={contrasena}
+        onChange={(e) => setContrasena(e.target.value)}
       />
+      <Button onClick={handleRegister}>Crear una cuenta</Button>
     </LayouLogin>
   );
 };
