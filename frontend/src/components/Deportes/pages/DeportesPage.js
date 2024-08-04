@@ -1,28 +1,78 @@
-import React, { useEffect, useState } from 'react';
-import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
-import { Link } from 'react-router-dom';
-import { LayoutCMS } from '../../common';
-import Opiniones from '../../opiniones/Opiniones';
-
+import React, { useState, useEffect } from "react";
+import {Container,Grid,Typography,Card,CardContent,CardMedia,Tabs,Tab,Box,Link as MuiLink,Fade,Select,MenuItem,FormControl,InputLabel,} from "@mui/material";
+import { LayoutCMS } from "../../common";
+import Opiniones from "../../opiniones/Opiniones";
+import {fetchNBAStandings,fetchMLBStandings} from "../../Deportes/pages/sportsApi";
+import {NbaStandingsTable,MlbStandingsTable} from "../../Deportes/pages/standingsTables";
 
 export const DeportesPage = () => {
+  const [tabValue, setTabValue] = useState(0);
+  const [nbaStandings, setNbaStandings] = useState([]);
+  const [mlbStandings, setMlbStandings] = useState([]);
+  const [visibleTeams, setVisibleTeams] = useState(10);
+
+  const cardHeight = 300;
+
+  const handleTabChange = (event, newValue) => {
+    setTabValue(newValue);
+  };
+
+  const handleVisibleTeamsChange = (event) => {
+    setVisibleTeams(event.target.value);
+  };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (tabValue === 0) {
+          const data = await fetchNBAStandings();
+          setNbaStandings(data);
+        } else if (tabValue === 1) {
+          const data = await fetchMLBStandings();
+          setMlbStandings(data);
+        }
+      } catch (error) {
+        console.error("Error fetching standings:", error);
+      }
+    };
+
+    fetchData();
+  }, [tabValue]);
+
+  const cardStyle = {
+    height: cardHeight,
+    transition: "transform 0.3s ease, box-shadow 0.3s ease",
+    position: "relative",
+    "&:hover": {
+      transform: "scale(1.05)",
+      boxShadow: "0 8px 16px rgba(0, 0, 0, 0.2)",
+    },
+  };
+
   return (
     <LayoutCMS>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
-          <Grid item xs={12}>
+          <Grid item xs={12} md={9}>
             <Typography variant="h6">Lo último</Typography>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={3}>
-                <Card>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card sx={cardStyle}>
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                      Esta es la mejor sección de deportes, donde encontrarás
+                      las últimas noticias y actualizaciones del mundo
+                      deportivo. Desde el fútbol hasta el baloncesto, cubrimos
+                      todas las disciplinas con análisis detallados, entrevistas
+                      exclusivas y reportajes en profundidad. Mantente informado
+                      con nuestras alertas en tiempo real y no te pierdas ningún
+                      detalle de tus eventos favoritos. ¡Descubre el lado
+                      apasionante del deporte con nosotros!
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} sm={3}>
-                <Card>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card sx={cardStyle}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -31,13 +81,23 @@ export const DeportesPage = () => {
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      mazatlan vs nashville partido que se lleva mazatlan por un marcador 2-0 <MuiLink href="#">link</MuiLink>.
+                      Mazatlán vs Nashville, un emocionante partido que se lleva
+                      Mazatlán por un marcador 2-0.
                     </Typography>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        bottom: 10,
+                        right: 10,
+                      }}
+                    >
+                      <MuiLink href="#">READ MORE</MuiLink>
+                    </Box>
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} sm={3}>
-                <Card>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card sx={cardStyle}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -46,13 +106,23 @@ export const DeportesPage = () => {
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      Tormenta retrasa segundo tiempo del Toluca vs Chicago Fire <MuiLink href="#">unassigned link</MuiLink>.
+                      Una tormenta eléctrica retrasa el segundo tiempo del
+                      partido Toluca vs Chicago Fire.
                     </Typography>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        bottom: 10,
+                        right: 10,
+                      }}
+                    >
+                      <MuiLink href="#">READ MORE</MuiLink>
+                    </Box>
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} sm={3}>
-                <Card>
+              <Grid item xs={12} sm={6} md={3}>
+                <Card sx={cardStyle}>
                   <CardMedia
                     component="img"
                     height="140"
@@ -61,81 +131,181 @@ export const DeportesPage = () => {
                   />
                   <CardContent>
                     <Typography variant="body2" color="text.secondary">
-                      FC DALLAS 0-2 FC JUÁREZ | Salieron BRAVOS los fronterizos <MuiLink href="#">unassigned link</MuiLink>.
+                      FC DALLAS 0-2 FC JUÁREZ | Salieron BRAVOS los fronterizos.
                     </Typography>
+                    <Box
+                      sx={{
+                        position: "absolute",
+                        bottom: 10,
+                        right: 10,
+                      }}
+                    >
+                      <MuiLink href="#">READ MORE</MuiLink>
+                    </Box>
                   </CardContent>
                 </Card>
               </Grid>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={8}>
-            <Typography variant="h6">Videos, Relatos, Blogposts, Temas</Typography>
+
+          <Grid item xs={12} md={3}>
+            <Typography variant="h6">Opiniones</Typography>
+            <Opiniones />
+          </Grid>
+
+          <Grid item xs={12} md={9}>
+            <Typography variant="h6" style={{ marginTop: 20 }}>
+              Videos, Relatos, Blogposts
+            </Typography>
             <Card>
+              <Tabs
+                value={tabValue}
+                onChange={handleTabChange}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="fullWidth"
+              >
+                <Tab label="Videos" />
+                <Tab label="Relatos" />
+                <Tab label="Blogposts" />
+              </Tabs>
               <CardContent>
-                <Typography variant="body2" color="text.secondary">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </Typography>
+                <Fade in={tabValue === 0} timeout={500}>
+                  <Box display={tabValue === 0 ? "block" : "none"}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={8}>
+                        <Typography variant="body2" color="text.secondary">
+                          Explora una variedad de videos deportivos, con
+                          entrevistas exclusivas y reportajes emocionantes que
+                          te mantendrán informado sobre los últimos eventos.
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={12} md={4}>
+                        <CardMedia
+                          component="img"
+                          height="200"
+                          image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
+                          alt="Placeholder image"
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Fade>
+
+                <Fade in={tabValue === 1} timeout={500}>
+                  <Box display={tabValue === 1 ? "block" : "none"}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={8}>
+                        <Typography variant="body2" color="text.secondary">
+                          Disfruta de relatos deportivos inspiradores que te
+                          llevan al corazón de los eventos más impactantes,
+                          narrados con pasión y detalle.
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={12} md={4}>
+                        <CardMedia
+                          component="img"
+                          height="200"
+                          image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
+                          alt="Placeholder image"
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Fade>
+
+                <Fade in={tabValue === 2} timeout={500}>
+                  <Box display={tabValue === 2 ? "block" : "none"}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={8}>
+                        <Typography variant="body2" color="text.secondary">
+                          Lee nuestros blogposts detallados que ofrecen análisis
+                          en profundidad y perspectivas únicas sobre el mundo
+                          del deporte.
+                        </Typography>
+                      </Grid>
+                      <Grid item xs={12} md={4}>
+                        <CardMedia
+                          component="img"
+                          height="200"
+                          image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
+                          alt="Placeholder image"
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Fade>
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} md={4}>
+
+          <Grid item xs={12} md={9}>
+            <Typography variant="h6" style={{ marginTop: 20 }}>
+              Tabla de Posiciones
+            </Typography>
             <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
-                alt="Placeholder image"
-              />
+              <Tabs
+                value={tabValue}
+                onChange={handleTabChange}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="fullWidth"
+              >
+                <Tab label="NBA" />
+                <Tab label="MLB" />
+              </Tabs>
+              <CardContent>
+                <FormControl
+                  variant="outlined"
+                  style={{ marginBottom: 20, minWidth: 180 }} // Ajustar el tamaño del cuadro de selección
+                >
+                  <InputLabel id="visible-teams-label">
+                    Equipos a mostrar
+                  </InputLabel>
+                  <Select
+                    labelId="visible-teams-label"
+                    value={visibleTeams}
+                    onChange={handleVisibleTeamsChange}
+                    label="Equipos a mostrar"
+                  >
+                    <MenuItem value={5}>5</MenuItem>
+                    <MenuItem value={7}>7</MenuItem>
+                    <MenuItem value={10}>10</MenuItem>
+                    <MenuItem value={15}>15</MenuItem>
+                    <MenuItem value={nbaStandings.length}>Todos</MenuItem>{" "}
+                    {/* Opción para mostrar todos */}
+                  </Select>
+                </FormControl>
+
+                {/* Tab de la NBA */}
+                <Fade in={tabValue === 0} timeout={500}>
+                  <Box display={tabValue === 0 ? "block" : "none"}>
+                    <NbaStandingsTable
+                      nbaStandings={nbaStandings}
+                      visibleTeams={
+                        visibleTeams === nbaStandings.length
+                          ? nbaStandings.length
+                          : visibleTeams
+                      }
+                    />
+                  </Box>
+                </Fade>
+
+                {/* Tab de la MLB */}
+                <Fade in={tabValue === 1} timeout={500}>
+                  <Box display={tabValue === 1 ? "block" : "none"}>
+                    <MlbStandingsTable
+                      mlbStandings={mlbStandings}
+                      visibleTeams={
+                        visibleTeams === mlbStandings.length
+                          ? mlbStandings.length
+                          : visibleTeams
+                      }
+                    />
+                  </Box>
+                </Fade>
+              </CardContent>
             </Card>
-          </Grid>
-          <Grid item xs={12}>
-            <Paper>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Pos</TableCell>
-                    <TableCell>Nombre</TableCell>
-                    <TableCell>Edad</TableCell>
-                    <TableCell>Nacionalidad</TableCell>
-                    <TableCell>Equipo</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell>1</TableCell>
-                    <TableCell>Quintero Quijano</TableCell>
-                    <TableCell>40</TableCell>
-                    <TableCell>Peru</TableCell>
-                    <TableCell>Equipo A</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>2</TableCell>
-                    <TableCell>Romero Smith</TableCell>
-                    <TableCell>34</TableCell>
-                    <TableCell>USA</TableCell>
-                    <TableCell>Equipo B</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>3</TableCell>
-                    <TableCell>Sigma Hutton</TableCell>
-                    <TableCell>28</TableCell>
-                    <TableCell>Canada</TableCell>
-                    <TableCell>Equipo C</TableCell>
-                  </TableRow>
-                  <TableRow>
-                    <TableCell>4</TableCell>
-                    <TableCell>Mariana Housch</TableCell>
-                    <TableCell>24</TableCell>
-                    <TableCell>Brazil</TableCell>
-                    <TableCell>Equipo D</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </Paper>
-          </Grid>
-          <Grid item xs={12} md={4}>
-            <Typography variant="h6">Opiniones</Typography>
-            <Opiniones />
           </Grid>
         </Grid>
     </LayoutCMS>
