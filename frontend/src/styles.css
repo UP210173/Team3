@@ -69,3 +69,8 @@ img {
 .cms {
   transition: all .4s ease;
 }
+
+.swiper-button-next, 
+.swiper-button-prev {
+  top: 40% !important;
+}

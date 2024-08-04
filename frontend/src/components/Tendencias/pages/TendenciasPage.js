@@ -52,10 +52,9 @@ export const TendenciasPage = () => {
               <Grid item xs={12} mb={2}>
                 <Card sx={cardStyles}>
                   <CardMedia
-                    sx={{ flex: 1 }}
+                    sx={{ flex: 1, height:"10rem", width: "9.5rem" }}
                     component="img"
-                    height="150rem"
-                    image="https://via.placeholder.com/150"
+                    image="https://cloudfront-us-east-1.images.arcpublishing.com/infobae/73XD2AQRUNHNXOYAZYUKVEJVGM.jpg"
                     alt="Clima noticia 1"
                   />
                   <CardContent
@@ -74,17 +73,16 @@ export const TendenciasPage = () => {
               <Grid item xs={12} mb={2}>
                 <Card sx={cardStyles}>
                   <CardMedia
-                    sx={{ flex: 1 }}
+                    sx={{ flex: 1, height:"10rem", width: "9.5rem" }}
                     component="img"
-                    height="150rem"
-                    image="https://via.placeholder.com/150"
+                    image="https://library.sportingnews.com/styles/crop_style_16_9_desktop/s3/2023-02/nba-plain--5a35d13f-c0ee-4740-bb0d-357b329fd4db.png?itok=R6Y5e-bq"
                     alt="Clima noticia 2"
                   />
                   <CardContent
                     sx={{ flex: 3, display: 'grid', placeContent: 'start', alignContent: 'center' }}
                   >
                     <Typography mb={2} variant="body2" color="text.secondary">
-                      Información sobre alertas meteorológicas y su impacto.
+                      Información sobre alertas meteorológicas y su impacto en el mundo animal.
                     </Typography>
                     <Button variant="outlined" size="small">
                       Conoce más
@@ -97,9 +95,8 @@ export const TendenciasPage = () => {
                 <Card sx={cardStyles}>
                   <CardMedia
                     component="img"
-                    height="300rem"
-                    sx={{ flex: 1 }}
-                    image="https://via.placeholder.com/300"
+                    sx={{ flex: 1, height: "16rem", width: "16rem" }}
+                    image="https://static.thairath.co.th/media/dFQROr7oWzulq5Fa5KwJdxgQljUhdAthYxiUWOmRBxP7LmOne0a82jxBbhuanKEIFdo.jpg"
                     alt="Clima noticia grande"
                   />
                   <CardContent
@@ -128,10 +125,9 @@ export const TendenciasPage = () => {
               <Grid item xs={12} mb={2}>
                 <Card sx={cardStyles}>
                   <CardMedia
-                    sx={{ flex: 1 }}
+                    sx={{ flex: 1, height:"10rem", width: "9.5rem" }}
                     component="img"
-                    height="150rem"
-                    image="https://via.placeholder.com/150"
+                    image="https://phantom-marca-mx.unidadeditorial.es/d06208380777fd753c2b0e2e0230f3bb/resize/828/f/jpg/mx/assets/multimedia/imagenes/2024/01/01/17041309569538.jpg"
                     alt="Clima noticia 1"
                   />
                   <CardContent
@@ -150,10 +146,9 @@ export const TendenciasPage = () => {
               <Grid item xs={12} mb={2}>
                 <Card sx={cardStyles}>
                   <CardMedia
-                    sx={{ flex: 1 }}
+                    sx={{ flex: 1, height:"10rem", width: "9.5rem" }}
                     component="img"
-                    height="150rem"
-                    image="https://via.placeholder.com/150"
+                    image="https://www.clarin.com/img/2024/07/30/TAYzcu-sU_2000x1500__2.jpg"
                     alt="Clima noticia 2"
                   />
                   <CardContent
@@ -173,9 +168,8 @@ export const TendenciasPage = () => {
                 <Card sx={cardStyles}>
                   <CardMedia
                     component="img"
-                    height="300rem"
-                    sx={{ flex: 1 }}
-                    image="https://via.placeholder.com/300"
+                    sx={{ flex: 1, height: "16rem", width: "16rem" }}
+                    image="https://www.ole.com.ar/images/2024/03/14/qwKoOeQZM_660x385__1.jpg"
                     alt="Clima noticia grande"
                   />
                   <CardContent
