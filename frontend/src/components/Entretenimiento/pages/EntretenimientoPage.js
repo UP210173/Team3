@@ -5,7 +5,7 @@ import {
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { LayoutCMS } from '../../common';
-import Opiniones from '../../common/components/Opiniones';
+import Opiniones from '../../common/components/Opiniones';  
 
 export const EntretenimientoPage = () => {
   return (

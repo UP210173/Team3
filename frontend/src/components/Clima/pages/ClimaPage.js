@@ -3,6 +3,7 @@ import { Typography, Container, Grid, Card, CardContent, CardMedia, Link as MuiL
 import { LayoutCMS } from '../../common';
 import Opiniones from '../../common/components/Opiniones';
 
+
 export const ClimaPage = () => {
   // Estilos para el efecto de hover
   const hoverEffectStyles = {
