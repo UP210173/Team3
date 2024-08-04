@@ -1,12 +1,11 @@
 import React from 'react';
 import {
-  AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Box
+  Typography, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Box
 } from '@mui/material';
-import { Link } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { LayoutCMS } from '../../common';
-import Opiniones from '../../opiniones/Opiniones';
+import Opiniones from '../../common/components/Opiniones';
 
 export const EntretenimientoPage = () => {
   return (

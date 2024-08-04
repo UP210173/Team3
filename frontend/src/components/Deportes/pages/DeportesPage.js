@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
-import { AppBar, Toolbar, Typography, Tabs, Tab, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Button, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { Typography, Grid, Card, CardContent, CardMedia, Table, TableBody, TableCell, TableHead, TableRow, Paper, Link as MuiLink } from '@mui/material';
 import { LayoutCMS } from '../../common';
-import Opiniones from '../../opiniones/Opiniones';
-
+import Opiniones from '../../common/components/Opiniones';
 
 export const DeportesPage = () => {
   return (

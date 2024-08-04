@@ -2,8 +2,9 @@ import React from 'react';
 import { Typography, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Box } from '@mui/material';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { LayoutCMS } from '../../common/LayoutCMS';
-import Opiniones from '../opiniones/Opiniones';
+
 import { SwiperCom } from '../../common/components/Swiper';
+import Opiniones from '../../common/components/Opiniones';
 
 const hoverEffectStyles = {
   transition: 'transform 0.3s ease-in-out',
