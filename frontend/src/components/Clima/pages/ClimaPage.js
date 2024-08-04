@@ -176,12 +176,6 @@ export const ClimaPage = () => {
         {/* Línea divisoria debajo del diseño principal */}
         <Divider style={{ marginTop: 20, marginBottom: 20 }} />
 
-        {/* Footer */}
-        <footer style={{ textAlign: 'center', padding: 20 }}>
-          <Typography variant="body2" color="text.secondary">
-            © 2024 CMS UPA
-          </Typography>
-        </footer>
     </LayoutCMS>
   );
 };

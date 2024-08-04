@@ -1,4 +1,4 @@
-import { Navigation, Pagination, Scrollbar } from 'swiper/modules';
+import { Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import 'swiper/css';
@@ -17,7 +17,8 @@ export const SwiperCom = () => {
   return (
     <Swiper
       style={ swiperStyles }
-      modules={[Navigation, Pagination, Scrollbar]}
+      modules={[Navigation, Pagination, Scrollbar, Autoplay ]}
+      autoplay={ true }
       loop={ true }
       spaceBetween={20}
       slidesPerView={3}
