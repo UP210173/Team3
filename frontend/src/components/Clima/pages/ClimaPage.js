@@ -16,8 +16,6 @@ export const ClimaPage = () => {
     <LayoutCMS>
       {/* Línea divisoria debajo del diseño principal */}
       <Divider style={{ marginTop: 20, marginBottom: 20 }} />
-
-      <Container>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
           {/* Columna principal con noticia destacada y últimas noticias */}
           <Grid item xs={12} md={8}>
@@ -184,7 +182,6 @@ export const ClimaPage = () => {
             © 2024 CMS UPA
           </Typography>
         </footer>
-      </Container>
     </LayoutCMS>
   );
 };

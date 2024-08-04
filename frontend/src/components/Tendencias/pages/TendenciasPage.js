@@ -16,6 +16,7 @@ import {
 import { Link } from "react-router-dom";
 import { LayoutCMS } from "../../common";
 import Opiniones from "../../opiniones/Opiniones";
+import { SwiperCom } from "../../common/components/Swiper";
 
 // Estilos para la animación de las tarjetas
 const cardStyles = {
@@ -28,6 +29,7 @@ const cardStyles = {
 export const TendenciasPage = () => {
   return (
     <LayoutCMS>
+      <SwiperCom />
       {/* Divider para separar secciones */}
       <Grid item xs={12}>
         <Divider style={{ margin: "20px 0" }} />

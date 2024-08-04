@@ -8,7 +8,6 @@ import { LayoutCMS } from '../../common';
 export const PoliticaPage = () => {
   return (
     <LayoutCMS>
-      <Container>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
           <Grid item xs={12} md={8}>
             <Card>
@@ -103,7 +102,6 @@ export const PoliticaPage = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Container>
     </LayoutCMS>
   );
 }

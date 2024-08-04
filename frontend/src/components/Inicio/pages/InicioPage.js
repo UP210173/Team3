@@ -1,63 +1,23 @@
 import React from 'react';
 import { Typography, Container, Grid, Card, CardContent, CardMedia, List, ListItem, ListItemText, Divider, Box } from '@mui/material';
-import Slider from 'react-slick'; // Importamos el carrusel
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { LayoutCMS } from '../../common/LayoutCMS';
-import Opiniones from '../../opiniones/Opiniones';
-import "slick-carousel/slick/slick.css"; // Importamos los estilos del carrusel
-import "slick-carousel/slick/slick-theme.css";
+import Opiniones from '../opiniones/Opiniones';
+import { SwiperCom } from '../../common/components/Swiper';
+
+const hoverEffectStyles = {
+  transition: 'transform 0.3s ease-in-out',
+  '&:hover': {
+    transform: 'scale(1.05)', 
+  },
+};
 
 export const InicioPage = () => {
-  // Configuración del carrusel
-  const carouselSettings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-  };
-
-  // Estilos para los contenedores con efecto hover
-  const hoverEffectStyles = {
-    transition: 'transform 0.3s ease-in-out',
-    '&:hover': {
-      transform: 'scale(1.05)', // Efecto de agrandamiento al pasar el mouse
-    },
-  };
-
   return (
     <LayoutCMS>
-      <Container>
         <Grid container spacing={2}>
           <Grid item xs={12}>
-            {/* Carrusel con efecto hover */}
-            <Box sx={hoverEffectStyles}>
-              <Slider {...carouselSettings}>
-                <div>
-                  <img
-                    src="https://www.shutterstock.com/image-photo/heat-thermometer-shows-temperature-hot-600nw-2472353719.jpg"
-                    alt="Slide 1"
-                    style={{ width: '100%', height: 300, objectFit: 'cover' }} // Ajuste de altura
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
-                    alt="Slide 2"
-                    style={{ width: '100%', height: 300, objectFit: 'cover' }} // Ajuste de altura
-                  />
-                </div>
-                <div>
-                  <img
-                    src="https://www.puromarketing.com/uploads/img/contents/2023/kiYbDK4qFmjt29zc56C3/upload/20230720122846.webp?rand=20230720122846"
-                    alt="Slide 3"
-                    style={{ width: '100%', height: 300, objectFit: 'cover' }} // Ajuste de altura
-                  />
-                </div>
-              </Slider>
-            </Box>
+            <SwiperCom />
           </Grid>
 
           <Grid item container spacing={2}>
@@ -207,7 +167,6 @@ export const InicioPage = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Container>
     </LayoutCMS>
   );
 };
