@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Container, Grid, Card, CardContent, CardMedia, Link as MuiLink, Divider, Box } from '@mui/material';
 import { LayoutCMS } from '../../common';
-import Opiniones from '../../opiniones/Opiniones';
+import Opiniones from "../../Inicio/opiniones/Opiniones";
 
 export const ClimaPage = () => {
   // Estilos para el efecto de hover

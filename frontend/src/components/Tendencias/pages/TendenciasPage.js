@@ -15,7 +15,7 @@ import {
 } from "@mui/material";
 import { Link } from "react-router-dom";
 import { LayoutCMS } from "../../common";
-import Opiniones from "../../opiniones/Opiniones";
+import Opiniones from "../../Inicio/opiniones/Opiniones";
 import { SwiperCom } from "../../common/components/Swiper";
 
 // Estilos para la animación de las tarjetas
