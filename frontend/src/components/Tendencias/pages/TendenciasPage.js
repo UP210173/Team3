@@ -13,7 +13,6 @@ import { LayoutCMS } from '../../common';
 import { SwiperCom } from '../../common/components/Swiper';
 import Opiniones from '../../common/components/Opiniones';
 
-// Estilos para la animación de las tarjetas
 const cardStyles = {
   display: 'flex',
   transition: 'transform 0.3s ease-in-out',
@@ -25,7 +24,7 @@ const cardStyles = {
 const containerStyles = {
   display: 'grid',
   gridTemplateColumns: '3fr 1fr',
-  margin: '2rem 0',
+  marginBottom: '2rem',
 };
 
 const containerStyles2 = {
@@ -50,7 +49,7 @@ export const TendenciasPage = () => {
               Automovilismo
             </Typography>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid item xs={12} mb={2}>
                 <Card sx={cardStyles}>
                   <CardMedia
                     sx={{ flex: 1 }}
@@ -60,7 +59,7 @@ export const TendenciasPage = () => {
                     alt="Clima noticia 1"
                   />
                   <CardContent
-                    sx={{ flex: 3, display: 'grid', placeContent: 'start' }}
+                    sx={{ flex: 3, display: 'grid', placeContent: 'start', alignContent: 'center' }}
                   >
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Breve descripción sobre el clima reciente en la región.
@@ -72,7 +71,7 @@ export const TendenciasPage = () => {
                 </Card>
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid item xs={12} mb={2}>
                 <Card sx={cardStyles}>
                   <CardMedia
                     sx={{ flex: 1 }}
@@ -82,7 +81,7 @@ export const TendenciasPage = () => {
                     alt="Clima noticia 2"
                   />
                   <CardContent
-                    sx={{ flex: 3, display: 'grid', placeContent: 'start' }}
+                    sx={{ flex: 3, display: 'grid', placeContent: 'start', alignContent: 'center' }}
                   >
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Información sobre alertas meteorológicas y su impacto.
@@ -104,7 +103,7 @@ export const TendenciasPage = () => {
                     alt="Clima noticia grande"
                   />
                   <CardContent
-                    sx={{ flex: 2, display: 'grid', placeContent: 'center' }}
+                    sx={{ flex: 2, display: 'grid', placeContent: 'center', alignContent: 'center' }}
                   >
                     <Typography mb={4} variant="body2" color="text.secondary">
                       Aute fugiat laboris pariatur ea non laboris veniam velit
@@ -126,7 +125,7 @@ export const TendenciasPage = () => {
               Deportes
             </Typography>
             <Grid container spacing={2}>
-              <Grid item xs={12}>
+              <Grid item xs={12} mb={2}>
                 <Card sx={cardStyles}>
                   <CardMedia
                     sx={{ flex: 1 }}
@@ -136,7 +135,7 @@ export const TendenciasPage = () => {
                     alt="Clima noticia 1"
                   />
                   <CardContent
-                    sx={{ flex: 3, display: 'grid', placeContent: 'start' }}
+                    sx={{ flex: 3, display: 'grid', placeContent: 'start', alignContent: 'center' }}
                   >
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Breve descripción sobre el clima reciente en la región.
@@ -148,7 +147,7 @@ export const TendenciasPage = () => {
                 </Card>
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid item xs={12} mb={2}>
                 <Card sx={cardStyles}>
                   <CardMedia
                     sx={{ flex: 1 }}
@@ -158,7 +157,7 @@ export const TendenciasPage = () => {
                     alt="Clima noticia 2"
                   />
                   <CardContent
-                    sx={{ flex: 3, display: 'grid', placeContent: 'start' }}
+                    sx={{ flex: 3, display: 'grid', placeContent: 'start', alignContent: 'center' }}
                   >
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Información sobre alertas meteorológicas y su impacto.
@@ -201,7 +200,7 @@ export const TendenciasPage = () => {
             <Typography variant="h6" textAlign={'center'} mb={3}>
               Educación
             </Typography>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} mb={2}>
               <Grid item xs={12}>
                 <Card sx={cardStyles}>
                   <CardMedia
@@ -253,7 +252,7 @@ export const TendenciasPage = () => {
             <Typography variant="h6" textAlign={'center'} mb={3}>
               Actores
             </Typography>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} mb={2}>
               <Grid item xs={12}>
                 <Card sx={cardStyles}>
                   <CardMedia
@@ -308,10 +307,6 @@ export const TendenciasPage = () => {
           <Opiniones />
         </Grid>
 
-      </Grid>
-
-      <Grid>
-        <Divider />
       </Grid>
     </LayoutCMS>
   );

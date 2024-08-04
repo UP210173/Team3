@@ -10,7 +10,7 @@ const swiperStyles = {
   height: "30rem",
   display: "flex",
   textAlign: "center",
-  margin: "3rem 0 5rem 0"
+  margin: "3rem 0"
 }
 
 export const SwiperCom = () => {

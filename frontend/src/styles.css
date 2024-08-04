@@ -24,7 +24,8 @@ img {
 
 .nav {
   font-family: 'Roboto', sans-serif;
-  color: #000;
+  font-weight: 500;
+  color: #1874d0;
 }
 
 .photo-circle {
