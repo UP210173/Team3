@@ -34,9 +34,8 @@ export const TendenciasPage = () => {
       <Grid item xs={12}>
         <Divider style={{ margin: "20px 0" }} />
       </Grid>
-      <Container>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
-          <Grid item xs={12} md={8}>
+          <Grid item xs={12} lg={12}>
             <Grid container spacing={2}>
               {/* Sección de Noticias Clima */}
               <Grid item xs={12} md={6}>
@@ -278,14 +277,6 @@ export const TendenciasPage = () => {
         </Grid>
         {/* Línea divisoria debajo del diseño principal */}
         <Divider style={{ marginTop: 20, marginBottom: 20 }} />
-
-        {/* Footer */}
-        <footer style={{ textAlign: "center", padding: 20 }}>
-          <Typography variant="body2" color="text.secondary">
-            © 2024 CMS UPA
-          </Typography>
-        </footer>
-      </Container>
     </LayoutCMS>
   );
 };
