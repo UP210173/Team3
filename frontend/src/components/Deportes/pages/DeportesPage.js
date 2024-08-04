@@ -8,7 +8,6 @@ import Opiniones from '../../opiniones/Opiniones';
 export const DeportesPage = () => {
   return (
     <LayoutCMS>
-      <Container>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
           <Grid item xs={12}>
             <Typography variant="h6">Lo último</Typography>
@@ -139,7 +138,6 @@ export const DeportesPage = () => {
             <Opiniones />
           </Grid>
         </Grid>
-      </Container>
     </LayoutCMS>
   );
 };

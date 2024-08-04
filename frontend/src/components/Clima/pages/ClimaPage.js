@@ -1,67 +1,142 @@
-// src/components/Clima/pages/ClimaPage.jsx
 import React from 'react';
-import { AppBar, Toolbar, Typography, Container, Grid, Card, CardContent, CardMedia, Paper, Table, TableBody, TableCell, TableHead, TableRow, Link as MuiLink } from '@mui/material';
+import { Typography, Container, Grid, Card, CardContent, CardMedia, Link as MuiLink, Divider, Box } from '@mui/material';
 import { LayoutCMS } from '../../common';
 import Opiniones from '../../opiniones/Opiniones';
 
 export const ClimaPage = () => {
+  // Estilos para el efecto de hover
+  const hoverEffectStyles = {
+    transition: 'transform 0.3s ease-in-out',
+    '&:hover': {
+      transform: 'scale(1.05)', // Efecto de agrandamiento al pasar el mouse
+    },
+  };
+
   return (
     <LayoutCMS>
-      <Container>
+      {/* Línea divisoria debajo del diseño principal */}
+      <Divider style={{ marginTop: 20, marginBottom: 20 }} />
         <Grid container spacing={2} style={{ marginTop: 20 }}>
-          <Grid item xs={12}>
-            <Typography variant="h6">Últimas Noticias</Typography>
+          {/* Columna principal con noticia destacada y últimas noticias */}
+          <Grid item xs={12} md={8}>
+            {/* Noticia principal grande */}
+            <Card sx={hoverEffectStyles}>
+              <CardMedia
+                component="img"
+                height="400" // Ajustar el tamaño a una imagen más grande
+                image="https://www.shutterstock.com/image-photo/heat-thermometer-shows-temperature-hot-600nw-2472353719.jpg"
+                alt="Calor"
+              />
+              <CardContent>
+                <Typography variant="h5">Ola de calor extremo azota varias regiones del país</Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <MuiLink href="#">Leer más</MuiLink>.
+                </Typography>
+              </CardContent>
+            </Card>
+
+            {/* Contenedor de últimas noticias */}
+            <Typography variant="h6" align="center" style={{ marginTop: 20 }}>Últimas Noticias</Typography>
+            <Divider style={{ marginBottom: 20 }} />
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={3}>
-                <Card>
+              {/* Noticia 1 */}
+              <Grid item xs={12} sm={4} md={4}>
+                <Card sx={hoverEffectStyles}>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://via.placeholder.com/150?text=Noticia+1"
+                    alt="Noticia 1"
+                  />
                   <CardContent>
-                    <Typography variant="body2" color="text.secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    <Typography variant="body2" color="text.secondary" align="center">
+                      Primer párrafo de texto con un <MuiLink href="#">enlace no asignado</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} sm={3}>
-                <Card>
+
+              {/* Noticia 2 */}
+              <Grid item xs={12} sm={4} md={4}>
+                <Card sx={hoverEffectStyles}>
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://www.elheraldodetabasco.com.mx/local/yr6zdg-a1.jpg/ALTERNATES/LANDSCAPE_400/a1.jpg"
-                    alt="Tormenta"
+                    image="https://via.placeholder.com/150?text=Noticia+2"
+                    alt="Noticia 2"
                   />
                   <CardContent>
-                    <Typography variant="body2" color="text.secondary">
-                      Tormentas eléctricas y vientos fuertes azotan el país, dejando daños a su paso <MuiLink href="#">unassigned link</MuiLink>.
+                    <Typography variant="body2" color="text.secondary" align="center">
+                      Segundo párrafo de texto con un <MuiLink href="#">enlace no asignado</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} sm={3}>
-                <Card>
+
+              {/* Noticia 3 */}
+              <Grid item xs={12} sm={4} md={4}>
+                <Card sx={hoverEffectStyles}>
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://enfoquenoticias.com.mx/wp-content/uploads/2022/09/lluvias.jpg"
-                    alt="Lluvias"
+                    image="https://via.placeholder.com/150?text=Noticia+3"
+                    alt="Noticia 3"
                   />
                   <CardContent>
-                    <Typography variant="body2" color="text.secondary">
-                      Fuertes lluvias causan inundaciones en varias regiones del país <MuiLink href="#">unassigned link</MuiLink>.
+                    <Typography variant="body2" color="text.secondary" align="center">
+                      Tercer párrafo de texto con un <MuiLink href="#">enlace no asignado</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} sm={3}>
-                <Card>
+
+              {/* Agrega más tarjetas de noticias si es necesario */}
+              {/* Noticia 4 */}
+              <Grid item xs={12} sm={4} md={4}>
+                <Card sx={hoverEffectStyles}>
                   <CardMedia
                     component="img"
                     height="140"
-                    image="https://www.shutterstock.com/image-photo/heat-thermometer-shows-temperature-hot-600nw-2472353719.jpg"
-                    alt="Calor"
+                    image="https://via.placeholder.com/150?text=Noticia+4"
+                    alt="Noticia 4"
                   />
                   <CardContent>
-                    <Typography variant="body2" color="text.secondary">
-                      Ola de calor extremo azota varias regiones del país <MuiLink href="#">unassigned link</MuiLink>.
+                    <Typography variant="body2" color="text.secondary" align="center">
+                      Cuarto párrafo de texto con un <MuiLink href="#">enlace no asignado</MuiLink>.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              {/* Noticia 5 */}
+              <Grid item xs={12} sm={4} md={4}>
+                <Card sx={hoverEffectStyles}>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://via.placeholder.com/150?text=Noticia+5"
+                    alt="Noticia 5"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary" align="center">
+                      Quinto párrafo de texto con un <MuiLink href="#">enlace no asignado</MuiLink>.
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Grid>
+
+              {/* Noticia 6 */}
+              <Grid item xs={12} sm={4} md={4}>
+                <Card sx={hoverEffectStyles}>
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="https://via.placeholder.com/150?text=Noticia+6"
+                    alt="Noticia 6"
+                  />
+                  <CardContent>
+                    <Typography variant="body2" color="text.secondary" align="center">
+                      Sexto párrafo de texto con un <MuiLink href="#">enlace no asignado</MuiLink>.
                     </Typography>
                   </CardContent>
                 </Card>
@@ -69,82 +144,44 @@ export const ClimaPage = () => {
             </Grid>
           </Grid>
 
-          <Grid item xs={12} md={8}>
-            <Paper elevation={3} style={{ padding: 16, marginTop: 20 }}>
-              <Typography variant="h6" style={{ marginBottom: 16 }}>Videos y Reportajes</Typography>
-              <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Card>
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoawR8SeTG2IL_5fsTkaeViU0wvxOhMAujyw&s"
-                      alt="Tormentas"
-                    />
-                    <CardContent>
-                      <Typography variant="body2" color="text.secondary">
-                        Tormentas eléctricas dejan daños significativos en el sur <MuiLink href="#">unassigned link</MuiLink>.
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-                <Grid item xs={12} sm={6} md={4}>
-                  <Card>
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image="https://i.ytimg.com/vi/DwjsrdTWUaU/hqdefault.jpg?sqp=-oaymwEmCOADEOgC8quKqQMa8AEB-AH-BIAC6AKKAgwIABABGEsgWChlMA8=&rs=AOn4CLBEjuArHFxdBEtgUul7vbVIEw0IwA"
-                      alt="Sequía"
-                    />
-                    <CardContent>
-                      <Typography variant="body2" color="text.secondary">
-                        Sequía prolongada afecta la producción agrícola en el oeste <MuiLink href="#">unassigned link</MuiLink>.
-                      </Typography>
-                    </CardContent>
-                  </Card>
-                </Grid>
-              </Grid>
-            </Paper>
-          </Grid>
-
-          <Grid item xs={12}>
-            <Paper elevation={3}>
-              <Table>
-                <TableHead>
-                  <TableRow>
-                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>#</TableCell>
-                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Nombre</TableCell>
-                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Región</TableCell>
-                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Intensidad</TableCell>
-                    <TableCell style={{ fontWeight: 'bold', backgroundColor: '#f5f5f5' }}>Descripción</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {[
-                    { id: 1, name: 'Tormenta Alex', region: 'Costa Este', intensity: 'Alta', description: 'Tormenta con vientos fuertes y lluvias intensas.' },
-                    { id: 2, name: 'Inundaciones Noroeste', region: 'Noroeste', intensity: 'Moderada', description: 'Lluvias continuas causando inundaciones en áreas bajas.' },
-                    { id: 3, name: 'Ola de Calor Sur', region: 'Sur', intensity: 'Alta', description: 'Temperaturas extremas superando los 40°C.' },
-                    { id: 4, name: 'Incendios Oeste', region: 'Oeste', intensity: 'Alta', description: 'Riesgo de incendios debido a condiciones secas.' },
-                  ].map((row) => (
-                    <TableRow key={row.id} hover>
-                      <TableCell>{row.id}</TableCell>
-                      <TableCell>{row.name}</TableCell>
-                      <TableCell>{row.region}</TableCell>
-                      <TableCell>{row.intensity}</TableCell>
-                      <TableCell>{row.description}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </Paper>
-          </Grid>
-
+          {/* Columna para la noticia sobre lluvias y el componente de opiniones */}
           <Grid item xs={12} md={4}>
-            <Typography variant="h6">Opiniones</Typography>
-            <Opiniones />
+            {/* Noticia sobre lluvias */}
+            <Grid item xs={12}>
+              <Card sx={hoverEffectStyles}>
+                <CardMedia
+                  component="img"
+                  height="140"
+                  image="https://enfoquenoticias.com.mx/wp-content/uploads/2022/09/lluvias.jpg"
+                  alt="Lluvias"
+                />
+                <CardContent>
+                  <Typography variant="body2" color="text.secondary">
+                    Fuertes lluvias causan inundaciones en varias regiones del país <MuiLink href="#">unassigned link</MuiLink>.
+                  </Typography>
+                </CardContent>
+              </Card>
+            </Grid>
+
+            {/* Línea divisoria debajo del diseño principal */}
+            <Divider style={{ marginTop: 20, marginBottom: 20 }} />
+
+            {/* Componente de opiniones con efecto hover */}
+            <Box sx={hoverEffectStyles}>
+              <Opiniones />
+            </Box>
           </Grid>
         </Grid>
-      </Container>
+
+        {/* Línea divisoria debajo del diseño principal */}
+        <Divider style={{ marginTop: 20, marginBottom: 20 }} />
+
+        {/* Footer */}
+        <footer style={{ textAlign: 'center', padding: 20 }}>
+          <Typography variant="body2" color="text.secondary">
+            © 2024 CMS UPA
+          </Typography>
+        </footer>
     </LayoutCMS>
   );
-}
+};

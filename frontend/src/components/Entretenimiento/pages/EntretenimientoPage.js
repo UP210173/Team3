@@ -11,7 +11,6 @@ import Opiniones from '../../opiniones/Opiniones';
 export const EntretenimientoPage = () => {
   return (
     <LayoutCMS>
-      <Container>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
           <Grid item xs={12} md={8}>
             <Card>
@@ -128,7 +127,6 @@ export const EntretenimientoPage = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Container>
     </LayoutCMS>
   );
 }
