@@ -11,7 +11,7 @@ import {
 import { LayoutCMS } from '../../common';
 
 import { SwiperCom } from '../../common/components/Swiper';
-import Opiniones from '../../common/components/Opiniones';
+import Opiniones from '../../../components/common/components/Opiniones';
 
 const cardStyles = {
   display: 'flex',
