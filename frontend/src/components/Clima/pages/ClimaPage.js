@@ -1,7 +1,7 @@
 import React from 'react';
 import { Typography, Container, Grid, Card, CardContent, CardMedia, Link as MuiLink, Divider, Box } from '@mui/material';
 import { LayoutCMS } from '../../common';
-import Opiniones from '../../common/components/Opiniones';
+import Opiniones from '../../../components/common/components/Opiniones';
 
 
 export const ClimaPage = () => {
