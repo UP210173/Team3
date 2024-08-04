@@ -3,7 +3,7 @@ import { Typography, Grid, Card, CardContent, CardMedia, List, ListItem, ListIte
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { LayoutCMS } from '../../common/LayoutCMS';
 import { SwiperCom } from '../../common/components/Swiper';
-import Opiniones from '../../common/components/Opiniones';
+import Opiniones from '../../../components/common/components/Opiniones';
 
 const hoverEffectStyles = {
   display: "flex",

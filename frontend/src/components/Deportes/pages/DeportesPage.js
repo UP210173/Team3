@@ -26,7 +26,7 @@ import {
   NbaStandingsTable,
   MlbStandingsTable,
 } from '../../Deportes/pages/standingsTables';
-import Opiniones from '../../common/components/Opiniones';
+import Opiniones from '../../../components/common/components/Opiniones';
 
 export const DeportesPage = () => {
   const [contentTabValue, setContentTabValue] = useState(0); // Estado para las pestañas de contenido
@@ -109,10 +109,10 @@ export const DeportesPage = () => {
               />
               <CardContent>
                 <Typography mb={1} variant="body2" color="text.secondary">
-                Mazatlán vs Nashville, un emocionante partido que se lleva
-                Mazatlán por un marcador 2-0..
+                  Mazatlán vs Nashville, un emocionante partido que se lleva
+                  Mazatlán por un marcador 2-0..
                 </Typography>
-                <Box sx={{ display: "flex", justifyContent: "flex-end"}}>
+                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                   <Button variant="text">Leer más</Button>
                 </Box>
               </CardContent>
@@ -129,9 +129,9 @@ export const DeportesPage = () => {
               <CardContent>
                 <Typography mb={1} variant="body2" color="text.secondary">
                   Una tormenta eléctrica retrasa el segundo tiempo del partido
-                Toluca vs Chicago Fire.
+                  Toluca vs Chicago Fire.
                 </Typography>
-                <Box sx={{ display: "flex", justifyContent: "flex-end"}}>
+                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                   <Button variant="text">Leer más</Button>
                 </Box>
               </CardContent>
@@ -149,7 +149,7 @@ export const DeportesPage = () => {
                 <Typography mb={1} variant="body2" color="text.secondary">
                   FC DALLAS 0-2 FC JUÁREZ | Salieron BRAVOS los fronterizos.
                 </Typography>
-                <Box sx={{ display: "flex", justifyContent: "flex-end"}}>
+                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
                   <Button variant="text">Leer más</Button>
                 </Box>
               </CardContent>
