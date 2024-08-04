@@ -17,9 +17,9 @@ import {
   InputLabel,
 } from "@mui/material";
 import { LayoutCMS } from "../../common";
-import Opiniones from "../../Inicio/opiniones/Opiniones";
 import { fetchNBAStandings, fetchMLBStandings } from "../../Deportes/pages/sportsApi";
 import { NbaStandingsTable, MlbStandingsTable } from "../../Deportes/pages/standingsTables";
+import Opiniones from "../../common/components/Opiniones";
 
 export const DeportesPage = () => {
   const [contentTabValue, setContentTabValue] = useState(0); // Estado para las pestañas de contenido
