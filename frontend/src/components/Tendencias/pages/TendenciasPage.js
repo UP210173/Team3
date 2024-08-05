@@ -42,7 +42,7 @@ export const TendenciasPage = () => {
 
       <Grid container spacing={2} style={containerStyles}>
 
-        <Grid item xs={12} sm={8} md={9} xl={12} style={ containerStyles2 }>
+        <Grid item xs={12} md={9} xl={12} style={ containerStyles2 }>
 
           <Grid item xs={12} md={12} xl={12} mb={3} pb={5} borderBottom={"1px solid #ddd"}>
             <Typography variant="h6" textAlign={'center'} mb={3}>
