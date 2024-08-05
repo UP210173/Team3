@@ -4,7 +4,9 @@ export const authSlice = createSlice({
     name: 'auth',
     initialState: {
       status: 'unauthorized', // 'unauthorized'
-      user: null
+      user: {
+        email: 'D'
+      }
     },
     reducers: {
 
@@ -15,7 +17,9 @@ export const authSlice = createSlice({
 
       logout: ( state, { payload } ) => {
         state.status = 'unauthorized';
-        state.user = null;
+        state.user = {
+          email: 'D'
+        }
       }
 
     }
