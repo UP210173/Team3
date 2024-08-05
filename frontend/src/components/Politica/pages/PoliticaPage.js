@@ -13,7 +13,7 @@ export const PoliticaPage = () => {
             <Box className='politica-hero'>
               <Box className='politica-hero-content'>
                 <p variant="h4" component="div">
-                  Polítuca
+                  Política
                 </p>
                 <p variant="h6" component="div">
                   Nueva presidenta de México arma gabinete con miembros del gobierno saliente y exfuncionarios
