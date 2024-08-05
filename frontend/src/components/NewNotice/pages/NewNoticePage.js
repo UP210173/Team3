@@ -9,6 +9,10 @@ import {
   Button,
   Box,
   Paper,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import { LocalizationProvider, StaticDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
@@ -22,6 +26,7 @@ export const NewNoticePage = () => {
   const [url, setUrl] = useState("");
   const [content, setContent] = useState("");
   const [image, setImage] = useState(null);
+  const [category, setCategory] = useState(""); // Estado para la categoría seleccionada
 
   // Maneja la carga de archivos
   const handleFileUpload = (event) => {
@@ -46,6 +51,55 @@ export const NewNoticePage = () => {
       };
       reader.readAsDataURL(file);
     }
+  };
+
+  // Maneja el evento de guardar
+  const handleSave = () => {
+    const newNotice = {
+      title,
+      date: date.format("YYYY-MM-DD"), // Formato de fecha
+      author,
+      url,
+      content,
+      image,
+      category,
+    };
+
+    console.log("Guardando noticia:", newNotice);
+
+    // Enviar los datos a la ruta especificada usando fetch
+    fetch("http://localhost:3000/lista-noticias", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newNotice),
+    })
+      .then((response) => {
+        if (response.ok) {
+          alert("Noticia guardada exitosamente");
+        } else {
+          alert("Error al guardar la noticia");
+        }
+      })
+      .catch((error) => {
+        console.error("Error al guardar la noticia:", error);
+        alert("Error al guardar la noticia");
+      });
+
+    // Resetea el formulario después de guardar
+    resetForm();
+  };
+
+  // Resetea los campos del formulario
+  const resetForm = () => {
+    setTitle("");
+    setDate(dayjs());
+    setAuthor("");
+    setUrl("");
+    setContent("");
+    setImage(null);
+    setCategory(""); // Resetea la categoría
   };
 
   return (
@@ -121,7 +175,7 @@ export const NewNoticePage = () => {
             </Grid>
             <Grid item xs={12}>
               <Paper elevation={3} style={{ padding: 20, marginTop: 20 }}>
-                <Typography variant="h6">Contenido, Autor y Url</Typography>
+                <Typography variant="h6">Contenido, Autor y URL</Typography>
                 <TextField
                   fullWidth
                   multiline
@@ -180,6 +234,18 @@ export const NewNoticePage = () => {
                     )}
                   </Grid>
                 </Grid>
+                <FormControl fullWidth margin="normal" sx={{ marginTop: 2 }}>
+                  <InputLabel>Categoría</InputLabel>
+                  <Select
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                  >
+                    <MenuItem value="Deportes">Deportes</MenuItem>
+                    <MenuItem value="Clima">Clima</MenuItem>
+                    <MenuItem value="Entretenimiento">Entretenimiento</MenuItem>
+                    <MenuItem value="Política">Política</MenuItem>
+                  </Select>
+                </FormControl>
               </Paper>
             </Grid>
             <Grid item xs={12}>
@@ -188,10 +254,11 @@ export const NewNoticePage = () => {
                   variant="contained"
                   color="secondary"
                   sx={{ marginRight: 2 }}
+                  onClick={resetForm} // Resetear el formulario al cancelar
                 >
                   Cancelar
                 </Button>
-                <Button variant="contained" color="primary">
+                <Button variant="contained" color="primary" onClick={handleSave}>
                   Guardar
                 </Button>
               </Box>
