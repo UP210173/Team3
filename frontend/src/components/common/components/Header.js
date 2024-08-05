@@ -15,7 +15,7 @@ import { useAuth } from '../hooks/useAuth';
 
 export const Header = () => {
   const { openAsideMenu } = useUI();
-  const { status } = useAuth();
+  const { status, user: { email } } = useAuth();
 
   return (
     <Container maxWidth="xl" sx={{ margin: '10px auto 20px' }}>
@@ -53,7 +53,7 @@ export const Header = () => {
               ? (
                 <>
                 <Typography mb={1} className="photo-circle" variant="h6">
-                  D
+                  { email[0].toUpperCase() }
                 </Typography>
                 </>
               )
@@ -80,7 +80,7 @@ export const Header = () => {
               }}
             >
               <Typography mb={1} className="photo-circle" variant="h6">
-                D
+              { email[0].toUpperCase() }
               </Typography>
               <Box display={"flex"}>
                 <Link to="/nueva-noticia">
