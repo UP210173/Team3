@@ -3,7 +3,7 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import { Link } from "react-router-dom";
 
 const footer = {
-  display:"flex", justifyContent: "center", alignItems: "center", textAlign: 'center', padding: '2rem 0', marginTop: "2rem", borderTop: "1px solid #ddd", 
+  display:"flex", justifyContent: "center", alignItems: "center", textAlign: 'center', padding: '2rem 0', marginTop: "1rem", borderTop: "1px solid #aaa", 
 }
 
 export const Footer = () => {

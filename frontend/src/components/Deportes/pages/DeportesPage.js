@@ -69,7 +69,7 @@ export const DeportesPage = () => {
 
   const cardStyle = {
     height: cardHeight,
-    border: "1px solid #ddd",
+    border: '1px solid #ddd',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
     position: 'relative',
     '&:hover': {
@@ -80,7 +80,7 @@ export const DeportesPage = () => {
 
   return (
     <LayoutCMS>
-      <Grid item xs={12} md={9} marginTop={"3rem"}>
+      <Grid item xs={12} md={9} marginTop={'3rem'}>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={3}>
             <Card sx={cardStyle}>
@@ -93,8 +93,9 @@ export const DeportesPage = () => {
                   últimas noticias y actualizaciones del mundo deportivo. Desde
                   el fútbol hasta el baloncesto, cubrimos todas las disciplinas
                   con análisis detallados, entrevistas exclusivas y reportajes
-                  en profundidad. <br />  <br />
-                  Entérate de las tendencias y disciplinas más solicitados por los espectadores en cualquier momento del día.
+                  en profundidad. <br /> <br />
+                  Entérate de las tendencias y disciplinas más solicitados por
+                  los espectadores en cualquier momento del día.
                 </Typography>
               </CardContent>
             </Card>
@@ -112,7 +113,7 @@ export const DeportesPage = () => {
                   Mazatlán vs Nashville, un emocionante partido que se lleva
                   Mazatlán por un marcador 2-0..
                 </Typography>
-                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   <Button variant="text">Leer más</Button>
                 </Box>
               </CardContent>
@@ -131,7 +132,7 @@ export const DeportesPage = () => {
                   Una tormenta eléctrica retrasa el segundo tiempo del partido
                   Toluca vs Chicago Fire.
                 </Typography>
-                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   <Button variant="text">Leer más</Button>
                 </Box>
               </CardContent>
@@ -149,7 +150,7 @@ export const DeportesPage = () => {
                 <Typography mb={1} variant="body2" color="text.secondary">
                   FC DALLAS 0-2 FC JUÁREZ | Salieron BRAVOS los fronterizos.
                 </Typography>
-                <Box sx={{ display: "flex", justifyContent: "flex-end" }}>
+                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
                   <Button variant="text">Leer más</Button>
                 </Box>
               </CardContent>
@@ -157,167 +158,169 @@ export const DeportesPage = () => {
           </Grid>
         </Grid>
       </Grid>
-      <Grid container spacing={2} style={{ marginTop: 20 }}>
-        <Grid item xs={12} md={3}>
+
+      <Grid container spacing={2} display={'flex'} marginTop={"80px"}>
+        <Grid item xs={12} sm={8} md={9} borderTop={"1px solid #aaa"} padding={"30px 0"}>
+          <Grid item xs={12}>
+            <Typography variant="h6" style={{ marginTop: 20 }}>
+              Videos, Relatos, Blogposts
+            </Typography>
+            <Card>
+              <Tabs
+                value={contentTabValue}
+                onChange={handleContentTabChange}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="fullWidth"
+              >
+                <Tab label="Videos" />
+                <Tab label="Relatos" />
+                <Tab label="Blogposts" />
+              </Tabs>
+              <CardContent>
+                <Fade in={contentTabValue === 0} timeout={500}>
+                  <Box display={contentTabValue === 0 ? 'block' : 'none'}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6} style={{ display: "grid", placeContent: "center"}} p={3} >
+                        <Typography variant='h6' component="h4" fontWeight={"700"} mb={2}>Titulo de noticia</Typography>
+                        <Typography variant="body2" color="text.secondary" mb={2}>
+                          Ut dolor ad cillum reprehenderit nisi qui excepteur velit. Irure deserunt nisi laboris excepteur mollit laborum adipisicing deserunt ex exercitation esse excepteur excepteur. Adipisicing eiusmod cillum irure nulla labore sit nostrud consectetur reprehenderit magna.
+                        </Typography>
+                        <Button variant='outlined'>Leer Más</Button>
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <CardMedia
+                          component="img"
+                          style={{ height: "300px" }}
+                          image="https://media.gettyimages.com/id/2162028863/es/foto/berlin-germany-alvaro-morata-of-spain-lifts-the-uefa-euro-2024-henri-delaunay-trophy-after-his.jpg?s=612x612&w=0&k=20&c=t7Vh8oegwApNsd4d6OLgCk4UEeBKMp1zyrxkY4E63J8="
+                          alt="Placeholder image"
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Fade>
+
+                <Fade in={contentTabValue === 1} timeout={500}>
+                  <Box display={contentTabValue === 1 ? 'block' : 'none'}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6} style={{ display: "grid", placeContent: "center"}} p={3} >
+                        <Typography variant='h6' component="h4" fontWeight={"700"} mb={2}>Titulo de noticia</Typography>
+                        <Typography variant="body2" color="text.secondary" mb={2}>
+                          Ut dolor ad cillum reprehenderit nisi qui excepteur velit. Irure deserunt nisi laboris excepteur mollit laborum adipisicing deserunt ex exercitation esse excepteur excepteur. Adipisicing eiusmod cillum irure nulla labore sit nostrud consectetur reprehenderit magna.
+                        </Typography>
+                        <Button variant='outlined'>Leer Más</Button>
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <CardMedia
+                          component="img"
+                          style={{ height: "300px" }}
+                          image="https://cdn.autobild.es/sites/navi.axelspringer.es/public/media/image/2016/09/575045-asi-fue-primera-entrevista-cristiano-ronaldo.jpg?tf=3840"
+                          alt="Placeholder image"
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Fade>
+
+                <Fade in={contentTabValue === 2} timeout={500}>
+                  <Box display={contentTabValue === 2 ? 'block' : 'none'}>
+                    <Grid container spacing={2}>
+                      <Grid item xs={12} md={6} style={{ display: "grid", placeContent: "center"}} p={3} >
+                        <Typography variant='h6' component="h4" fontWeight={"700"} mb={2}>Titulo de noticia</Typography>
+                        <Typography variant="body2" color="text.secondary" mb={2}>
+                          Ut dolor ad cillum reprehenderit nisi qui excepteur velit. Irure deserunt nisi laboris excepteur mollit laborum adipisicing deserunt ex exercitation esse excepteur excepteur. Adipisicing eiusmod cillum irure nulla labore sit nostrud consectetur reprehenderit magna.
+                        </Typography>
+                        <Button variant='outlined'>Leer Más</Button>
+                      </Grid>
+                      <Grid item xs={12} md={6}>
+                        <CardMedia
+                          component="img"
+                          style={{ height: "300px" }}
+                          image="https://s.france24.com/media/display/8af2bf28-6c83-11ea-9c66-005056a964fe/Olimpicos%20coronavirus.jpg"
+                          alt="Placeholder image"
+                        />
+                      </Grid>
+                    </Grid>
+                  </Box>
+                </Fade>
+              </CardContent>
+            </Card>
+          </Grid>
+          <Grid item xs={12} marginTop={"50px"}>
+            <Typography variant="h6" style={{ marginTop: 20 }}>
+              Tabla de Posiciones
+            </Typography>
+            <Card>
+              <Tabs
+                value={standingsTabValue}
+                onChange={handleStandingsTabChange}
+                indicatorColor="primary"
+                textColor="primary"
+                variant="fullWidth"
+              >
+                <Tab label="NBA" />
+                <Tab label="MLB" />
+              </Tabs>
+              <CardContent>
+                <FormControl
+                  variant="outlined"
+                  style={{ marginBottom: 20, minWidth: 180 }} // Ajustar el tamaño del cuadro de selección
+                >
+                  <InputLabel id="visible-teams-label">
+                    Equipos a mostrar
+                  </InputLabel>
+                  <Select
+                    labelId="visible-teams-label"
+                    value={visibleTeams}
+                    onChange={handleVisibleTeamsChange}
+                    label="Equipos a mostrar"
+                  >
+                    <MenuItem value={5}>5</MenuItem>
+                    <MenuItem value={7}>7</MenuItem>
+                    <MenuItem value={10}>10</MenuItem>
+                    <MenuItem value={15}>15</MenuItem>
+                    <MenuItem value={nbaStandings.length}>Todos</MenuItem>{' '}
+                    {/* Opción para mostrar todos */}
+                  </Select>
+                </FormControl>
+
+                {/* Tab de la NBA */}
+                <Fade in={standingsTabValue === 0} timeout={500}>
+                  <Box display={standingsTabValue === 0 ? 'block' : 'none'}>
+                    <NbaStandingsTable
+                      nbaStandings={nbaStandings}
+                      visibleTeams={
+                        visibleTeams === nbaStandings.length
+                          ? nbaStandings.length
+                          : visibleTeams
+                      }
+                    />
+                  </Box>
+                </Fade>
+
+                {/* Tab de la MLB */}
+                <Fade in={standingsTabValue === 1} timeout={500}>
+                  <Box display={standingsTabValue === 1 ? 'block' : 'none'}>
+                    <MlbStandingsTable
+                      mlbStandings={mlbStandings}
+                      visibleTeams={
+                        visibleTeams === mlbStandings.length
+                          ? mlbStandings.length
+                          : visibleTeams
+                      }
+                    />
+                  </Box>
+                </Fade>
+              </CardContent>
+            </Card>
+          </Grid>
+        </Grid>
+        <Grid item xs={12} sm={4} md={3}>
           <Typography variant="h6">Opiniones</Typography>
           <Opiniones />
         </Grid>
-
-        <Grid item xs={12} md={9}>
-          <Typography variant="h6" style={{ marginTop: 20 }}>
-            Videos, Relatos, Blogposts
-          </Typography>
-          <Card>
-            <Tabs
-              value={contentTabValue}
-              onChange={handleContentTabChange}
-              indicatorColor="primary"
-              textColor="primary"
-              variant="fullWidth"
-            >
-              <Tab label="Videos" />
-              <Tab label="Relatos" />
-              <Tab label="Blogposts" />
-            </Tabs>
-            <CardContent>
-              <Fade in={contentTabValue === 0} timeout={500}>
-                <Box display={contentTabValue === 0 ? 'block' : 'none'}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} md={8}>
-                      <Typography variant="body2" color="text.secondary">
-                        Explora una variedad de videos deportivos, con
-                        entrevistas exclusivas y reportajes emocionantes que te
-                        mantendrán informado sobre los últimos eventos.
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                      <CardMedia
-                        component="img"
-                        height="200"
-                        image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
-                        alt="Placeholder image"
-                      />
-                    </Grid>
-                  </Grid>
-                </Box>
-              </Fade>
-
-              <Fade in={contentTabValue === 1} timeout={500}>
-                <Box display={contentTabValue === 1 ? 'block' : 'none'}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} md={8}>
-                      <Typography variant="body2" color="text.secondary">
-                        Disfruta de relatos deportivos inspiradores que te
-                        llevan al corazón de los eventos más impactantes,
-                        narrados con pasión y detalle.
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                      <CardMedia
-                        component="img"
-                        height="200"
-                        image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
-                        alt="Placeholder image"
-                      />
-                    </Grid>
-                  </Grid>
-                </Box>
-              </Fade>
-
-              <Fade in={contentTabValue === 2} timeout={500}>
-                <Box display={contentTabValue === 2 ? 'block' : 'none'}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} md={8}>
-                      <Typography variant="body2" color="text.secondary">
-                        Lee nuestros blogposts detallados que ofrecen análisis
-                        en profundidad y perspectivas únicas sobre el mundo del
-                        deporte.
-                      </Typography>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                      <CardMedia
-                        component="img"
-                        height="200"
-                        image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
-                        alt="Placeholder image"
-                      />
-                    </Grid>
-                  </Grid>
-                </Box>
-              </Fade>
-            </CardContent>
-          </Card>
-        </Grid>
-
-        <Grid item xs={12} md={9}>
-          <Typography variant="h6" style={{ marginTop: 20 }}>
-            Tabla de Posiciones
-          </Typography>
-          <Card>
-            <Tabs
-              value={standingsTabValue}
-              onChange={handleStandingsTabChange}
-              indicatorColor="primary"
-              textColor="primary"
-              variant="fullWidth"
-            >
-              <Tab label="NBA" />
-              <Tab label="MLB" />
-            </Tabs>
-            <CardContent>
-              <FormControl
-                variant="outlined"
-                style={{ marginBottom: 20, minWidth: 180 }} // Ajustar el tamaño del cuadro de selección
-              >
-                <InputLabel id="visible-teams-label">
-                  Equipos a mostrar
-                </InputLabel>
-                <Select
-                  labelId="visible-teams-label"
-                  value={visibleTeams}
-                  onChange={handleVisibleTeamsChange}
-                  label="Equipos a mostrar"
-                >
-                  <MenuItem value={5}>5</MenuItem>
-                  <MenuItem value={7}>7</MenuItem>
-                  <MenuItem value={10}>10</MenuItem>
-                  <MenuItem value={15}>15</MenuItem>
-                  <MenuItem value={nbaStandings.length}>Todos</MenuItem>{' '}
-                  {/* Opción para mostrar todos */}
-                </Select>
-              </FormControl>
-
-              {/* Tab de la NBA */}
-              <Fade in={standingsTabValue === 0} timeout={500}>
-                <Box display={standingsTabValue === 0 ? 'block' : 'none'}>
-                  <NbaStandingsTable
-                    nbaStandings={nbaStandings}
-                    visibleTeams={
-                      visibleTeams === nbaStandings.length
-                        ? nbaStandings.length
-                        : visibleTeams
-                    }
-                  />
-                </Box>
-              </Fade>
-
-              {/* Tab de la MLB */}
-              <Fade in={standingsTabValue === 1} timeout={500}>
-                <Box display={standingsTabValue === 1 ? 'block' : 'none'}>
-                  <MlbStandingsTable
-                    mlbStandings={mlbStandings}
-                    visibleTeams={
-                      visibleTeams === mlbStandings.length
-                        ? mlbStandings.length
-                        : visibleTeams
-                    }
-                  />
-                </Box>
-              </Fade>
-            </CardContent>
-          </Card>
-        </Grid>
       </Grid>
+
     </LayoutCMS>
   );
 };

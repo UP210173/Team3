@@ -20,9 +20,9 @@ export const InicioPage = () => {
         <Grid container spacing={2}>
 
           <Grid item container spacing={2}>
-            <Grid item xs={12} sm={8} sx={{ borderTop: "1px solid #ddd" }}>
+            <Grid item xs={12} md={8} lg={9} sx={{ borderTop: "1px solid #ddd" }}>
 
-              <List sx={{ width: "80%" }}>
+              <List >
                 <ListItem>
                   <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." secondary="12 hours ago" />
                   <RemoveRedEyeIcon />
@@ -53,41 +53,35 @@ export const InicioPage = () => {
                 }}
               >
                 <Grid item xs={12} sm={6}>
-                  <Card sx={{ display: 'flex', alignItems: 'center', ...hoverEffectStyles }}>
-                    <CardMedia
-                      component="img"
-                      sx={{ objectFit: 'cover', height: "12rem", width: "12rem" }}
-                      image="https://www.shutterstock.com/image-photo/heat-thermometer-shows-temperature-hot-600nw-2472353719.jpg"
-                      alt="Placeholder image"
-                    />
-                    <CardContent sx={{ flex: 1 }}>
+                  <Card className='inicio-card'>
+                    <Box>
+                      <img className='inicio-card-image' src="https://peopleenespanol.com/thmb/rj04toZFcG4q2akqqaYdaRsOa6g=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Juanes-a695de6676944fde874a997737f58864.png" alt="" />
+                    </Box>
+                    <Box className="inicio-content">
                       <Typography component={"h3"} variant='h6' fontWeight={"bolder"} mb={1}>Título de la noticia</Typography>
-                      <Typography mb={1} variant="body2" color="text.secondary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        <Typography mb={1} variant="body2" color="text.secondary">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </Typography>
+                        <Typography textAlign={"right"} variant="body2" color="text.secondary">
+                          12 hours ago
                       </Typography>
-                      <Typography textAlign={"right"} variant="body2" color="text.secondary">
-                        12 hours ago
-                      </Typography>
-                    </CardContent>
+                    </Box>
                   </Card>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                  <Card sx={{ display: 'flex', alignItems: 'center', ...hoverEffectStyles }}>
-                    <CardMedia
-                      component="img"
-                      sx={{ objectFit: 'cover', height: "12rem", width: "12rem" }}
-                      image="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg"
-                      alt="Placeholder image"
-                    />
-                    <CardContent sx={{ flex: 1 }}>
+                  <Card className='inicio-card'>
+                    <Box>
+                      <img className='inicio-card-image' src="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg" alt="" />
+                    </Box>
+                    <Box className="inicio-content">
                       <Typography component={"h3"} variant='h6' fontWeight={"bolder"} mb={1}>Título de la noticia</Typography>
-                      <Typography mb={1} variant="body2" color="text.secondary">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        <Typography mb={1} variant="body2" color="text.secondary">
+                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </Typography>
+                        <Typography textAlign={"right"} variant="body2" color="text.secondary">
+                          12 hours ago
                       </Typography>
-                      <Typography textAlign={"right"} variant="body2" color="text.secondary">
-                        12 hours ago
-                      </Typography>
-                    </CardContent>
+                    </Box>
                   </Card>
                 </Grid>
               </Grid>
@@ -167,8 +161,7 @@ export const InicioPage = () => {
               </Grid>
             </Grid>
 
-            {/* Sección de Opiniones con efecto hover */}
-            <Grid item xs={12} sm={4}>
+            <Grid item xs={12} md={4} lg={3}>
               <Box sx={hoverEffectStyles}>
                 <Typography variant="h6">Opiniones</Typography>
                 <Opiniones />

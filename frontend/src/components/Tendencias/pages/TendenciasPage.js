@@ -42,9 +42,9 @@ export const TendenciasPage = () => {
 
       <Grid container spacing={2} style={containerStyles}>
 
-        <Grid item xs={12} lg={12} style={ containerStyles2 }>
+        <Grid item xs={12} md={9} xl={12} style={ containerStyles2 }>
 
-          <Grid item xs={12} md={12} mb={3} pb={5} borderBottom={"1px solid #ddd"}>
+          <Grid item xs={12} md={12} xl={12} mb={3} pb={5} borderBottom={"1px solid #ddd"}>
             <Typography variant="h6" textAlign={'center'} mb={3}>
               Automovilismo
             </Typography>
@@ -198,10 +198,10 @@ export const TendenciasPage = () => {
               <Grid item xs={12}>
                 <Card sx={cardStyles}>
                   <CardMedia
-                    sx={{ flex: 1 }}
+                    sx={{ flex: 1, height: "12rem", width: "12rem" }}
                     component="img"
                     height="200rem"
-                    image="https://via.placeholder.com/200"
+                    image="https://www.jornada.com.mx/ndjsimg/images/jornada/jornadaimg/consolida-planes-de-educacion-y-salud-el-presupuesto-de-2024-8384/consolida-planes-de-educacion-y-salud-el-presupuesto-de-2024-8384html-escuelajpeg-6361html-cd10aec4-7b5f-40fa-9847-488f87e41748.jpegrawimage=true"
                     alt="Clima noticia 1"
                   />
                   <CardContent
@@ -220,10 +220,10 @@ export const TendenciasPage = () => {
               <Grid item xs={12}>
                 <Card sx={cardStyles}>
                   <CardMedia
-                    sx={{ flex: 1 }}
+                    sx={{ flex: 1, height: "12rem", width: "12rem" }}
                     component="img"
                     height="200rem"
-                    image="https://via.placeholder.com/200"
+                    image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwc5SQGM1XBLCFyt9CiKIqjQ9LptEol9yysNdxC1-P9-yKYQ_dqw8TRk4qywjK3eic0U0&usqp=CAU"
                     alt="Clima noticia 2"
                   />
                   <CardContent
@@ -250,10 +250,10 @@ export const TendenciasPage = () => {
               <Grid item xs={12}>
                 <Card sx={cardStyles}>
                   <CardMedia
-                    sx={{ flex: 1 }}
+                    sx={{ flex: 1, height: "12rem", width: "12rem" }}
                     component="img"
                     height="200rem"
-                    image="https://via.placeholder.com/200"
+                    image="https://e00-marca.uecdn.es/assets/multimedia/imagenes/2024/03/01/17093055298971.jpg"
                     alt="Clima noticia 1"
                   />
                   <CardContent
@@ -272,10 +272,10 @@ export const TendenciasPage = () => {
               <Grid item xs={12}>
                 <Card sx={cardStyles}>
                   <CardMedia
-                    sx={{ flex: 1 }}
+                    sx={{ flex: 1, height: "12rem", width: "12rem" }}
                     component="img"
                     height="200rem"
-                    image="https://via.placeholder.com/200"
+                    image="https://people.com/thmb/H7hhnpADs_4sA2FMSbZtNk80G20=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc():focal(714x207:716x209)/cillian-murphy-best-actor-oscars-los-angeles-031024_2052-c62787a332ba459fbba65b934abfb7eb.jpg"
                     alt="Clima noticia 2"
                   />
                   <CardContent
@@ -296,7 +296,7 @@ export const TendenciasPage = () => {
 
         </Grid>
 
-        <Grid item xs={12} md={4}>
+        <Grid item xs={12} sm={4} md={3} xl={12}>
           <Typography variant="h6">Opiniones</Typography>
           <Opiniones />
         </Grid>

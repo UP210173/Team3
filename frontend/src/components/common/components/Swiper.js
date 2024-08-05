@@ -22,20 +22,23 @@ export const SwiperCom = () => {
       autoplay={true}
       loop={true}
       spaceBetween={20}
-      slidesPerView={3}
       navigation
       pagination={{ clickable: true }}
       breakpoints={{
-        '@0.00': {
+        '480': {
           slidesPerView: 1,
           spaceBetween: 10,
         },
-        '@0.75': {
+        '768': {
           slidesPerView: 2,
           spaceBetween: 20,
         },
-        '@1.00': {
+        '920': {
           slidesPerView: 3,
+          spaceBetween: 20,
+        },
+        '1024': {
+          slidesPerView: 4,
           spaceBetween: 40,
         },
       }}
