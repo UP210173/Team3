@@ -17,7 +17,7 @@ const LocationProvider = ({ onLocationObtained, onError }) => {
     } else {
       onError('Geolocation is not supported by this browser');
     }
-  }, [onLocationObtained, onError]);
+  }, []);
 
   return null; // Este componente no necesita renderizar nada
 };
