@@ -386,7 +386,7 @@ img {
   }
 
   .new-notice-form {
-    width: 800px;
+    width: 100%;
     flex-direction: column;
   }
 }

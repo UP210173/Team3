@@ -19,7 +19,7 @@ export const Aside = () => {
   const { asideMenu: { isOpen }, closeAsideMenu } = useUI();
   const { goToPage } = useNav();
   const asideRef = useRef();
-  const { status } = useAuth();
+  const { status, logoutUser } = useAuth();
 
   useEffect(() => {
     if ( isOpen ) {
@@ -108,7 +108,10 @@ export const Aside = () => {
                   </Box>            
                 </ListItem>
                 <ListItem>
-                  <Box onClick={ () => setSelectedPage("/nueva-noticia")} sx={{ display: "flex", justifyContent: "center", width: "100%", marginBottom: "20px",cursor: "pointer", backgroundColor: "#1874d0", padding:"10px", borderRadius: "8px" }}>
+                  <Box onClick={ () => {
+                    logoutUser();
+                    setSelectedPage("/")
+                  }} sx={{ display: "flex", justifyContent: "center", width: "100%", marginBottom: "20px",cursor: "pointer", backgroundColor: "#1874d0", padding:"10px", borderRadius: "8px" }}>
                     <Typography color="#fff" textAlign={"center"}>Salir</Typography>
                   </Box>            
                 </ListItem>
