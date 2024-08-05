@@ -71,7 +71,7 @@ export const Header = () => {
             className="header-buttons"
           >
             <Box
-              width={'fit-content'}
+              width={'400px'}
               component="div"
               sx={{
                 display: 'flex',
@@ -82,9 +82,14 @@ export const Header = () => {
               <Typography mb={1} className="photo-circle" variant="h6">
                 D
               </Typography>
-              <Link to="/nueva-noticia">
-                <Button variant="contained">Agregar Noticia</Button>
-              </Link>
+              <Box display={"flex"}>
+                <Link to="/nueva-noticia">
+                  <Button variant="contained">Agregar Noticia</Button>
+                </Link>
+                <Link to="/lista-noticias">
+                  <Button variant="contained">Noticias</Button>
+                </Link>
+              </Box>
             </Box>
           </Box>
         ) : (
