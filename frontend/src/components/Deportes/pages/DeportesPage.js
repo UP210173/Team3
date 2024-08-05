@@ -80,7 +80,7 @@ export const DeportesPage = () => {
 
   return (
     <LayoutCMS>
-      <Grid item xs={12} md={9} marginTop={'3rem'}>
+      <Grid item xs={12} md={12} lg={9} className='deportes-top'>
         <Grid container spacing={2}>
           <Grid item xs={12} sm={6} md={3}>
             <Card sx={cardStyle}>
@@ -159,10 +159,10 @@ export const DeportesPage = () => {
         </Grid>
       </Grid>
 
-      <Grid container spacing={2} display={'flex'} marginTop={"80px"}>
-        <Grid item xs={12} sm={8} md={9} borderTop={"1px solid #aaa"} padding={"30px 0"}>
+      <Grid container spacing={2} display={'flex'} className='deportes-center'>
+        <Grid item xs={12} lg={9} md={9} borderTop={"1px solid #aaa"} padding={"30px 0"}>
           <Grid item xs={12}>
-            <Typography variant="h6" style={{ marginTop: 20 }}>
+            <Typography mb={2} variant="h6" fontWeight={"bold"} style={{ marginTop: 20 }}>
               Videos, Relatos, Blogposts
             </Typography>
             <Card>
@@ -247,7 +247,7 @@ export const DeportesPage = () => {
             </Card>
           </Grid>
           <Grid item xs={12} marginTop={"50px"}>
-            <Typography variant="h6" style={{ marginTop: 20 }}>
+            <Typography variant="h6" fontWeight={"700"} mb={2} style={{ marginTop: 20 }}>
               Tabla de Posiciones
             </Typography>
             <Card>
@@ -261,10 +261,10 @@ export const DeportesPage = () => {
                 <Tab label="NBA" />
                 <Tab label="MLB" />
               </Tabs>
-              <CardContent>
+              <CardContent className='deportes-table'>
                 <FormControl
                   variant="outlined"
-                  style={{ marginBottom: 20, minWidth: 180 }} // Ajustar el tamaño del cuadro de selección
+                  className='deportes-select'
                 >
                   <InputLabel id="visible-teams-label">
                     Equipos a mostrar
@@ -285,7 +285,7 @@ export const DeportesPage = () => {
                 </FormControl>
 
                 {/* Tab de la NBA */}
-                <Fade in={standingsTabValue === 0} timeout={500}>
+                <Box style={{ marginTop: "30px"}} in={standingsTabValue === 0} timeout={500}>
                   <Box display={standingsTabValue === 0 ? 'block' : 'none'}>
                     <NbaStandingsTable
                       nbaStandings={nbaStandings}
@@ -296,10 +296,10 @@ export const DeportesPage = () => {
                       }
                     />
                   </Box>
-                </Fade>
+                </Box>
 
                 {/* Tab de la MLB */}
-                <Fade in={standingsTabValue === 1} timeout={500}>
+                <Box style={{ marginTop: "30px"}} in={standingsTabValue === 1} timeout={500}>
                   <Box display={standingsTabValue === 1 ? 'block' : 'none'}>
                     <MlbStandingsTable
                       mlbStandings={mlbStandings}
@@ -310,12 +310,12 @@ export const DeportesPage = () => {
                       }
                     />
                   </Box>
-                </Fade>
+                </Box>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
-        <Grid item xs={12} sm={4} md={3}>
+        <Grid item xs={12} lg={3}>
           <Typography variant="h6">Opiniones</Typography>
           <Opiniones />
         </Grid>

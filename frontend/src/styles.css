@@ -197,12 +197,98 @@ img {
   height: 100%;
 }
 
-@media ( max-width: 480px ) {
+@media ( max-width: 768px ) {
   .inicio-card {
     flex-direction: column;
   }
 
   .inicio-card-image {
+    height: 15rem;
     width: 100%;
+  }
+}
+
+.tendencias-grid {
+  grid-template-columns: 3fr 1fr;
+}
+
+.tendencias-section {
+  grid-template-columns: 1fr 1fr;
+}
+
+.tendencias-card {
+  display: flex;
+}
+
+.tendencias-card-last {
+  height: 15rem;
+}
+
+.tendencias-last-image {
+  height: 100%;
+  width: 15rem;
+  margin-right: 1rem;
+}
+
+.last-text {
+  display: grid;
+  padding: 1rem;
+  place-content: center;
+}
+
+
+@media ( max-width: 768px ) {
+  .tendencias-grid {
+    padding: 0;
+    grid-template-columns: 1fr;
+  }
+  
+  .tendencias-section {
+    width: 100%;
+    grid-template-columns: 1fr;
+  }
+
+  .tendencias-card-last {
+    flex-direction: column;
+    height: fit-content;
+  }
+
+  .last-text {
+  }
+
+  .tendencias-last-image {
+    width: 100%;
+    height: 15rem;
+  }
+}
+
+.deportes-top {
+  padding: 30px 0;
+}
+
+.deportes-center {
+  padding: 80px 0;
+}
+
+.deportes-select {
+  width: 50%;
+}
+
+.deportes-row {
+  font-size: 12px !important;
+  font-weight: 900 !important;
+}
+
+@media ( max-width: 768px ) {
+  .deportes-top {
+    padding: 0;
+  }
+
+  .deportes-select {
+    width: 100%;
+  }
+
+  .deportes-table {
+    overflow-x: scroll;
   }
 }
