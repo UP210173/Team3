@@ -18,6 +18,7 @@ import { LocalizationProvider, StaticDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
 import ProgressSidebar from "./ProgressSidebar";
+import { Header } from "../../common/components/Header";
 
 export const NewNoticePage = () => {
   const [title, setTitle] = useState("");
@@ -104,16 +105,10 @@ export const NewNoticePage = () => {
 
   return (
     <div>
-      <AppBar position="static">
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            CMS UPA
-          </Typography>
-        </Toolbar>
-      </AppBar>
+      <Header />
       <Container>
         <Grid container spacing={2} style={{ marginTop: 20 }}>
-          <Grid item xs={3}>
+          <Grid className={"new-notice-progress"} item xs={3}>
             <ProgressSidebar
               title={title}
               date={date}
@@ -122,7 +117,7 @@ export const NewNoticePage = () => {
               content={content}
             />
           </Grid>
-          <Grid item xs={9}>
+          <Grid item xs={12} md={9} className="new-notice-container">
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <Paper
@@ -184,7 +179,7 @@ export const NewNoticePage = () => {
                   onChange={(e) => setContent(e.target.value)}
                   margin="normal"
                 />
-                <Grid container spacing={2}>
+                <Box container spacing={2} className="new-notice-form">
                   <Grid item xs={6}>
                     <TextField
                       fullWidth
@@ -233,7 +228,7 @@ export const NewNoticePage = () => {
                       />
                     )}
                   </Grid>
-                </Grid>
+                </Box>
                 <FormControl fullWidth margin="normal" sx={{ marginTop: 2 }}>
                   <InputLabel>Categoría</InputLabel>
                   <Select

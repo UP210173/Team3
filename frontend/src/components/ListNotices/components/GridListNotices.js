@@ -1,37 +1,43 @@
 import React from "react";
-import { IconButton, List, ListItem, Box, Typography, Card, CardMedia, CardContent } from "@mui/material"
+import { Card, CardContent, CardMedia, Typography, CardActionArea, Box, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
 export const GridListNotices = ({ notices }) => {
+
     return (
-        <List>
+        <Box>
             {
                 notices.map( notice => (
-                    <Card key={notice.id} display={"flex"}>
-                            <CardMedia 
-                                component={"div"}
-                                image={ notice.img }
-                                alt={ notice.title }
-                                height={200}
-                            />
-                            <CardContent>
-                                <Box p={3} component={"div"}>
-                                    <Box display={"flex"} justifyContent={"space-between"} alignItems={"center"} mb={1}>
-                                        <Typography fontWeight={"bold"} variant="h5" component="h2">{notice.title}</Typography>
-                                        <Typography variant="author" component="cite">{notice.author}</Typography>
-                                    </Box>
-                                    <Typography mb={2} variant="body2" component="p">{notice.body}</Typography>
-                                    <Typography textAlign={"right"} variant="caption" component="p">{notice.date}</Typography>
+                    <Card key={ notice.id } mb={5} className={ "news-card" }>
+                        <CardMedia
+                            className={"news-card-image"}
+                            image={ notice.img }
+                            title={ notice.title }
+                            height={200}
+                        />
+                        <CardActionArea>
+                            <CardContent className={"news-card-content"}>
+                                <Box mb={2} display={"flex"} alignItems={"center"} justifyContent={"space-between"}>
+                                    <Typography component="h5" variant="h5">
+                                        { notice.title }
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        { notice.author }
+                                    </Typography>
                                 </Box>
-                                <Box p={2} component="div" display={"flex"}>
-                                    <IconButton><DeleteIcon></DeleteIcon></IconButton>
-                                    <IconButton><EditIcon></EditIcon></IconButton>
+                                <Typography variant="body2" color="textSecondary" component="p">
+                                    { notice.body }
+                                </Typography>
+                                <Box mb={2} display={"flex"} alignItems={"center"} justifyContent={"flex-end"}>
+                                    <IconButton><DeleteIcon/></IconButton>
+                                    <IconButton><EditIcon /></IconButton>
                                 </Box>
                             </CardContent>
+                        </CardActionArea>
                     </Card>
                 ))
             }
-        </List>
+        </Box>
     )
 }
