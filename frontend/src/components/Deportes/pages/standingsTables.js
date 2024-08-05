@@ -28,7 +28,7 @@ export const NbaStandingsTable = ({ nbaStandings, visibleTeams }) => {
   const [hoveredRow, setHoveredRow] = useState(null); // Estado para manejar el hover
 
   return (
-    <Paper sx={{ width: "60rem"}}>
+    <Paper sx={{ width: "65rem"}}>
       <Table>
         <TableHead>
           <TableRow>
@@ -78,7 +78,7 @@ export const MlbStandingsTable = ({ mlbStandings, visibleTeams }) => {
   const [hoveredRow, setHoveredRow] = useState(null); // Estado para manejar el hover
 
   return (
-    <Paper sx={{ width: "60rem"}}>
+    <Paper sx={{ width: "65rem"}}>
       <Table>
         <TableHead>
           <TableRow>

@@ -292,3 +292,54 @@ img {
     overflow-x: scroll;
   }
 }
+
+.politica {
+  padding-top: 30px;
+}
+
+.politica-hero {
+  background-image: url(./assets/img/politica-hero.webp);
+  background-position: center;
+  height: 28rem;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: all .4s ease;
+}
+
+.politica-hero:hover .politica-hero-content {
+  transform: scale(1.1);
+}
+
+.politica-hero-content {
+  transition: all .4s ease;
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 40%;
+  font-family: sans-serif;
+  font-weight: 700;
+  text-align: right;
+  color: #fff;
+  font-size: 14px;
+  z-index: 9;
+}
+
+.politica-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .3);
+}
+
+@media ( max-width: 768px ) {
+  .politica-hero {
+    background-position: 70%;
+  }
+
+  .politica-hero-content {
+    width: 80%;
+  }
+}

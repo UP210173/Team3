@@ -85,7 +85,6 @@ export const ClimaPage = () => {
 
   useEffect(() => {
     const interval = setInterval(updateTimeRemaining, 1000);
-
     return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonte
   }, []);
 
