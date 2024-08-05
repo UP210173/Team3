@@ -8,69 +8,19 @@ import {
   Link as MuiLink,
   Divider,
   Box,
-  LinearProgress
 } from '@mui/material';
 import { LayoutCMS } from '../../common';
 import Opiniones from '../../../components/common/components/Opiniones';
 import { fetchWeatherData } from '../../Clima/pages/weatherApi';
-import LocationProvider from '../../Clima/pages/LocationProvider'; // Importa el componente de ubicación
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  BarChart,
-  Bar
-} from 'recharts'; // Importa los componentes necesarios de recharts
-import Slider from 'react-slick'; // Importa el componente Slider de react-slick
-
-// Importa los estilos de slick-carousel
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
+import LocationProvider from '../../Clima/pages/LocationProvider';
 
 export const ClimaPage = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [hourlyData, setHourlyData] = useState([]); // Estado para guardar los datos horarios
-
-  useEffect(() => {
-    // Simula la obtención de datos horarios (esto se reemplazará por datos reales de la API)
-    const simulatedHourlyData = [
-      { time: '00:00', temperature: 22, humidity: 78, windSpeed: 3 },
-      { time: '01:00', temperature: 21, humidity: 80, windSpeed: 2 },
-      { time: '02:00', temperature: 20, humidity: 82, windSpeed: 2 },
-      { time: '03:00', temperature: 19, humidity: 85, windSpeed: 2 },
-      { time: '04:00', temperature: 18, humidity: 88, windSpeed: 1 },
-      { time: '05:00', temperature: 17, humidity: 90, windSpeed: 1 },
-      { time: '06:00', temperature: 18, humidity: 88, windSpeed: 1 },
-      { time: '07:00', temperature: 19, humidity: 85, windSpeed: 1 },
-      { time: '08:00', temperature: 21, humidity: 82, windSpeed: 2 },
-      { time: '09:00', temperature: 24, humidity: 78, windSpeed: 3 },
-      { time: '10:00', temperature: 26, humidity: 75, windSpeed: 4 },
-      { time: '11:00', temperature: 28, humidity: 72, windSpeed: 4 },
-      { time: '12:00', temperature: 29, humidity: 70, windSpeed: 5 },
-      { time: '13:00', temperature: 30, humidity: 68, windSpeed: 5 },
-      { time: '14:00', temperature: 32, humidity: 65, windSpeed: 6 },
-      { time: '15:00', temperature: 33, humidity: 63, windSpeed: 6 },
-      { time: '16:00', temperature: 32, humidity: 65, windSpeed: 5 },
-      { time: '17:00', temperature: 31, humidity: 68, windSpeed: 4 },
-      { time: '18:00', temperature: 29, humidity: 72, windSpeed: 3 },
-      { time: '19:00', temperature: 27, humidity: 75, windSpeed: 3 },
-      { time: '20:00', temperature: 25, humidity: 78, windSpeed: 2 },
-      { time: '21:00', temperature: 24, humidity: 80, windSpeed: 2 },
-      { time: '22:00', temperature: 23, humidity: 82, windSpeed: 2 },
-      { time: '23:00', temperature: 22, humidity: 85, windSpeed: 2 },
-    ];
-
-    setHourlyData(simulatedHourlyData);
-  }, []); // Este efecto se ejecuta al cargar el componente
+  const [timeRemaining, setTimeRemaining] = useState('');
 
   const handleLocationObtained = ({ latitude, longitude }) => {
-    // Usa la función fetchWeatherData para obtener los datos del clima
     fetchWeatherData(latitude, longitude)
       .then(data => {
         console.log(data); // Verifica la respuesta de la API
@@ -99,24 +49,45 @@ export const ClimaPage = () => {
     return `https://openweathermap.org/img/wn/${icon}@2x.png`;
   };
 
-  const calculateProgress = (temperature) => {
-    // Definir el rango de temperatura
-    const minTemp = -10; // Temperatura mínima esperada
-    const maxTemp = 50;  // Temperatura máxima esperada
-
-    // Calcular el porcentaje de la barra de progreso
-    return ((temperature - minTemp) / (maxTemp - minTemp)) * 100;
+  const translateWeatherDescription = (description) => {
+    const translations = {
+      "clear sky": "CIELO DESPEJADO",
+      "few clouds": "POCAS NUBES",
+      "scattered clouds": "NUBES DISPERSAS",
+      "broken clouds": "NUBES ROTAS",
+      "overcast clouds": "NUBLADO",
+      "shower rain": "LLUVIA DE CHUBASCOS",
+      "rain": "LLUVIA",
+      "thunderstorm": "TORMENTA",
+      "snow": "NIEVE",
+      "mist": "NIEBLA",
+      "light rain": "LLUVIA LIGERA",
+      "moderate rain": "LLUVIA MODERADA",
+      "heavy intensity rain": "LLUVIA INTENSA",
+      "very heavy rain": "LLUVIA MUY INTENSA",
+      "extreme rain": "LLUVIA EXTREMA",
+    };
+    return translations[description.toLowerCase()] || description.toUpperCase();
   };
 
-  const settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    arrows: true,
-    adaptiveHeight: true,
+  const updateTimeRemaining = () => {
+    const now = new Date();
+    const endOfDay = new Date(now);
+    endOfDay.setHours(23, 59, 59, 999);
+    const timeDiff = endOfDay - now;
+
+    const hours = Math.floor(timeDiff / (1000 * 60 * 60));
+    const minutes = Math.floor((timeDiff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeDiff % (1000 * 60)) / 1000);
+
+    setTimeRemaining(`${hours}h ${minutes}m ${seconds}s`);
   };
+
+  useEffect(() => {
+    const interval = setInterval(updateTimeRemaining, 1000);
+
+    return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonte
+  }, []);
 
   return (
     <LayoutCMS>
@@ -245,75 +216,30 @@ export const ClimaPage = () => {
         </Grid>
 
         <Grid item xs={12} md={4}>
-          {/* Carrusel que incluye clima actual y gráficos */}
+          {/* Contenedor del clima actual */}
           <Card sx={hoverEffectStyles}>
             <CardContent>
-              <Slider {...settings}>
-                {/* Contenedor del clima actual */}
-                <div>
-                  {loading ? (
-                    <Typography variant="body2" align="center">Cargando datos del clima...</Typography>
-                  ) : error ? (
-                    <Typography variant="body2" align="center" color="error">{error}</Typography>
-                  ) : (
-                    <Box display="flex" flexDirection="column" alignItems="center">
-                      <Typography variant="h6" align="center">Clima Actual</Typography>
-                      <Divider style={{ marginBottom: 10 }} />
-                      <img src={getWeatherIcon(weatherData.weather[0].icon)} alt="Weather Icon" width={80} style={{ marginBottom: 10 }} />
-                      <Typography variant="h4" color="primary" gutterBottom>{weatherData.name}</Typography>
-                      <Typography variant="h5" gutterBottom>{`${Math.round(weatherData.main.temp)} °C`}</Typography>
-                      <Typography variant="body1" color="textSecondary" gutterBottom>{weatherData.weather[0].description.toUpperCase()}</Typography>
-                      <Typography variant="body2" color="textSecondary">{`Viento: ${Math.round(weatherData.wind.speed)} m/s`}</Typography>
-                      {/* Barra de progreso de temperatura */}
-                      <Box width="100%" mt={2}>
-                        <LinearProgress variant="determinate" value={calculateProgress(weatherData.main.temp)} />
-                      </Box>
-                    </Box>
-                  )}
-                </div>
-
-                {/* Gráfico de temperatura por hora */}
-                <div>
-                  <Typography variant="h6" align="center">Temperatura por Hora</Typography>
-                  <ResponsiveContainer width="100%" height={300}>
-                    <LineChart data={hourlyData}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="time" />
-                      <YAxis />
-                      <Tooltip />
-                      <Line type="monotone" dataKey="temperature" stroke="#8884d8" activeDot={{ r: 8 }} />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-
-                {/* Gráfico de humedad por hora */}
-                <div>
-                  <Typography variant="h6" align="center">Humedad por Hora</Typography>
-                  <ResponsiveContainer width="100%" height={300}>
-                    <BarChart data={hourlyData}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="time" />
-                      <YAxis />
-                      <Tooltip />
-                      <Bar dataKey="humidity" fill="#82ca9d" />
-                    </BarChart>
-                  </ResponsiveContainer>
-                </div>
-
-                {/* Gráfico de velocidad del viento por hora */}
-                <div>
-                  <Typography variant="h6" align="center">Velocidad del Viento por Hora</Typography>
-                  <ResponsiveContainer width="100%" height={300}>
-                    <LineChart data={hourlyData}>
-                      <CartesianGrid strokeDasharray="3 3" />
-                      <XAxis dataKey="time" />
-                      <YAxis />
-                      <Tooltip />
-                      <Line type="monotone" dataKey="windSpeed" stroke="#ffc658" activeDot={{ r: 8 }} />
-                    </LineChart>
-                  </ResponsiveContainer>
-                </div>
-              </Slider>
+              {loading ? (
+                <Typography variant="body2" align="center">Cargando datos del clima...</Typography>
+              ) : error ? (
+                <Typography variant="body2" align="center" color="error">{error}</Typography>
+              ) : (
+                <Box display="flex" flexDirection="column" alignItems="center">
+                  <Typography variant="h6" align="center">Clima Actual</Typography>
+                  <Divider style={{ marginBottom: 10 }} />
+                  <img src={getWeatherIcon(weatherData.weather[0].icon)} alt="Weather Icon" width={80} style={{ marginBottom: 10 }} />
+                  <Typography variant="h4" color="primary" gutterBottom>{weatherData.name}</Typography>
+                  <Typography variant="h5" gutterBottom>{`${Math.round(weatherData.main.temp)} °C`}</Typography>
+                  <Typography variant="body1" color="textSecondary" gutterBottom>
+                    {translateWeatherDescription(weatherData.weather[0].description)}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary">{`Viento: ${Math.round(weatherData.wind.speed)} m/s`}</Typography>
+                  {/* Contador hasta el fin del día */}
+                  <Typography variant="body2" color="textSecondary" align="center" style={{ marginTop: 10 }}>
+                    {`Tiempo restante del día: ${timeRemaining}`}
+                  </Typography>
+                </Box>
+              )}
             </CardContent>
           </Card>
 
