@@ -28,17 +28,17 @@ export const NbaStandingsTable = ({ nbaStandings, visibleTeams }) => {
   const [hoveredRow, setHoveredRow] = useState(null); // Estado para manejar el hover
 
   return (
-    <Paper>
+    <Paper sx={{ width: "60rem"}}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Posición</TableCell>
-            <TableCell>Equipo</TableCell>
-            <TableCell>Partidos Jugados</TableCell>
-            <TableCell>Ganados</TableCell>
-            <TableCell>Perdidos</TableCell>
-            <TableCell>Porcentaje de Victorias</TableCell>
-            <TableCell>Estado</TableCell>
+            <TableCell className="deportes-row">Posición</TableCell>
+            <TableCell className="deportes-row">Equipo</TableCell>
+            <TableCell className="deportes-row">Partidos Jugados</TableCell>
+            <TableCell className="deportes-row">Ganados</TableCell>
+            <TableCell className="deportes-row">Perdidos</TableCell>
+            <TableCell className="deportes-row">Porcentaje de Victorias</TableCell>
+            <TableCell className="deportes-row">Estado</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -78,18 +78,18 @@ export const MlbStandingsTable = ({ mlbStandings, visibleTeams }) => {
   const [hoveredRow, setHoveredRow] = useState(null); // Estado para manejar el hover
 
   return (
-    <Paper>
+    <Paper sx={{ width: "60rem"}}>
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Posición</TableCell>
-            <TableCell>Equipo</TableCell>
-            <TableCell>Partidos Jugados</TableCell>
-            <TableCell>Ganados</TableCell>
-            <TableCell>Perdidos</TableCell>
-            <TableCell>Victorias en Casa</TableCell>
-            <TableCell>Derrotas en Casa</TableCell>
-            <TableCell>Estado</TableCell>
+            <TableCell className="deportes-row">Posición</TableCell>
+            <TableCell className="deportes-row">Equipo</TableCell>
+            <TableCell className="deportes-row">Partidos Jugados</TableCell>
+            <TableCell className="deportes-row">Ganados</TableCell>
+            <TableCell className="deportes-row">Perdidos</TableCell>
+            <TableCell className="deportes-row">Victorias en Casa</TableCell>
+            <TableCell className="deportes-row">Derrotas en Casa</TableCell>
+            <TableCell className="deportes-row">Estado</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>

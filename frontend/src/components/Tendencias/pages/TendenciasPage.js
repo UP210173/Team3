@@ -7,31 +7,19 @@ import {
   CardMedia,
   Button,
   Divider,
+  Box,
 } from '@mui/material';
 import { LayoutCMS } from '../../common';
 
 import { SwiperCom } from '../../common/components/Swiper';
 import Opiniones from '../../../components/common/components/Opiniones';
 
-const cardStyles = {
-  display: 'flex',
-  transition: 'transform 0.3s ease-in-out',
-  '&:hover': {
-    transform: 'scale(1.05)',
-  },
-};
-
 const containerStyles = {
-  display: 'grid',
-  gridTemplateColumns: '3fr 1fr',
   marginBottom: '2rem',
 };
 
 const containerStyles2 = {
-  padding: "2rem 1rem 2rem 0",
   borderTop: "1px solid #ddd",
-  display: "grid",
-  gridTemplateColumns: "1fr 1fr",
   gap: "1rem",
 }
 
@@ -40,9 +28,9 @@ export const TendenciasPage = () => {
     <LayoutCMS>
       <SwiperCom />
 
-      <Grid container spacing={2} style={containerStyles}>
+      <Grid container spacing={2} display={"grid"} className='tendencias-grid'>
 
-        <Grid item xs={12} md={9} xl={12} style={ containerStyles2 }>
+        <Grid className='tendencias-section' display={"grid"} item xs={12} style={ containerStyles2 }>
 
           <Grid item xs={12} md={12} xl={12} mb={3} pb={5} borderBottom={"1px solid #ddd"}>
             <Typography variant="h6" textAlign={'center'} mb={3}>
@@ -50,7 +38,7 @@ export const TendenciasPage = () => {
             </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} mb={2}>
-                <Card sx={cardStyles}>
+                <Card className='tendencias-card'>
                   <CardMedia
                     sx={{ flex: 1, height:"10rem", width: "9.5rem" }}
                     component="img"
@@ -71,7 +59,7 @@ export const TendenciasPage = () => {
               </Grid>
 
               <Grid item xs={12} mb={2}>
-                <Card sx={cardStyles}>
+                <Card className='tendencias-card'>
                   <CardMedia
                     sx={{ flex: 1, height:"10rem", width: "9.5rem" }}
                     component="img"
@@ -92,16 +80,13 @@ export const TendenciasPage = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <Card sx={cardStyles}>
-                  <CardMedia
-                    component="img"
-                    sx={{ flex: 1, height: "16rem", width: "16rem" }}
-                    image="https://static.thairath.co.th/media/dFQROr7oWzulq5Fa5KwJdxgQljUhdAthYxiUWOmRBxP7LmOne0a82jxBbhuanKEIFdo.jpg"
+                <Card className='tendencias-card tendencias-card-last'>
+                  <img
+                    className="tendencias-last-image"
+                    src="https://static.thairath.co.th/media/dFQROr7oWzulq5Fa5KwJdxgQljUhdAthYxiUWOmRBxP7LmOne0a82jxBbhuanKEIFdo.jpg"
                     alt="Clima noticia grande"
                   />
-                  <CardContent
-                    sx={{ flex: 2, display: 'grid', placeContent: 'center', alignContent: 'center' }}
-                  >
+                  <Box className="last-text">
                     <Typography mb={4} variant="body2" color="text.secondary">
                       Aute fugiat laboris pariatur ea non laboris veniam velit
                       enim labore exercitation ea. Anim minim quis qui minim
@@ -111,7 +96,7 @@ export const TendenciasPage = () => {
                     <Button variant="outlined" size="small">
                       Conoce más
                     </Button>
-                  </CardContent>
+                  </Box>
                 </Card>
               </Grid>
             </Grid>
@@ -123,7 +108,7 @@ export const TendenciasPage = () => {
             </Typography>
             <Grid container spacing={2}>
               <Grid item xs={12} mb={2}>
-                <Card sx={cardStyles}>
+                <Card className='tendencias-card'>
                   <CardMedia
                     sx={{ flex: 1, height:"10rem", width: "9.5rem" }}
                     component="img"
@@ -144,7 +129,7 @@ export const TendenciasPage = () => {
               </Grid>
 
               <Grid item xs={12} mb={2}>
-                <Card sx={cardStyles}>
+                <Card className='tendencias-card'>
                   <CardMedia
                     sx={{ flex: 1, height:"10rem", width: "9.5rem" }}
                     component="img"
@@ -165,16 +150,13 @@ export const TendenciasPage = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <Card sx={cardStyles}>
-                  <CardMedia
-                    component="img"
-                    sx={{ flex: 1, height: "16rem", width: "16rem" }}
-                    image="https://www.ole.com.ar/images/2024/03/14/qwKoOeQZM_660x385__1.jpg"
+                <Card className='tendencias-card tendencias-card-last'>
+                  <img
+                    className="tendencias-last-image"
+                    src="https://www.ole.com.ar/images/2024/03/14/qwKoOeQZM_660x385__1.jpg"
                     alt="Clima noticia grande"
                   />
-                  <CardContent
-                    sx={{ flex: 2, display: 'grid', placeContent: 'center' }}
-                  >
+                  <Box className="last-text">
                     <Typography mb={4} variant="body2" color="text.secondary">
                       Aute fugiat laboris pariatur ea non laboris veniam velit
                       enim labore exercitation ea. Anim minim quis qui minim
@@ -184,7 +166,7 @@ export const TendenciasPage = () => {
                     <Button variant="outlined" size="small">
                       Conoce más
                     </Button>
-                  </CardContent>
+                  </Box>
                 </Card>
               </Grid>
             </Grid>
@@ -196,7 +178,7 @@ export const TendenciasPage = () => {
             </Typography>
             <Grid container spacing={2} mb={2}>
               <Grid item xs={12}>
-                <Card sx={cardStyles}>
+                <Card className='tendencias-card'>
                   <CardMedia
                     sx={{ flex: 1, height: "12rem", width: "12rem" }}
                     component="img"
@@ -218,7 +200,7 @@ export const TendenciasPage = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <Card sx={cardStyles}>
+                <Card className='tendencias-card'>
                   <CardMedia
                     sx={{ flex: 1, height: "12rem", width: "12rem" }}
                     component="img"
@@ -248,7 +230,7 @@ export const TendenciasPage = () => {
             </Typography>
             <Grid container spacing={2} mb={2}>
               <Grid item xs={12}>
-                <Card sx={cardStyles}>
+                <Card className='tendencias-card'>
                   <CardMedia
                     sx={{ flex: 1, height: "12rem", width: "12rem" }}
                     component="img"
@@ -270,7 +252,7 @@ export const TendenciasPage = () => {
               </Grid>
 
               <Grid item xs={12}>
-                <Card sx={cardStyles}>
+                <Card className='tendencias-card'>
                   <CardMedia
                     sx={{ flex: 1, height: "12rem", width: "12rem" }}
                     component="img"
@@ -296,7 +278,7 @@ export const TendenciasPage = () => {
 
         </Grid>
 
-        <Grid item xs={12} sm={4} md={3} xl={12}>
+        <Grid item xs={12}>
           <Typography variant="h6">Opiniones</Typography>
           <Opiniones />
         </Grid>
