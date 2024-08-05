@@ -11,9 +11,9 @@ export const LayoutCMS = ({ children }) => {
 
         <Container maxWidth="xl">
           { children }
-          <Footer />
         </Container>
-
+        
+        <Footer />
       </>
   )
 }
