@@ -9,6 +9,7 @@ import { TendenciasPage } from './components/Tendencias/pages/TendenciasPage'
 import { EntretenimientoPage } from './components/Entretenimiento/pages/EntretenimientoPage';
 import { NewNoticePage } from './components/NewNotice/pages/NewNoticePage';
 import { ListNoticies } from './components/ListNotices/page/ListNoticies';
+import { NoticePage } from './components/Noticie/pages/NoticePage';
 import { Aside } from './components/common';
 
 export const RouterApp = () => {
@@ -26,6 +27,7 @@ export const RouterApp = () => {
             <Route path='tendencias' element={ <TendenciasPage /> } />
             <Route path='nueva-noticia' element={ <NewNoticePage /> } />
             <Route path='lista-noticias' element={ <ListNoticies /> } />
+            <Route path='noticia/:id' element={ <NoticePage /> } />
           </Routes>
         </div>
         <Aside />

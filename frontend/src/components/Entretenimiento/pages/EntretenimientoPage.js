@@ -12,9 +12,11 @@ import {
 import { LayoutCMS } from '../../common';
 import useFetchMovies from './useFetchMovies';
 import Opiniones from '../../../components/common/components/Opiniones';
+import { useNav } from '../../common/hooks/useNavigation';
 
 export const EntretenimientoPage = () => {
-  const { movies, loading, error } = useFetchMovies();
+    const { movies, loading, error } = useFetchMovies();
+
 
   // Función para manejar el click en el botón de ver tráiler
   const handleWatchTrailer = (trailerUrl) => {
@@ -47,18 +49,22 @@ export const EntretenimientoPage = () => {
     e.currentTarget.style.transform = 'scale(1)';
   };
 
+  const { goToPage } = useNav();
+
   return (
     <LayoutCMS>
       <Grid container spacing={4} style={{ marginTop: 20 }}>
         <Grid item xs={12} md={8}>
           {/* Noticias Entretenimiento */}
           <Card
+            onClick={ () => goToPage('/noticia/1') }
+            sx={{ cursor: "pointer"}}
             onMouseEnter={handleNewsMouseEnter}
             onMouseLeave={handleNewsMouseLeave}
           >
             <CardMedia
               component="img"
-              height="240"
+              height="450"
               image="https://www.puromarketing.com/uploads/img/contents/2023/kiYbDK4qFmjt29zc56C3/upload/20230720122846.webp?rand=20230720122846"
               alt="Main news"
             />
@@ -76,7 +82,8 @@ export const EntretenimientoPage = () => {
             Noticias Mundiales
           </Typography>
           <Grid container spacing={2}>
-            <Grid item xs={12} md={6}>
+            <Grid onClick={ () => goToPage('/noticia/1') }
+            sx={{ cursor: "pointer"}} item xs={12} md={6}>
               <Card
                 onMouseEnter={handleNewsMouseEnter}
                 onMouseLeave={handleNewsMouseLeave}
@@ -95,7 +102,8 @@ export const EntretenimientoPage = () => {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={6}>
+            <Grid onClick={ () => goToPage('/noticia/1') }
+            sx={{ cursor: "pointer"}} item xs={12} md={6}>
               <Card
                 onMouseEnter={handleNewsMouseEnter}
                 onMouseLeave={handleNewsMouseLeave}
@@ -114,7 +122,8 @@ export const EntretenimientoPage = () => {
                 </CardContent>
               </Card>
             </Grid>
-            <Grid item xs={12} md={12}>
+            <Grid onClick={ () => goToPage('/noticia/1') }
+            sx={{ cursor: "pointer"}} item xs={12} md={12}>
               <Card
                 onMouseEnter={handleNewsMouseEnter}
                 onMouseLeave={handleNewsMouseLeave}
@@ -190,7 +199,7 @@ export const EntretenimientoPage = () => {
                       <Button
                         variant="contained"
                         color="primary"
-                        onClick={() => handleWatchTrailer(movies[0].trailerUrl)}
+                        onClick={() => {handleWatchTrailer(movies[0].trailerUrl)}}
                         style={{ marginTop: '10px' }}
                         disabled={!movies[0].trailerUrl}
                       >
@@ -242,6 +251,7 @@ export const EntretenimientoPage = () => {
                           onClick={() => handleWatchTrailer(movie.trailerUrl)}
                           style={{ marginTop: '10px' }}
                           disabled={!movie.trailerUrl}
+                          
                         >
                           Ver Tráiler
                         </Button>

@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { useNav } from '../hooks/useNavigation';
 
 const swiperStyles = {
   height: '30rem',
@@ -15,6 +16,9 @@ const swiperStyles = {
 };
 
 export const SwiperCom = () => {
+
+  const { goToPage } = useNav();
+
   return (
     <Swiper
       style={swiperStyles}
@@ -43,8 +47,8 @@ export const SwiperCom = () => {
         },
       }}
     >
-      <SwiperSlide>
-        <Card sx={{ height: '90%' }}>
+      <SwiperSlide onClick={() => goToPage('/noticia/1')}>
+        <Card sx={{ height: '90%', cursor: "pointer"}} >
           <CardMedia
             sx={{ height: '82%' }}
             component="img"
@@ -68,8 +72,8 @@ export const SwiperCom = () => {
           </CardContent>
         </Card>
       </SwiperSlide>
-      <SwiperSlide>
-        <Card sx={{ height: '90%' }}>
+      <SwiperSlide onClick={() => goToPage('/noticia/1')}>
+        <Card sx={{ height: '90%', cursor: "pointer"}} >
           <CardMedia
             sx={{ height: '82%' }}
             component="img"
@@ -95,8 +99,8 @@ export const SwiperCom = () => {
           </CardContent>
         </Card>
       </SwiperSlide>
-      <SwiperSlide>
-        <Card sx={{ height: '90%' }}>
+      <SwiperSlide onClick={() => goToPage('/noticia/1')}>
+        <Card sx={{ height: '90%', cursor: "pointer"}} >
           <CardMedia
             sx={{ height: '82%' }}
             component="img"
@@ -122,8 +126,8 @@ export const SwiperCom = () => {
           </CardContent>
         </Card>
       </SwiperSlide>
-      <SwiperSlide>
-        <Card sx={{ height: '90%' }}>
+      <SwiperSlide onClick={() => goToPage('/noticia/1')}>
+        <Card sx={{ height: '90%', cursor: "pointer"}} >
           <CardMedia
             sx={{ height: '82%' }}
             component="img"
@@ -149,8 +153,8 @@ export const SwiperCom = () => {
           </CardContent>
         </Card>
       </SwiperSlide>
-      <SwiperSlide>
-        <Card sx={{ height: '90%' }}>
+      <SwiperSlide onClick={() => goToPage('/noticia/1')}>
+        <Card sx={{ height: '90%', cursor: "pointer"}} >
           <CardMedia
             sx={{ height: '82%' }}
             component="img"
@@ -176,8 +180,8 @@ export const SwiperCom = () => {
           </CardContent>
         </Card>
       </SwiperSlide>
-      <SwiperSlide>
-        <Card sx={{ height: '90%' }}>
+      <SwiperSlide onClick={() => goToPage('/noticia/1')}>
+        <Card sx={{ height: '90%', cursor: "pointer"}} >
           <CardMedia
             sx={{ height: '82%' }}
             component="img"

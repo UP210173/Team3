@@ -4,12 +4,17 @@ import { Link } from 'react-router-dom';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import { LayoutCMS } from '../../common';
+import { useNav } from '../../common/hooks/useNavigation';
 
 export const PoliticaPage = () => {
+
+  const { goToPage } = useNav();
+
   return (
     <LayoutCMS>
         <Grid container spacing={2} className='politica'>
-          <Grid item xs={12} md={8}>
+          <Grid onClick={ () => goToPage('/noticia/1') }
+            sx={{ cursor: "pointer"}} item xs={12} md={8}>
             <Box className='politica-hero'>
               <Box className='politica-hero-content'>
                 <p variant="h4" component="div">
@@ -27,29 +32,34 @@ export const PoliticaPage = () => {
             <List>
               <ListItem>
                 <ListItemText primary="Checo Pérez con la urgencia de repuntar en el GP de España" secondary="23:30" />
-                <RemoveRedEyeIcon />
+                <RemoveRedEyeIcon onClick={ () => goToPage('/noticia/1') }
+                sx={{ cursor: "pointer"}} />
               </ListItem>
               <Divider />
               <ListItem>
                 <ListItemText primary="Scaloni y jugadores de Argentina se quejan de la cancha tras debut" secondary="23:45" />
-                <RemoveRedEyeIcon />
+                <RemoveRedEyeIcon onClick={ () => goToPage('/noticia/1') }
+                sx={{ cursor: "pointer"}} />
               </ListItem>
               <Divider />
               <ListItem>
                 <ListItemText primary="Julián Quiñones dejó al América luego de un año y tres títulos" secondary="23:54" />
-                <RemoveRedEyeIcon />
+                <RemoveRedEyeIcon onClick={ () => goToPage('/noticia/1') }
+                sx={{ cursor: "pointer"}} />
               </ListItem>
               <Divider />
               <ListItem>
                 <ListItemText primary="Yucatán mantiene liderazgo en seguridad con la tasa delictiva" secondary="23:59" />
-                <RemoveRedEyeIcon />
+                <RemoveRedEyeIcon onClick={ () => goToPage('/noticia/1') }
+                sx={{ cursor: "pointer"}} />
               </ListItem>
             </List>
           </Grid>
           <Grid item xs={12} marginTop={"30px"}>
             <Typography variant="h6" fontWeight={"700"} mb={5}>Noticias Mundiales</Typography>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={4}>
+              <Grid onClick={ () => goToPage('/noticia/1') }
+              sx={{ cursor: "pointer"}} item xs={12} md={4}>
                 <Card sx={{ height: "370px"}}>
                   <CardMedia
                     component="img"
@@ -65,7 +75,8 @@ export const PoliticaPage = () => {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid onClick={ () => goToPage('/noticia/1') }
+              sx={{ cursor: "pointer"}} item xs={12} md={4}>
                 <Card sx={{ height: "370px"}}>
                   <CardMedia
                     component="img"
@@ -81,7 +92,8 @@ export const PoliticaPage = () => {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid onClick={ () => goToPage('/noticia/1') }
+              sx={{ cursor: "pointer"}} item xs={12} md={4}>
                 <Card sx={{ height: "370px"}}>
                   <CardMedia
                     component="img"
@@ -102,7 +114,8 @@ export const PoliticaPage = () => {
           <Grid item xs={12} marginTop={"30px"} marginBottom={"30px"}>
             <Typography variant="h6" fontWeight={"700"} mb={5}>Noticias Nacionales</Typography>
             <Grid container spacing={2}>
-              <Grid item xs={12} md={4}>
+              <Grid onClick={ () => goToPage('/noticia/1') }
+              sx={{ cursor: "pointer"}} item xs={12} md={4}>
                 <Card sx={{ height: "370px"}}>
                   <CardMedia
                     component="img"
@@ -118,7 +131,8 @@ export const PoliticaPage = () => {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid onClick={ () => goToPage('/noticia/1') }
+              sx={{ cursor: "pointer"}} item xs={12} md={4}>
                 <Card sx={{ height: "370px"}}>
                   <CardMedia
                     component="img"
@@ -134,7 +148,8 @@ export const PoliticaPage = () => {
                   </CardContent>
                 </Card>
               </Grid>
-              <Grid item xs={12} md={4}>
+              <Grid onClick={ () => goToPage('/noticia/1') }
+              sx={{ cursor: "pointer"}} item xs={12} md={4}>
                 <Card sx={{ height: "370px"}}>
                   <CardMedia
                     component="img"

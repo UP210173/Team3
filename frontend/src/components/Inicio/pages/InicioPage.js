@@ -4,6 +4,7 @@ import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { LayoutCMS } from '../../common/LayoutCMS';
 import { SwiperCom } from '../../common/components/Swiper';
 import Opiniones from '../../../components/common/components/Opiniones';
+import { useNav } from '../../common/hooks/useNavigation';
 
 const hoverEffectStyles = {
   display: "flex",
@@ -14,6 +15,9 @@ const hoverEffectStyles = {
 };
 
 export const InicioPage = () => {
+
+  const { goToPage } = useNav();
+
   return (
     <LayoutCMS>
         <SwiperCom />
@@ -22,18 +26,18 @@ export const InicioPage = () => {
           <Grid item container spacing={2}>
             <Grid item xs={12} md={8} lg={9} sx={{ borderTop: "1px solid #ddd" }}>
 
-              <List >
-                <ListItem>
+              <List>
+                <ListItem sx={{ cursor: 'pointer'}} onClick={ () => goToPage('/noticia/1')}>
                   <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." secondary="12 hours ago" />
                   <RemoveRedEyeIcon />
                 </ListItem>
                 <Divider />
-                <ListItem>
+                <ListItem sx={{ cursor: 'pointer'}} onClick={ () => goToPage('/noticia/1')}>
                   <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." secondary="12 hours ago" />
                   <RemoveRedEyeIcon />
                 </ListItem>
                 <Divider />
-                <ListItem>
+                <ListItem sx={{ cursor: 'pointer'}} onClick={ () => goToPage('/noticia/1')}>
                   <ListItemText primary="Lorem ipsum dolor sit amet, consectetur adipiscing elit." secondary="12 hours ago" />
                   <RemoveRedEyeIcon />
                 </ListItem>
@@ -52,7 +56,7 @@ export const InicioPage = () => {
                   borderBottom: "1px solid #ddd",
                 }}
               >
-                <Grid item xs={12} sm={6}>
+                <Grid onClick={ () => goToPage('/noticia/1')} sx={{ cursor: "pointer"}} item xs={12} sm={6}>
                   <Card className='inicio-card'>
                     <Box>
                       <img className='inicio-card-image' src="https://peopleenespanol.com/thmb/rj04toZFcG4q2akqqaYdaRsOa6g=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/Juanes-a695de6676944fde874a997737f58864.png" alt="" />
@@ -68,7 +72,7 @@ export const InicioPage = () => {
                     </Box>
                   </Card>
                 </Grid>
-                <Grid item xs={12} sm={6}>
+                <Grid onClick={ () => goToPage('/noticia/1')} sx={{ cursor: "pointer"}} item xs={12} sm={6}>
                   <Card className='inicio-card'>
                     <Box>
                       <img className='inicio-card-image' src="https://fundaciondelcorazon.com/images/stories/iStock-949190756.jpg" alt="" />
@@ -93,7 +97,7 @@ export const InicioPage = () => {
 
                 <Grid item xs={12} sm={6}>
                   <Grid container spacing={2}>
-                    <Grid item xs={12} mb={2}>
+                    <Grid onClick={ () => goToPage('/noticia/1')} style={{ cursor: "pointer"}} item xs={12} mb={2}>
                       <Card sx={hoverEffectStyles}>
                         <CardMedia
                           component="img"
@@ -108,7 +112,7 @@ export const InicioPage = () => {
                         </CardContent>
                       </Card>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid onClick={ () => goToPage('/noticia/1')} style={{ cursor: "pointer"}} item xs={12}>
                       <Card sx={hoverEffectStyles}>
                         <CardMedia
                           component="img"
@@ -126,7 +130,7 @@ export const InicioPage = () => {
                 </Grid>
                 <Grid item xs={12} sm={6} mb={5}>
                   <Grid container spacing={2}>
-                    <Grid item xs={12} mb={2}>
+                    <Grid onClick={ () => goToPage('/noticia/1')} sx={{ cursor: "pointer"}} item xs={12} mb={2}>
                       <Card sx={hoverEffectStyles}>
                         <CardMedia
                           component="img"
@@ -140,7 +144,7 @@ export const InicioPage = () => {
                         </CardContent>
                       </Card>
                     </Grid>
-                    <Grid item xs={12}>
+                    <Grid onClick={ () => goToPage('/noticia/1')} sx={{ cursor: "pointer"}} item xs={12}>
                       <Card sx={hoverEffectStyles}>
                         <CardMedia
                           component="img"

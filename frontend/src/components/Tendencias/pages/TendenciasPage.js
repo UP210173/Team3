@@ -13,6 +13,7 @@ import { LayoutCMS } from '../../common';
 
 import { SwiperCom } from '../../common/components/Swiper';
 import Opiniones from '../../../components/common/components/Opiniones';
+import { useNav } from '../../common/hooks/useNavigation';
 
 const containerStyles = {
   marginBottom: '2rem',
@@ -24,6 +25,9 @@ const containerStyles2 = {
 }
 
 export const TendenciasPage = () => {
+
+  const { goToPage } = useNav();
+
   return (
     <LayoutCMS>
       <SwiperCom />
@@ -51,7 +55,7 @@ export const TendenciasPage = () => {
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Breve descripción sobre el clima reciente en la región.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </CardContent>
@@ -72,7 +76,7 @@ export const TendenciasPage = () => {
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Información sobre alertas meteorológicas y su impacto en el mundo animal.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </CardContent>
@@ -93,7 +97,7 @@ export const TendenciasPage = () => {
                       nostrud occaecat nulla culpa labore amet exercitation
                       quis.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </Box>
@@ -121,7 +125,7 @@ export const TendenciasPage = () => {
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Breve descripción sobre el clima reciente en la región.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </CardContent>
@@ -142,7 +146,7 @@ export const TendenciasPage = () => {
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Información sobre alertas meteorológicas y su impacto.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </CardContent>
@@ -163,7 +167,7 @@ export const TendenciasPage = () => {
                       nostrud occaecat nulla culpa labore amet exercitation
                       quis.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </Box>
@@ -192,7 +196,7 @@ export const TendenciasPage = () => {
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Breve descripción sobre el clima reciente en la región.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </CardContent>
@@ -214,7 +218,7 @@ export const TendenciasPage = () => {
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Información sobre alertas meteorológicas y su impacto.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </CardContent>
@@ -244,7 +248,7 @@ export const TendenciasPage = () => {
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Breve descripción sobre el clima reciente en la región.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </CardContent>
@@ -266,7 +270,7 @@ export const TendenciasPage = () => {
                     <Typography mb={2} variant="body2" color="text.secondary">
                       Información sobre alertas meteorológicas y su impacto.
                     </Typography>
-                    <Button variant="outlined" size="small">
+                    <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="outlined" size="small">
                       Conoce más
                     </Button>
                   </CardContent>

@@ -27,6 +27,7 @@ import {
   MlbStandingsTable,
 } from '../../Deportes/pages/standingsTables';
 import Opiniones from '../../../components/common/components/Opiniones';
+import { useNav } from '../../common/hooks/useNavigation';
 
 export const DeportesPage = () => {
   const [contentTabValue, setContentTabValue] = useState(0); // Estado para las pestañas de contenido
@@ -34,6 +35,7 @@ export const DeportesPage = () => {
   const [nbaStandings, setNbaStandings] = useState([]);
   const [mlbStandings, setMlbStandings] = useState([]);
   const [visibleTeams, setVisibleTeams] = useState(10);
+  const { goToPage } = useNav();
 
   const cardHeight = 320;
 
@@ -114,7 +116,7 @@ export const DeportesPage = () => {
                   Mazatlán por un marcador 2-0..
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button variant="text">Leer más</Button>
+                  <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="text">Leer más</Button>
                 </Box>
               </CardContent>
             </Card>
@@ -133,7 +135,7 @@ export const DeportesPage = () => {
                   Toluca vs Chicago Fire.
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button variant="text">Leer más</Button>
+                  <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="text">Leer más</Button>
                 </Box>
               </CardContent>
             </Card>
@@ -151,7 +153,7 @@ export const DeportesPage = () => {
                   FC DALLAS 0-2 FC JUÁREZ | Salieron BRAVOS los fronterizos.
                 </Typography>
                 <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button variant="text">Leer más</Button>
+                  <Button sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')} variant="text">Leer más</Button>
                 </Box>
               </CardContent>
             </Card>
@@ -186,7 +188,7 @@ export const DeportesPage = () => {
                         <Typography variant="body2" color="text.secondary" mb={2}>
                           Ut dolor ad cillum reprehenderit nisi qui excepteur velit. Irure deserunt nisi laboris excepteur mollit laborum adipisicing deserunt ex exercitation esse excepteur excepteur. Adipisicing eiusmod cillum irure nulla labore sit nostrud consectetur reprehenderit magna.
                         </Typography>
-                        <Button variant='outlined'>Leer Más</Button>
+                        <Button variant='outlined' sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')}>Leer Más</Button>
                       </Grid>
                       <Grid item xs={12} md={6}>
                         <CardMedia
@@ -208,7 +210,7 @@ export const DeportesPage = () => {
                         <Typography variant="body2" color="text.secondary" mb={2}>
                           Ut dolor ad cillum reprehenderit nisi qui excepteur velit. Irure deserunt nisi laboris excepteur mollit laborum adipisicing deserunt ex exercitation esse excepteur excepteur. Adipisicing eiusmod cillum irure nulla labore sit nostrud consectetur reprehenderit magna.
                         </Typography>
-                        <Button variant='outlined'>Leer Más</Button>
+                        <Button variant='outlined' sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')}>Leer Más</Button>
                       </Grid>
                       <Grid item xs={12} md={6}>
                         <CardMedia
@@ -230,7 +232,7 @@ export const DeportesPage = () => {
                         <Typography variant="body2" color="text.secondary" mb={2}>
                           Ut dolor ad cillum reprehenderit nisi qui excepteur velit. Irure deserunt nisi laboris excepteur mollit laborum adipisicing deserunt ex exercitation esse excepteur excepteur. Adipisicing eiusmod cillum irure nulla labore sit nostrud consectetur reprehenderit magna.
                         </Typography>
-                        <Button variant='outlined'>Leer Más</Button>
+                        <Button variant='outlined' sx={{ cursor: "pointer"}} onClick={ () => goToPage('/noticia/1')}>Leer Más</Button>
                       </Grid>
                       <Grid item xs={12} md={6}>
                         <CardMedia

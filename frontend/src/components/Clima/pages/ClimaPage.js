@@ -14,6 +14,7 @@ import { LayoutCMS } from '../../common';
 import Opiniones from '../../../components/common/components/Opiniones';
 import { fetchWeatherData } from '../../Clima/pages/weatherApi';
 import LocationProvider from '../../Clima/pages/LocationProvider';
+import { useNav } from '../../common/hooks/useNavigation';
 
 export const ClimaPage = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -24,7 +25,6 @@ export const ClimaPage = () => {
   const handleLocationObtained = ({ latitude, longitude }) => {
     fetchWeatherData(latitude, longitude)
       .then(data => {
-        console.log(data); // Verifica la respuesta de la API
         setWeatherData(data);
         setLoading(false);
       })
@@ -44,6 +44,7 @@ export const ClimaPage = () => {
     '&:hover': {
       transform: 'scale(1.05)',
     },
+    cursor: "pointer"
   };
 
   const getWeatherIcon = (icon) => {
@@ -89,6 +90,8 @@ export const ClimaPage = () => {
     return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonte
   }, []);
 
+  const { goToPage } = useNav();
+
   return (
     <LayoutCMS>
       <LocationProvider
@@ -99,7 +102,7 @@ export const ClimaPage = () => {
       <Divider style={{ marginTop: 20, marginBottom: 20 }} />
       <Grid container spacing={2} style={{ marginTop: 20 }}>
         <Grid item xs={12} md={8}>
-          <Card sx={hoverEffectStyles}>
+          <Card onClick={ () => goToPage('/noticia/1') } sx={hoverEffectStyles}>
             <CardMedia
               component="img"
               height="400"
@@ -118,7 +121,7 @@ export const ClimaPage = () => {
           <Typography variant="h6" align="center" style={{ marginTop: 30, marginBottom: 30 }} textAlign={"left"} fontWeight={"bold"}>Últimas Noticias sobre el Clima</Typography>
           <Grid container spacing={2}>
             <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
+              <Card onClick={ () => goToPage('/noticia/1') } sx={hoverEffectStyles}>
                 <CardMedia
                   component="img"
                   height="240"
@@ -134,7 +137,7 @@ export const ClimaPage = () => {
             </Grid>
 
             <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
+              <Card onClick={ () => goToPage('/noticia/1') } sx={hoverEffectStyles}>
                 <CardMedia
                   component="img"
                   height="240"
@@ -150,7 +153,7 @@ export const ClimaPage = () => {
             </Grid>
 
             <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
+              <Card onClick={ () => goToPage('/noticia/1') } sx={hoverEffectStyles}>
                 <CardMedia
                   component="img"
                   height="240"
@@ -166,7 +169,7 @@ export const ClimaPage = () => {
             </Grid>
 
             <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
+              <Card onClick={ () => goToPage('/noticia/1') } sx={hoverEffectStyles}>
                 <CardMedia
                   component="img"
                   height="240"
@@ -182,7 +185,7 @@ export const ClimaPage = () => {
             </Grid>
 
             <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
+              <Card onClick={ () => goToPage('/noticia/1') } sx={hoverEffectStyles}>
                 <CardMedia
                   component="img"
                   height="240"
@@ -198,7 +201,7 @@ export const ClimaPage = () => {
             </Grid>
 
             <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
+              <Card onClick={ () => goToPage('/noticia/1') } sx={hoverEffectStyles}>
                 <CardMedia
                   component="img"
                   height="240"
@@ -217,7 +220,7 @@ export const ClimaPage = () => {
 
         <Grid item xs={12} md={4}>
           {/* Contenedor del clima actual */}
-          <Card sx={hoverEffectStyles}>
+          <Card sx={hoverEffectStyles} style={{ cursor: "auto"}}>
             <CardContent>
               {loading ? (
                 <Typography variant="body2" align="center">Cargando datos del clima...</Typography>

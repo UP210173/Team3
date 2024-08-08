@@ -107,7 +107,7 @@ export const NewNoticePage = () => {
     <div>
       <Header />
       <Container>
-        <Grid container spacing={2} style={{ marginTop: 20 }}>
+        <Grid container spacing={2} style={{ margin: "70px 0" }}>
           <Grid className={"new-notice-progress"} item xs={3}>
             <ProgressSidebar
               title={title}
