@@ -13,6 +13,7 @@ import { LayoutCMS } from '../../common';
 import Opiniones from '../../../components/common/components/Opiniones';
 import { fetchWeatherData } from '../../Clima/pages/weatherApi';
 import LocationProvider from '../../Clima/pages/LocationProvider';
+import { useNavigate } from 'react-router-dom';
 
 export const ClimaPage = () => {
   const [weatherData, setWeatherData] = useState(null);
@@ -20,6 +21,7 @@ export const ClimaPage = () => {
   const [error, setError] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState('');
   const [climateNews, setClimateNews] = useState([]); // Estado para las noticias de clima
+  const navigate = useNavigate(); // Hook de navegación
 
   const handleLocationObtained = ({ latitude, longitude }) => {
     fetchWeatherData(latitude, longitude)
@@ -124,6 +126,11 @@ export const ClimaPage = () => {
     return text;
   };
 
+  // Function to handle "Leer más" button click
+  const handleReadMore = (newsItem) => {
+    navigate('/noticia-vista', { state: { newsItem } });
+  };
+
   return (
     <LayoutCMS>
       <LocationProvider onLocationObtained={handleLocationObtained} onError={handleLocationError} />
@@ -148,7 +155,11 @@ export const ClimaPage = () => {
                   20
                 )}
               </Typography>
-              <Button variant="outlined">Leer más</Button>
+              <Button variant="outlined" onClick={() => handleReadMore({
+                title: 'Ola de calor extremo azota varias regiones del país',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                img: 'https://www.shutterstock.com/image-photo/heat-thermometer-shows-temperature-hot-600nw-2472353719.jpg'
+              })}>Leer más</Button>
             </CardContent>
           </Card>
 
@@ -178,7 +189,7 @@ export const ClimaPage = () => {
                     <Typography variant="body2" color="text.secondary" align="center" gutterBottom>
                       {truncateText(newsItem.content, 20)} {/* Mostrar contenido truncado */}
                     </Typography>
-                    <Button variant="outlined" size="small" color="primary">
+                    <Button variant="outlined" size="small" color="primary" onClick={() => handleReadMore(newsItem)}>
                       Leer más
                     </Button>{' '}
                     {/* Botón "Leer más" con estilo consistente */}

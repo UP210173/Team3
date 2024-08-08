@@ -12,12 +12,14 @@ import {
 import { LayoutCMS } from '../../common';
 import useFetchMovies from './useFetchMovies'; // Hook para obtener películas recientes
 import Opiniones from '../../../components/common/components/Opiniones';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 export const EntretenimientoPage = () => {
   const { movies, loading: moviesLoading, error: moviesError } = useFetchMovies(); // Estado para películas
   const [entertainmentNews, setEntertainmentNews] = useState([]);
   const [newsLoading, setNewsLoading] = useState(true);
   const [newsError, setNewsError] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   // Función para manejar el click en el botón de ver tráiler
   const handleWatchTrailer = (trailerUrl) => {
@@ -143,7 +145,12 @@ export const EntretenimientoPage = () => {
                         </Typography>
                       </CardContent>
                       <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: 2 }}>
-                        <Button variant='outlined' size='small' color='primary'>
+                        <Button 
+                          variant='outlined' 
+                          size='small' 
+                          color='primary'
+                          onClick={() => navigate('/noticia-vista', { state: { newsItem } })} // Pass the news item to the route
+                        >
                           Leer más
                         </Button>
                       </Box>

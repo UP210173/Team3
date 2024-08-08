@@ -15,6 +15,7 @@ import {
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { LayoutCMS } from '../../common';
 import Slider from 'react-slick';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 // Import styles from slick-carousel
 import 'slick-carousel/slick/slick.css';
@@ -24,6 +25,7 @@ export const PoliticaPage = () => {
   const [politicalNews, setPoliticalNews] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   // Carousel configuration
   const settings = {
@@ -168,6 +170,7 @@ export const PoliticaPage = () => {
                           size='small' 
                           color='primary' 
                           sx={{ width: '90%' }} // Ensure the button takes the majority of the card's width
+                          onClick={() => navigate('/noticia-vista', { state: { newsItem } })} // Pass the news item to the route
                         >
                           Leer más
                         </Button>

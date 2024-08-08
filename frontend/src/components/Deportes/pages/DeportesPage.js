@@ -27,6 +27,7 @@ import {
   MlbStandingsTable,
 } from '../../Deportes/pages/standingsTables';
 import Opiniones from '../../../components/common/components/Opiniones';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
@@ -40,6 +41,7 @@ export const DeportesPage = () => {
   const [sportsNews, setSportsNews] = useState([]); // Estado para las noticias de deportes
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const cardHeight = 320;
 
@@ -201,7 +203,14 @@ export const DeportesPage = () => {
                         </Typography>
                       </CardContent>
                       <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: 2 }}>
-                        <Button variant="outlined" size="small" color='primary'>Leer más</Button>
+                        <Button 
+                          variant="outlined" 
+                          size="small" 
+                          color='primary'
+                          onClick={() => navigate('/noticia-vista', { state: { newsItem } })} // Pass the news item to the route
+                        >
+                          Leer más
+                        </Button>
                       </Box>
                     </Card>
                   </div>
@@ -227,7 +236,14 @@ export const DeportesPage = () => {
                       </Typography>
                     </CardContent>
                     <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: 2 }}>
-                      <Button variant="outlined" size="small" color='primary'>Leer más</Button>
+                      <Button 
+                        variant="outlined" 
+                        size="small" 
+                        color='primary'
+                        onClick={() => navigate('/noticia-vista', { state: { newsItem } })} // Pass the news item to the route
+                      >
+                        Leer más
+                      </Button>
                     </Box>
                   </Card>
                 </Grid>

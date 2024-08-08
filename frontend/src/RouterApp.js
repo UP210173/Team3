@@ -10,6 +10,7 @@ import { EntretenimientoPage } from './components/Entretenimiento/pages/Entreten
 import { NewNoticePage } from './components/NewNotice/pages/NewNoticePage';
 import { ListNoticies } from './components/ListNotices/page/ListNoticies';
 import { Aside } from './components/common';
+import { ViewNotice } from './components/Notice/pages/ViewNotice';
 
 export const RouterApp = () => {
   return (
@@ -26,7 +27,7 @@ export const RouterApp = () => {
             <Route path='tendencias' element={ <TendenciasPage /> } />
             <Route path='nueva-noticia' element={ <NewNoticePage /> } />
             <Route path='lista-noticias' element={ <ListNoticies /> } />
-            <Route path='noticia/:id' element={ <ListNoticies /> } />
+            <Route path='noticia-vista' element={ <ViewNotice /> } />
           </Routes>
         </div>
         <Aside />
