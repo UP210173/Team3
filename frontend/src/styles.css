@@ -390,3 +390,27 @@ img {
     flex-direction: column;
   }
 }
+
+.notice-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.notice-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media ( max-width: 768px ) {
+  .notice-image {
+    width: 100%;
+  }
+
+  .notice-top {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
