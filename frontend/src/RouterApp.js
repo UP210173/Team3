@@ -26,6 +26,7 @@ export const RouterApp = () => {
             <Route path='tendencias' element={ <TendenciasPage /> } />
             <Route path='nueva-noticia' element={ <NewNoticePage /> } />
             <Route path='lista-noticias' element={ <ListNoticies /> } />
+            <Route path='noticia/:id' element={ <ListNoticies /> } />
           </Routes>
         </div>
         <Aside />
