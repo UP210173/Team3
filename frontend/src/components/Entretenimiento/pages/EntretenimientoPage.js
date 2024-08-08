@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
-  Typography,
   Grid,
+  Typography,
   Card,
   CardContent,
   CardMedia,
@@ -10,13 +10,25 @@ import {
   Button,
 } from '@mui/material';
 import { LayoutCMS } from '../../common';
-import useFetchMovies from './useFetchMovies';
+import useFetchMovies from './useFetchMovies'; // Hook para obtener películas recientes
 import Opiniones from '../../../components/common/components/Opiniones';
 import { useNav } from '../../common/hooks/useNavigation';
 
 export const EntretenimientoPage = () => {
+<<<<<<< Updated upstream
     const { movies, loading, error } = useFetchMovies();
 
+=======
+<<<<<<< HEAD
+  const { movies, loading: moviesLoading, error: moviesError } = useFetchMovies(); // Estado para películas
+  const [entertainmentNews, setEntertainmentNews] = useState([]);
+  const [newsLoading, setNewsLoading] = useState(true);
+  const [newsError, setNewsError] = useState(null);
+=======
+    const { movies, loading, error } = useFetchMovies();
+
+>>>>>>> e820ded2f2554a8822dc341aa70d29336b11e756
+>>>>>>> Stashed changes
 
   // Función para manejar el click en el botón de ver tráiler
   const handleWatchTrailer = (trailerUrl) => {
@@ -49,13 +61,54 @@ export const EntretenimientoPage = () => {
     e.currentTarget.style.transform = 'scale(1)';
   };
 
+<<<<<<< Updated upstream
   const { goToPage } = useNav();
+=======
+<<<<<<< HEAD
+  // Fetch noticias de entretenimiento
+  useEffect(() => {
+    setNewsLoading(true);
+    console.log("Realizando petición fetch para obtener noticias de entretenimiento...");
+
+    fetch("http://localhost:8080/api/notices/category/entretenimiento")
+      .then(response => {
+        console.log("Respuesta recibida:", response);
+
+        if (!response.ok) {
+          throw new Error('Error al obtener las noticias de entretenimiento');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Datos de noticias de entretenimiento recibidos:", data);
+        setEntertainmentNews(data);
+        setNewsLoading(false);
+      })
+      .catch(error => {
+        console.error("Error al obtener las noticias de entretenimiento:", error);
+        setNewsError(error.message);
+        setNewsLoading(false);
+      });
+  }, []);
+
+  // Function to truncate text to a specified number of words
+  const truncateText = (text, maxWords) => {
+    const words = text.split(' ');
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(' ') + '...';
+    }
+    return text;
+  };
+=======
+  const { goToPage } = useNav();
+>>>>>>> e820ded2f2554a8822dc341aa70d29336b11e756
+>>>>>>> Stashed changes
 
   return (
     <LayoutCMS>
       <Grid container spacing={4} style={{ marginTop: 20 }}>
         <Grid item xs={12} md={8}>
-          {/* Noticias Entretenimiento */}
+          {/* Noticias de Entretenimiento */}
           <Card
             onClick={ () => goToPage('/noticia/1') }
             sx={{ cursor: "pointer"}}
@@ -81,6 +134,50 @@ export const EntretenimientoPage = () => {
           <Typography variant="h6" style={{ marginTop: 20 }}>
             Noticias Mundiales
           </Typography>
+<<<<<<< HEAD
+
+          {newsLoading ? (
+            <CircularProgress />
+          ) : newsError ? (
+            <Typography color="error">Error al cargar las noticias de entretenimiento</Typography>
+          ) : (
+            <Grid container spacing={2}>
+              {/* Noticias de entretenimiento desde la API */}
+              {entertainmentNews.length > 0 ? (
+                entertainmentNews.slice(0, 3).map((newsItem, index) => (
+                  <Grid item xs={12} md={6} key={index}>
+                    <Card
+                      onMouseEnter={handleNewsMouseEnter}
+                      onMouseLeave={handleNewsMouseLeave}
+                      sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', height: '100%' }}
+                    >
+                      <CardMedia
+                        component="img"
+                        height="140"
+                        image={newsItem.img || "https://via.placeholder.com/140"}
+                        alt={newsItem.title || 'Noticia sin título'}
+                        onError={(e) => { e.target.onerror = null; e.target.src = "https://via.placeholder.com/140"; }} // Manejo de error de imagen
+                      />
+                      <CardContent>
+                        <Typography variant="h6">{truncateText(newsItem.title, 8)}</Typography>
+                        <Typography variant="body2" color="text.secondary">
+                          {truncateText(newsItem.content, 20)}
+                        </Typography>
+                      </CardContent>
+                      <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: 2 }}>
+                        <Button variant='outlined' size='small' color='primary'>
+                          Leer más
+                        </Button>
+                      </Box>
+                    </Card>
+                  </Grid>
+                ))
+              ) : (
+                <Typography variant="body2" align="center">No hay noticias de entretenimiento disponibles</Typography>
+              )}
+            </Grid>
+          )}
+=======
           <Grid container spacing={2}>
             <Grid onClick={ () => goToPage('/noticia/1') }
             sx={{ cursor: "pointer"}} item xs={12} md={6}>
@@ -143,11 +240,11 @@ export const EntretenimientoPage = () => {
               </Card>
             </Grid>
           </Grid>
+>>>>>>> e820ded2f2554a8822dc341aa70d29336b11e756
 
           <Typography variant="h6" style={{ marginTop: 20 }}>
             Opiniones
           </Typography>
-
           <Opiniones />
         </Grid>
 
@@ -156,9 +253,9 @@ export const EntretenimientoPage = () => {
           <Typography variant="h6" component="div" gutterBottom>
             Las películas más recientes hasta el momento
           </Typography>
-          {loading ? (
+          {moviesLoading ? (
             <CircularProgress />
-          ) : error ? (
+          ) : moviesError ? (
             <Typography color="error">Error al cargar las películas</Typography>
           ) : (
             <Grid container spacing={2}>

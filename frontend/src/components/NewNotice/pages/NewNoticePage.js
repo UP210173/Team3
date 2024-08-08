@@ -1,7 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
-  AppBar,
-  Toolbar,
   Typography,
   Container,
   Grid,
@@ -13,100 +11,158 @@ import {
   MenuItem,
   FormControl,
   InputLabel,
+  Checkbox,
+  List,
+  ListItem,
+  ListItemText,
+  ListItemIcon,
+  Divider,
 } from "@mui/material";
 import { LocalizationProvider, StaticDatePicker } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import dayjs from "dayjs";
-import ProgressSidebar from "./ProgressSidebar";
-import { Header } from "../../common/components/Header";
+import { useNavigate, useLocation } from "react-router-dom";
+
+// Sidebar Component
+const Sidebar = ({ fields }) => (
+  <Paper
+    elevation={3}
+    sx={{
+      height: "100%",
+      padding: 2,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "space-between",
+    }}
+  >
+    <Typography variant="h6" mb={2}>
+      Completeness Check
+    </Typography>
+    <List>
+      {fields.map(({ label, isComplete }) => (
+        <React.Fragment key={label}>
+          <ListItem>
+            <ListItemIcon>
+              <Checkbox checked={isComplete} disableRipple />
+            </ListItemIcon>
+            <ListItemText primary={label} />
+          </ListItem>
+          <Divider />
+        </React.Fragment>
+      ))}
+    </List>
+  </Paper>
+);
 
 export const NewNoticePage = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const [noticeId, setNoticeId] = useState(null); // Store the ID of the notice if editing
   const [title, setTitle] = useState("");
   const [date, setDate] = useState(dayjs());
   const [author, setAuthor] = useState("");
   const [url, setUrl] = useState("");
   const [content, setContent] = useState("");
-  const [image, setImage] = useState(null);
-  const [category, setCategory] = useState(""); // Estado para la categoría seleccionada
+  const [category, setCategory] = useState("");
 
-  // Maneja la carga de archivos
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result); // Convierte el archivo a base64 para mostrar la imagen
-      };
-      reader.readAsDataURL(file);
+  useEffect(() => {
+    // If editing, pre-fill the form with the existing notice data
+    if (location.state && location.state.notice) {
+      const notice = location.state.notice;
+      setNoticeId(notice.id); // Capture the notice ID for editing
+      setTitle(notice.title);
+      setDate(dayjs(notice.date));
+      setAuthor(notice.author);
+      setUrl(notice.img);
+      setContent(notice.content);
+      setCategory(notice.category);
     }
+  }, [location.state]);
+
+  // Handle save for both creating and editing
+const handleSave = async () => {
+  const newNotice = {
+    title,
+    date: date.format("YYYY-MM-DD"),
+    author,
+    content,
+    category,
+    img: url, // Use the correct key for the image URL
   };
 
-  // Maneja el arrastre y la caída de archivos
-  const handleDrop = (event) => {
-    event.preventDefault();
-    const file = event.dataTransfer.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setImage(reader.result);
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
-  // Maneja el evento de guardar
-  const handleSave = () => {
-    const newNotice = {
-      title,
-      date: date.format("YYYY-MM-DD"), // Formato de fecha
-      author,
-      url,
-      content,
-      image,
-      category,
-    };
-
-    console.log("Guardando noticia:", newNotice);
-
-    // Enviar los datos a la ruta especificada usando fetch
-    fetch("http://localhost:3000/lista-noticias", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newNotice),
-    })
-      .then((response) => {
-        if (response.ok) {
-          alert("Noticia guardada exitosamente");
-        } else {
-          alert("Error al guardar la noticia");
-        }
-      })
-      .catch((error) => {
-        console.error("Error al guardar la noticia:", error);
-        alert("Error al guardar la noticia");
+  try {
+    let response;
+    if (noticeId) {
+      // Edit existing notice
+      response = await fetch(`http://localhost:8080/api/notices/${noticeId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newNotice),
       });
+    } else {
+      // Create new notice
+      response = await fetch("http://localhost:8080/api/notices/create", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newNotice),
+      });
+    }
 
-    // Resetea el formulario después de guardar
-    resetForm();
-  };
+    if (response.ok) {
+      alert(
+        noticeId
+          ? "Noticia actualizada exitosamente"
+          : "Noticia guardada exitosamente"
+      );
+      navigate("/lista-noticias");
+    } else {
+      const errorMessage = await response.text();
+      alert(`Error al guardar la noticia: ${errorMessage}`);
+    }
+  } catch (error) {
+    console.error("Error al guardar la noticia:", error);
+    alert("Error de red al guardar la noticia");
+  }
+};
 
-  // Resetea los campos del formulario
+
+  // Reset form fields
   const resetForm = () => {
     setTitle("");
     setDate(dayjs());
     setAuthor("");
     setUrl("");
     setContent("");
-    setImage(null);
-    setCategory(""); // Resetea la categoría
+    setCategory("");
+    setNoticeId(null); // Reset notice ID
   };
+
+  const fields = [
+    { label: "Título", isComplete: !!title },
+    { label: "Fecha", isComplete: !!date },
+    { label: "Autor", isComplete: !!author },
+    { label: "Contenido", isComplete: !!content },
+    { label: "URL Imagen", isComplete: !!url },
+    { label: "Categoría", isComplete: !!category },
+  ];
 
   return (
     <div>
-      <Header />
       <Container>
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+        <Grid container spacing={2} style={{ marginTop: 20 }}>
+          <Grid item xs={12} md={3}>
+            {/* Sidebar */}
+            <Sidebar fields={fields} />
+=======
+>>>>>>> Stashed changes
         <Grid container spacing={2} style={{ margin: "70px 0" }}>
           <Grid className={"new-notice-progress"} item xs={3}>
             <ProgressSidebar
@@ -116,8 +172,9 @@ export const NewNoticePage = () => {
               url={url}
               content={content}
             />
+>>>>>>> e820ded2f2554a8822dc341aa70d29336b11e756
           </Grid>
-          <Grid item xs={12} md={9} className="new-notice-container">
+          <Grid item xs={12} md={9}>
             <Grid container spacing={2}>
               <Grid item xs={12} md={6}>
                 <Paper
@@ -127,7 +184,7 @@ export const NewNoticePage = () => {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
-                    height: "350px", // Aumentamos la altura
+                    height: "350px",
                   }}
                 >
                   <Typography variant="h6">Título</Typography>
@@ -150,7 +207,7 @@ export const NewNoticePage = () => {
                     display: "flex",
                     flexDirection: "column",
                     justifyContent: "space-between",
-                    height: "350px", // Aumentamos la altura
+                    height: "350px",
                   }}
                 >
                   <Typography variant="h6">Fecha</Typography>
@@ -161,8 +218,12 @@ export const NewNoticePage = () => {
                       value={date}
                       onChange={(newValue) => setDate(newValue)}
                       renderInput={(params) => (
-                        <TextField {...params} fullWidth sx={{ display: "none" }} />
-                      )} // Oculta el campo de entrada
+                        <TextField
+                          {...params}
+                          fullWidth
+                          sx={{ display: "none" }}
+                        />
+                      )}
                     />
                   </LocalizationProvider>
                 </Paper>
@@ -174,10 +235,16 @@ export const NewNoticePage = () => {
                 <TextField
                   fullWidth
                   multiline
-                  rows={15} // Aumentamos el número de filas para el contenido
+                  rows={10} // Adjust rows to fit more content if needed
                   value={content}
                   onChange={(e) => setContent(e.target.value)}
                   margin="normal"
+                  sx={{
+                    '& .MuiInputBase-root': {
+                      minHeight: '150px', // Ensures minimum height for text area
+                    },
+                    overflow: 'auto',
+                  }}
                 />
                 <Box container spacing={2} className="new-notice-form">
                   <Grid item xs={6}>
@@ -197,36 +264,6 @@ export const NewNoticePage = () => {
                       onChange={(e) => setUrl(e.target.value)}
                       margin="normal"
                     />
-                    <input
-                      type="file"
-                      accept="image/*"
-                      onChange={handleFileUpload}
-                      style={{ display: "block", marginTop: 10 }}
-                    />
-                    <div
-                      onDrop={handleDrop}
-                      onDragOver={(e) => e.preventDefault()}
-                      style={{
-                        border: "2px dashed #ccc",
-                        borderRadius: "5px",
-                        padding: "10px",
-                        textAlign: "center",
-                        marginTop: 10,
-                      }}
-                    >
-                      Arrastra y suelta una imagen aquí
-                    </div>
-                    {image && (
-                      <img
-                        src={image}
-                        alt="Preview"
-                        style={{
-                          marginTop: 10,
-                          maxWidth: "100%",
-                          height: "auto",
-                        }}
-                      />
-                    )}
                   </Grid>
                 </Box>
                 <FormControl fullWidth margin="normal" sx={{ marginTop: 2 }}>
@@ -249,12 +286,16 @@ export const NewNoticePage = () => {
                   variant="contained"
                   color="secondary"
                   sx={{ marginRight: 2 }}
-                  onClick={resetForm} // Resetear el formulario al cancelar
+                  onClick={resetForm}
                 >
                   Cancelar
                 </Button>
-                <Button variant="contained" color="primary" onClick={handleSave}>
-                  Guardar
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleSave}
+                >
+                  {noticeId ? "Actualizar" : "Guardar"}
                 </Button>
               </Box>
             </Grid>
