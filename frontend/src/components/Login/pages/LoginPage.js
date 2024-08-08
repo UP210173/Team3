@@ -26,7 +26,7 @@ export const LoginPage = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8080/api/users/login', {
+      const response = await axios.post('http://147.182.196.52:8080/api/users/login', {
         email,
         password
       });

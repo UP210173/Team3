@@ -62,7 +62,7 @@ export const DeportesPage = () => {
     setLoading(true);
     console.log("Realizando petición fetch para obtener noticias de deportes...");
 
-    fetch("http://localhost:8080/api/notices/category/deportes")
+    fetch("http://147.182.196.52:8080/api/notices/category/deportes")
       .then(response => {
         console.log("Respuesta recibida:", response);
 

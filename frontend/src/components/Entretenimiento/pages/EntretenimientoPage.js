@@ -57,7 +57,7 @@ export const EntretenimientoPage = () => {
     setNewsLoading(true);
     console.log("Realizando petición fetch para obtener noticias de entretenimiento...");
 
-    fetch("http://localhost:8080/api/notices/category/entretenimiento")
+    fetch("http://147.182.196.52:8080/api/notices/category/entretenimiento")
       .then(response => {
         console.log("Respuesta recibida:", response);
 

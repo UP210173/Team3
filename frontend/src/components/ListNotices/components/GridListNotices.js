@@ -19,7 +19,7 @@ export const GridListNotices = ({ notices }) => {
   // Handler to delete a notice
   const handleDelete = async (id) => {
     try {
-      const response = await fetch(`http://localhost:8080/api/notices/${id}`, {
+      const response = await fetch(`http://147.182.196.52:8080/api/notices/${id}`, {
         method: "DELETE",
       });
 

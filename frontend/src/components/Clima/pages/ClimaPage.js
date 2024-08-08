@@ -96,7 +96,7 @@ export const ClimaPage = () => {
     setLoading(true);
     console.log('Realizando petición fetch para obtener noticias de clima...'); // Log antes de la solicitud
 
-    fetch('http://localhost:8080/api/notices/category/clima')
+    fetch('http://147.182.196.52:8080/api/notices/category/clima')
       .then((response) => {
         console.log('Respuesta recibida:', response); // Log para verificar la respuesta de la API
 

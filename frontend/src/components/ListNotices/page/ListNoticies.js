@@ -11,7 +11,7 @@ export const ListNoticies = () => {
       console.log("Iniciando la solicitud fetch para obtener noticias...");
 
       try {
-        const response = await fetch("http://localhost:8080/api/notices");
+        const response = await fetch("http://147.182.196.52:8080/api/notices");
         console.log("Respuesta de la API recibida:", {
           status: response.status,
           statusText: response.statusText,

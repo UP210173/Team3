@@ -71,7 +71,7 @@ export const PoliticaPage = () => {
     const fetchPoliticalNews = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:8080/api/notices/category/politica");
+        const response = await fetch("http://147.182.196.52:8080/api/notices/category/politica");
         if (!response.ok) {
           throw new Error('Error fetching political news');
         }

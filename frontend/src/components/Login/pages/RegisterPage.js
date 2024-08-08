@@ -26,7 +26,7 @@ export const RegisterPage = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8080/api/users/register', {
+      const response = await axios.post('http://147.182.196.52:8080/api/users/register', {
         firstName,
         email,
         password

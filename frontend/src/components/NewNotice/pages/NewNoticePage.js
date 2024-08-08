@@ -95,7 +95,7 @@ const handleSave = async () => {
     let response;
     if (noticeId) {
       // Edit existing notice
-      response = await fetch(`http://localhost:8080/api/notices/${noticeId}`, {
+      response = await fetch(`http://147.182.196.52:8080/api/notices/${noticeId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -104,7 +104,7 @@ const handleSave = async () => {
       });
     } else {
       // Create new notice
-      response = await fetch("http://localhost:8080/api/notices/create", {
+      response = await fetch("http://147.182.196.52:8080/api/notices/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
