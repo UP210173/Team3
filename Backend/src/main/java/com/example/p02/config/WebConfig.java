@@ -1,4 +1,4 @@
-package com.example.p02.config;
+package com.example.P02.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

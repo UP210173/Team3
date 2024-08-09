@@ -1,7 +1,7 @@
 // UserRepository.java
-package com.example.p02.repository;
+package com.example.P02.repository;
 
-import com.example.p02.model.User;
+import com.example.P02.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.Optional;

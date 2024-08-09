@@ -1,7 +1,7 @@
-package com.example.p02.mapper;
+package com.example.P02.mapper;
 
-import com.example.p02.dto.UserDTO;
-import com.example.p02.model.User;
+import com.example.P02.dto.UserDTO;
+import com.example.P02.model.User;
 import org.springframework.stereotype.Component;
 
 @Component

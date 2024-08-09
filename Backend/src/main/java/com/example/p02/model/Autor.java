@@ -1,4 +1,4 @@
-package com.example.p02.model;
+package com.example.P02.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

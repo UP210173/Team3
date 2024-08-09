@@ -1,4 +1,4 @@
-package com.example.p02.service;
+package com.example.P02.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,9 +6,9 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.p02.model.Autor;
-import com.example.p02.model.Notice;
-import com.example.p02.repository.AutorRepository;
+import com.example.P02.model.Autor;
+import com.example.P02.model.Notice;
+import com.example.P02.repository.AutorRepository;
 
 @Service
 public class AutorService {
