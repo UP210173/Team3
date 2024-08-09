@@ -1,6 +1,6 @@
 CREATE DATABASE IF NOT EXISTS p02;
 
-drop user 'P02'@'localhost';
+drop user 'p02'@'localhost';
 
 CREATE USER 'p02'@'localhost' IDENTIFIED BY 'p02';
 

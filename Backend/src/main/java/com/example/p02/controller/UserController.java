@@ -1,8 +1,8 @@
 // UserController.java
-package com.example.P02.controller;
+package com.example.p02.controller;
 
-import com.example.P02.dto.UserDTO;
-import com.example.P02.service.UserService;
+import com.example.p02.dto.UserDTO;
+import com.example.p02.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

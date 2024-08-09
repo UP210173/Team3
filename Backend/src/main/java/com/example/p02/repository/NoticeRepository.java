@@ -1,6 +1,6 @@
-package com.example.P02.repository;
+package com.example.p02.repository;
 
-import com.example.P02.model.Notice;
+import com.example.p02.model.Notice;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

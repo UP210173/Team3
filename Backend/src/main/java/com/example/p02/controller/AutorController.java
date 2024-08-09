@@ -1,4 +1,4 @@
-package com.example.P02.controller;
+package com.example.p02.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,9 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.P02.model.Autor;
-import com.example.P02.model.Notice;
-import com.example.P02.service.AutorService;
+import com.example.p02.model.Autor;
+import com.example.p02.model.Notice;
+import com.example.p02.service.AutorService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

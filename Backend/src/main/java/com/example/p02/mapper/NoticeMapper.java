@@ -1,8 +1,8 @@
 // NoticeMapper.java
-package com.example.P02.mapper;
+package com.example.p02.mapper;
 
-import com.example.P02.dto.NoticeDTO;
-import com.example.P02.model.Notice;
+import com.example.p02.dto.NoticeDTO;
+import com.example.p02.model.Notice;
 import org.springframework.stereotype.Component;
 
 @Component

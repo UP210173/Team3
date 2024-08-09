@@ -1,4 +1,4 @@
-package com.example.P02.exception;
+package com.example.p02.exception;
 
 import lombok.Getter;
 import lombok.Setter;

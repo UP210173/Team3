@@ -1,4 +1,4 @@
-package com.example.P02.model;
+package com.example.p02.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

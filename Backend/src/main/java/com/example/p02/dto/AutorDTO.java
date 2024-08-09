@@ -1,4 +1,4 @@
-package com.example.P02.dto;
+package com.example.p02.dto;
 
 import java.util.Date;
 

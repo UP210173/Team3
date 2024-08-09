@@ -1,10 +1,10 @@
 // UserService.java
-package com.example.P02.service;
+package com.example.p02.service;
 
-import com.example.P02.dto.UserDTO;
-import com.example.P02.mapper.UserMapper;
-import com.example.P02.model.User;
-import com.example.P02.repository.UserRepository;
+import com.example.p02.dto.UserDTO;
+import com.example.p02.mapper.UserMapper;
+import com.example.p02.model.User;
+import com.example.p02.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

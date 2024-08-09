@@ -1,5 +1,5 @@
 // NoticeDTO.java
-package com.example.P02.dto;
+package com.example.p02.dto;
 
 import lombok.Data;
 

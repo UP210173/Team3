@@ -1,8 +1,8 @@
 // NoticeController.java
-package com.example.P02.controller;
+package com.example.p02.controller;
 
-import com.example.P02.dto.NoticeDTO;
-import com.example.P02.service.NoticeService;
+import com.example.p02.dto.NoticeDTO;
+import com.example.p02.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,4 +1,4 @@
-package com.example.P02;
+package com.example.p02;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
