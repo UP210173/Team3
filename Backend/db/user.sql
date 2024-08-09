@@ -1,9 +1,0 @@
-CREATE DATABASE IF NOT EXISTS P02;
-
-drop user 'P02'@'localhost';
-
-CREATE USER 'P02'@'localhost' IDENTIFIED BY 'P02';
-
-GRANT ALL PRIVILEGES ON P02.* TO 'P02'@'localhost';
-
-USE P02;
