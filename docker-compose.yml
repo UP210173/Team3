@@ -1,19 +1,4 @@
-version: '3.8'
-services:
-  frontend:
-    build: frontend
-    ports:
-      - 80:80
-    environment:
-      - NODE_OPTIONS=--max-old-space-size=4096
-
-  backend:
-    build: Backend
-    ports:
-      - 8080:${BACKEND_PORT}
-    depends_on:
-      - db
-  db:
+db:
     image: mysql:5.7
     command: --explicit_defaults_for_timestamp=ON
     environment:
@@ -29,3 +14,20 @@ services:
 
 volumes:
   mysql-data:
+
+version: '3.8'
+services:
+  frontend:
+    build: frontend
+    ports:
+      - 80:80
+    environment:
+      - NODE_OPTIONS=--max-old-space-size=4096
+
+  backend:
+    build: Backend
+    ports:
+      - 8080:${BACKEND_PORT}
+    depends_on:
+      - db
+  
