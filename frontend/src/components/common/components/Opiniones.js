@@ -10,7 +10,7 @@ const Opiniones = () => {
   useEffect(() => {
     const fetchComentarios = async () => {
       try {
-        const response = await fetch('http://localhost:8080/comentarios');
+        const response = await fetch('http://147.182.196.52:8080/comentarios');
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }

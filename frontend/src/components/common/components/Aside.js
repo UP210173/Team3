@@ -8,7 +8,10 @@ import SportsBaseballIcon from '@mui/icons-material/SportsBaseball';
 import ConnectedTvIcon from '@mui/icons-material/ConnectedTv';
 import PolicyIcon from '@mui/icons-material/Policy';
 import AirIcon from '@mui/icons-material/Air';
+import FormatListBulletedIcon from '@mui/icons-material/FormatListBulleted';
+import AddIcon from '@mui/icons-material/Add';
 import { useNav } from "../hooks/useNavigation";
+import { useAuth } from "../hooks/useAuth";
 
 export const Aside = () => {
 
@@ -16,6 +19,7 @@ export const Aside = () => {
   const { asideMenu: { isOpen }, closeAsideMenu } = useUI();
   const { goToPage } = useNav();
   const asideRef = useRef();
+  const { status, logoutUser } = useAuth();
 
   useEffect(() => {
     if ( isOpen ) {
@@ -89,6 +93,31 @@ export const Aside = () => {
               <AirIcon />
             </Box>            
           </ListItem>
+          {
+            status === "authorized"
+            && (
+              <>
+                <ListItem>
+                  <Box onClick={ () => setSelectedPage("/lista-noticias")} sx={{ display: "flex", justifyContent: "center", width: "100%", marginBottom: "20px",cursor: "pointer", backgroundColor: "#1874d0", padding:"10px", borderRadius: "8px" }}>
+                    <Typography color="#fff" textAlign={"center"}>Noticias Creadas</Typography>
+                  </Box>            
+                </ListItem>
+                <ListItem>
+                  <Box onClick={ () => setSelectedPage("/nueva-noticia")} sx={{ display: "flex", justifyContent: "center", width: "100%", marginBottom: "20px",cursor: "pointer", backgroundColor: "#1874d0", padding:"10px", borderRadius: "8px" }}>
+                    <Typography color="#fff" textAlign={"center"}>Nueva Noticia</Typography>
+                  </Box>            
+                </ListItem>
+                <ListItem>
+                  <Box onClick={ () => {
+                    logoutUser();
+                    setSelectedPage("/")
+                  }} sx={{ display: "flex", justifyContent: "center", width: "100%", marginBottom: "20px",cursor: "pointer", backgroundColor: "#1874d0", padding:"10px", borderRadius: "8px" }}>
+                    <Typography color="#fff" textAlign={"center"}>Salir</Typography>
+                  </Box>            
+                </ListItem>
+            </>
+            )
+          }
         </List>
 
       </Box>

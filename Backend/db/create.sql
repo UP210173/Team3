@@ -1,49 +1,18 @@
-
 USE p02;
-CREATE TABLE usuario (
-    id_usuario INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    email VARCHAR(100) NOT NULL UNIQUE,
-    contrasena VARCHAR(100) NOT NULL
+
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
 );
-CREATE TABLE autor (
-    id_autor INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(100) NOT NULL,
-    biografia TEXT,
-    fecha_registro DATE NOT NULL
-);
-CREATE TABLE noticia (
-    id_noticia INT PRIMARY KEY AUTO_INCREMENT,
-    titulo VARCHAR(200) NOT NULL,
-    contenido TEXT NOT NULL,
-    resumen TEXT,
-    fecha_publicacion DATE NOT NULL,
-    url VARCHAR(255),
-    id_autor INT,
-    FOREIGN KEY (id_autor) REFERENCES autor(id_autor)
-);
--- Tabla de categorías
-CREATE TABLE categoria (
-    id_categoria INT PRIMARY KEY AUTO_INCREMENT,
-    nombre VARCHAR(50) NOT NULL UNIQUE
+CREATE TABLE notices (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    content LONGTEXT NOT NULL,   -- Use MEDIUMTEXT for larger content requirements
+    author VARCHAR(255) NOT NULL,
+    category VARCHAR(255) NOT NULL,
+    img VARCHAR(255) NOT NULL
 );
 
--- Tabla de comentarios
-CREATE TABLE comentario (
-    id_comentario INT PRIMARY KEY AUTO_INCREMENT,
-    contenido TEXT NOT NULL,
-    fecha_comentario DATE NOT NULL,
-    id_noticia INT,
-    id_usuario INT,
-    FOREIGN KEY (id_noticia) REFERENCES noticia(id_noticia),
-    FOREIGN KEY (id_usuario) REFERENCES usuario(id_usuario)
-);
-
--- Tabla intermedia para la relación muchos a muchos entre noticias y categorías
-CREATE TABLE noticia_categoria (
-    id_noticia INT,
-    id_categoria INT,
-    PRIMARY KEY (id_noticia, id_categoria),
-    FOREIGN KEY (id_noticia) REFERENCES noticia(id_noticia),
-    FOREIGN KEY (id_categoria) REFERENCES categoria(id_categoria)
-);

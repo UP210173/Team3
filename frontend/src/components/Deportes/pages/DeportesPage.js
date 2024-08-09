@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import {
-  Container,
   Grid,
   Typography,
   Card,
@@ -9,14 +8,15 @@ import {
   Tabs,
   Tab,
   Box,
-  Link as MuiLink,
   Fade,
   Select,
   MenuItem,
   FormControl,
   InputLabel,
   Button,
+  CircularProgress
 } from '@mui/material';
+import Slider from "react-slick"; // Importar el componente Slider
 import { LayoutCMS } from '../../common';
 import {
   fetchNBAStandings,
@@ -27,6 +27,10 @@ import {
   MlbStandingsTable,
 } from '../../Deportes/pages/standingsTables';
 import Opiniones from '../../../components/common/components/Opiniones';
+import { useNavigate } from 'react-router-dom'; // Import useNavigate
+
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 export const DeportesPage = () => {
   const [contentTabValue, setContentTabValue] = useState(0); // Estado para las pestañas de contenido
@@ -34,6 +38,10 @@ export const DeportesPage = () => {
   const [nbaStandings, setNbaStandings] = useState([]);
   const [mlbStandings, setMlbStandings] = useState([]);
   const [visibleTeams, setVisibleTeams] = useState(10);
+  const [sportsNews, setSportsNews] = useState([]); // Estado para las noticias de deportes
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const navigate = useNavigate(); // Initialize useNavigate
 
   const cardHeight = 320;
 
@@ -49,6 +57,33 @@ export const DeportesPage = () => {
     setVisibleTeams(event.target.value);
   };
 
+  // Fetch de noticias de deportes
+  useEffect(() => {
+    setLoading(true);
+    console.log("Realizando petición fetch para obtener noticias de deportes...");
+
+    fetch("http://147.182.196.52:8080/api/notices/category/deportes")
+      .then(response => {
+        console.log("Respuesta recibida:", response);
+
+        if (!response.ok) {
+          throw new Error('Error al obtener las noticias de deportes');
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Datos de noticias de deportes recibidos:", data);
+        setSportsNews(data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error("Error al obtener las noticias de deportes:", error);
+        setError(error.message);
+        setLoading(false);
+      });
+  }, []);
+
+  // Fetch de standings
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -68,20 +103,60 @@ export const DeportesPage = () => {
   }, [standingsTabValue]);
 
   const cardStyle = {
-    height: cardHeight,
+    height: '100%',
     border: '1px solid #ddd',
     transition: 'transform 0.3s ease, box-shadow 0.3s ease',
     position: 'relative',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     '&:hover': {
       transform: 'scale(1.05)',
       boxShadow: '0 8px 16px rgba(0, 0, 0, 0.2)',
     },
   };
 
+  const settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          infinite: true,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1
+        }
+      }
+    ]
+  };
+
+  // Function to truncate text to a specified number of words
+  const truncateText = (text, maxWords) => {
+    const words = text.split(' ');
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(' ') + '...';
+    }
+    return text;
+  };
+
   return (
     <LayoutCMS>
       <Grid item xs={12} md={12} lg={9} className='deportes-top'>
         <Grid container spacing={2}>
+          {/* Tarjeta de "Lo último" */}
           <Grid item xs={12} sm={6} md={3}>
             <Card sx={cardStyle}>
               <CardContent>
@@ -100,61 +175,80 @@ export const DeportesPage = () => {
               </CardContent>
             </Card>
           </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card sx={cardStyle}>
-              <CardMedia
-                component="img"
-                height="220"
-                image="https://tvazteca.brightspotcdn.com/98/7f/814862b949a491253cc74484f13d/mazatlan-vs-nashville-leagues-cup.jpeg"
-                alt="Placeholder image"
-              />
-              <CardContent>
-                <Typography mb={1} variant="body2" color="text.secondary">
-                  Mazatlán vs Nashville, un emocionante partido que se lleva
-                  Mazatlán por un marcador 2-0..
-                </Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button variant="text">Leer más</Button>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card sx={cardStyle}>
-              <CardMedia
-                component="img"
-                height="220"
-                image="https://www.tudn.com/api/image/x/us/futbol/tormenta-electrica-retrasa-el-inicio-del-segundo-tiempo-entre-toluca-y-chicago-video"
-                alt="Placeholder image"
-              />
-              <CardContent>
-                <Typography mb={1} variant="body2" color="text.secondary">
-                  Una tormenta eléctrica retrasa el segundo tiempo del partido
-                  Toluca vs Chicago Fire.
-                </Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button variant="text">Leer más</Button>
-                </Box>
-              </CardContent>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={3}>
-            <Card sx={cardStyle}>
-              <CardMedia
-                component="img"
-                height="220"
-                image="https://cdn.milenio.com/uploads/media/2024/07/30/fc-juarez-vs-dallas-canal.jpeg"
-                alt="Placeholder image"
-              />
-              <CardContent>
-                <Typography mb={1} variant="body2" color="text.secondary">
-                  FC DALLAS 0-2 FC JUÁREZ | Salieron BRAVOS los fronterizos.
-                </Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'flex-end' }}>
-                  <Button variant="text">Leer más</Button>
-                </Box>
-              </CardContent>
-            </Card>
+
+          {/* Carrusel para las noticias de deportes */}
+          <Grid item xs={12} sm={6} md={9}>
+            {loading ? (
+              <CircularProgress />
+            ) : error ? (
+              <Typography variant="body2" align="center" color="error">{error}</Typography>
+            ) : sportsNews.length > 1 ? (
+              <Slider {...settings}>
+                {sportsNews.map((newsItem, index) => (
+                  <div key={index}>
+                    <Card sx={cardStyle} style={{ margin: '0 10px' }}>
+                      <CardMedia
+                        component="img"
+                        height="220"
+                        image={newsItem.img || "https://via.placeholder.com/220"} // URL de imagen desde la API
+                        alt={newsItem.title || 'Noticia sin título'}
+                        onError={(e) => { e.target.onerror = null; e.target.src = "https://via.placeholder.com/220"; }} // Manejo de error de imagen
+                      />
+                      <CardContent>
+                        <Typography variant="h6" gutterBottom>
+                          {truncateText(newsItem.title, 8)}
+                        </Typography>
+                        <Typography mb={1} variant="body2" color="text.secondary">
+                          {truncateText(newsItem.content, 20)}
+                        </Typography>
+                      </CardContent>
+                      <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: 2 }}>
+                        <Button 
+                          variant="outlined" 
+                          size="small" 
+                          color='primary'
+                          onClick={() => navigate('/noticia-vista', { state: { newsItem } })} // Pass the news item to the route
+                        >
+                          Leer más
+                        </Button>
+                      </Box>
+                    </Card>
+                  </div>
+                ))}
+              </Slider>
+            ) : (
+              sportsNews.map((newsItem, index) => (
+                <Grid item xs={12} md={6} key={index}>
+                  <Card sx={cardStyle} style={{ margin: '0 10px' }}>
+                    <CardMedia
+                      component="img"
+                      height="220"
+                      image={newsItem.img || "https://via.placeholder.com/220"}
+                      alt={newsItem.title || 'Noticia sin título'}
+                      onError={(e) => { e.target.onerror = null; e.target.src = "https://via.placeholder.com/220"; }}
+                    />
+                    <CardContent>
+                      <Typography variant="h6" gutterBottom>
+                        {truncateText(newsItem.title, 8)}
+                      </Typography>
+                      <Typography mb={1} variant="body2" color="text.secondary">
+                        {truncateText(newsItem.content, 20)}
+                      </Typography>
+                    </CardContent>
+                    <Box sx={{ display: 'flex', justifyContent: 'center', paddingBottom: 2 }}>
+                      <Button 
+                        variant="outlined" 
+                        size="small" 
+                        color='primary'
+                        onClick={() => navigate('/noticia-vista', { state: { newsItem } })} // Pass the news item to the route
+                      >
+                        Leer más
+                      </Button>
+                    </Box>
+                  </Card>
+                </Grid>
+              ))
+            )}
           </Grid>
         </Grid>
       </Grid>

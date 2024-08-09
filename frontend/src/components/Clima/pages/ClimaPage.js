@@ -5,29 +5,32 @@ import {
   Card,
   CardContent,
   CardMedia,
-  Link as MuiLink,
   Divider,
   Box,
+  Button,
 } from '@mui/material';
 import { LayoutCMS } from '../../common';
 import Opiniones from '../../../components/common/components/Opiniones';
 import { fetchWeatherData } from '../../Clima/pages/weatherApi';
 import LocationProvider from '../../Clima/pages/LocationProvider';
+import { useNavigate } from 'react-router-dom';
 
 export const ClimaPage = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [timeRemaining, setTimeRemaining] = useState('');
+  const [climateNews, setClimateNews] = useState([]); // Estado para las noticias de clima
+  const navigate = useNavigate(); // Hook de navegación
 
   const handleLocationObtained = ({ latitude, longitude }) => {
     fetchWeatherData(latitude, longitude)
-      .then(data => {
-        console.log(data); // Verifica la respuesta de la API
+      .then((data) => {
+        console.log('Datos del clima obtenidos:', data); // Verifica la respuesta de la API
         setWeatherData(data);
         setLoading(false);
       })
-      .catch(error => {
+      .catch((error) => {
         setError(error.message);
         setLoading(false);
       });
@@ -51,21 +54,21 @@ export const ClimaPage = () => {
 
   const translateWeatherDescription = (description) => {
     const translations = {
-      "clear sky": "CIELO DESPEJADO",
-      "few clouds": "POCAS NUBES",
-      "scattered clouds": "NUBES DISPERSAS",
-      "broken clouds": "NUBES ROTAS",
-      "overcast clouds": "NUBLADO",
-      "shower rain": "LLUVIA DE CHUBASCOS",
-      "rain": "LLUVIA",
-      "thunderstorm": "TORMENTA",
-      "snow": "NIEVE",
-      "mist": "NIEBLA",
-      "light rain": "LLUVIA LIGERA",
-      "moderate rain": "LLUVIA MODERADA",
-      "heavy intensity rain": "LLUVIA INTENSA",
-      "very heavy rain": "LLUVIA MUY INTENSA",
-      "extreme rain": "LLUVIA EXTREMA",
+      'clear sky': 'CIELO DESPEJADO',
+      'few clouds': 'POCAS NUBES',
+      'scattered clouds': 'NUBES DISPERSAS',
+      'broken clouds': 'NUBES ROTAS',
+      'overcast clouds': 'NUBLADO',
+      'shower rain': 'LLUVIA DE CHUBASCOS',
+      rain: 'LLUVIA',
+      thunderstorm: 'TORMENTA',
+      snow: 'NIEVE',
+      mist: 'NIEBLA',
+      'light rain': 'LLUVIA LIGERA',
+      'moderate rain': 'LLUVIA MODERADA',
+      'heavy intensity rain': 'LLUVIA INTENSA',
+      'very heavy rain': 'LLUVIA MUY INTENSA',
+      'extreme rain': 'LLUVIA EXTREMA',
     };
     return translations[description.toLowerCase()] || description.toUpperCase();
   };
@@ -88,12 +91,49 @@ export const ClimaPage = () => {
     return () => clearInterval(interval); // Limpia el intervalo cuando el componente se desmonte
   }, []);
 
+  // Petición para obtener noticias de clima
+  useEffect(() => {
+    setLoading(true);
+    console.log('Realizando petición fetch para obtener noticias de clima...'); // Log antes de la solicitud
+
+    fetch('http://147.182.196.52:8080/api/notices/category/clima')
+      .then((response) => {
+        console.log('Respuesta recibida:', response); // Log para verificar la respuesta de la API
+
+        if (!response.ok) {
+          throw new Error('Error al obtener las noticias de clima');
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log('Datos de noticias de clima recibidos:', data); // Log de los datos recibidos
+        setClimateNews(data);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error al obtener las noticias de clima:', error); // Log de errores
+        setError(error.message);
+        setLoading(false);
+      });
+  }, []);
+
+  // Function to truncate text to a specified number of words
+  const truncateText = (text, maxWords) => {
+    const words = text.split(' ');
+    if (words.length > maxWords) {
+      return words.slice(0, maxWords).join(' ') + '...';
+    }
+    return text;
+  };
+
+  // Function to handle "Leer más" button click
+  const handleReadMore = (newsItem) => {
+    navigate('/noticia-vista', { state: { newsItem } });
+  };
+
   return (
     <LayoutCMS>
-      <LocationProvider
-        onLocationObtained={handleLocationObtained}
-        onError={handleLocationError}
-      />
+      <LocationProvider onLocationObtained={handleLocationObtained} onError={handleLocationError} />
 
       <Divider style={{ marginTop: 20, marginBottom: 20 }} />
       <Grid container spacing={2} style={{ marginTop: 20 }}>
@@ -106,111 +146,57 @@ export const ClimaPage = () => {
               alt="Calor"
             />
             <CardContent>
-              <Typography variant="h5">Ola de calor extremo azota varias regiones del país</Typography>
-              <Typography variant="body2" color="text.secondary">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <MuiLink href="#">Leer más</MuiLink>.
+              <Typography fontWeight={'bold'} fontSize={'20px'} mb={1} variant="h5">
+                {truncateText('Ola de calor extremo azota varias regiones del país', 8)}
               </Typography>
+              <Typography mb={2} variant="body2" color="text.secondary">
+                {truncateText(
+                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                  20
+                )}
+              </Typography>
+              <Button variant="outlined" onClick={() => handleReadMore({
+                title: 'Ola de calor extremo azota varias regiones del país',
+                content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                img: 'https://www.shutterstock.com/image-photo/heat-thermometer-shows-temperature-hot-600nw-2472353719.jpg'
+              })}>Leer más</Button>
             </CardContent>
           </Card>
 
-          <Typography variant="h6" align="center" style={{ marginTop: 20 }}>Últimas Noticias</Typography>
-          <Divider style={{ marginBottom: 20 }} />
+          <Typography
+            variant="h6"
+            align="center"
+            style={{ marginTop: 30, marginBottom: 30 }}
+            textAlign={'left'}
+            fontWeight={'bold'}
+          >
+            Últimas Noticias sobre el Clima
+          </Typography>
           <Grid container spacing={2}>
-            <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="https://via.placeholder.com/150?text=Noticia+1"
-                  alt="Noticia 1"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary" align="center">
-                    {`Párrafo de texto con un `}<MuiLink href="#">enlace no asignado</MuiLink>.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="https://via.placeholder.com/150?text=Noticia+2"
-                  alt="Noticia 2"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary" align="center">
-                    {`Párrafo de texto con un `}<MuiLink href="#">enlace no asignado</MuiLink>.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="https://via.placeholder.com/150?text=Noticia+3"
-                  alt="Noticia 3"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary" align="center">
-                    {`Párrafo de texto con un `}<MuiLink href="#">enlace no asignado</MuiLink>.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="https://via.placeholder.com/150?text=Noticia+4"
-                  alt="Noticia 4"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary" align="center">
-                    {`Párrafo de texto con un `}<MuiLink href="#">enlace no asignado</MuiLink>.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="https://via.placeholder.com/150?text=Noticia+5"
-                  alt="Noticia 5"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary" align="center">
-                    {`Párrafo de texto con un `}<MuiLink href="#">enlace no asignado</MuiLink>.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
-
-            <Grid item xs={12} sm={4} md={4}>
-              <Card sx={hoverEffectStyles}>
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image="https://via.placeholder.com/150?text=Noticia+6"
-                  alt="Noticia 6"
-                />
-                <CardContent>
-                  <Typography variant="body2" color="text.secondary" align="center">
-                    {`Párrafo de texto con un `}<MuiLink href="#">enlace no asignado</MuiLink>.
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Grid>
+            {climateNews.map((newsItem, index) => (
+              <Grid item xs={12} sm={4} md={4} key={index}>
+                <Card sx={hoverEffectStyles}>
+                  <CardMedia
+                    component="img"
+                    height="240"
+                    image={newsItem.img || 'https://via.placeholder.com/240'}
+                    alt={newsItem.title}
+                  />
+                  <CardContent>
+                    <Typography variant="h6" color="text.primary" align="center" gutterBottom>
+                      {truncateText(newsItem.title, 8)} {/* Mostrar título truncado */}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" align="center" gutterBottom>
+                      {truncateText(newsItem.content, 20)} {/* Mostrar contenido truncado */}
+                    </Typography>
+                    <Button variant="outlined" size="small" color="primary" onClick={() => handleReadMore(newsItem)}>
+                      Leer más
+                    </Button>{' '}
+                    {/* Botón "Leer más" con estilo consistente */}
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
           </Grid>
         </Grid>
 
@@ -219,25 +205,51 @@ export const ClimaPage = () => {
           <Card sx={hoverEffectStyles}>
             <CardContent>
               {loading ? (
-                <Typography variant="body2" align="center">Cargando datos del clima...</Typography>
+                <Typography variant="body2" align="center">
+                  Cargando datos del clima...
+                </Typography>
               ) : error ? (
-                <Typography variant="body2" align="center" color="error">{error}</Typography>
-              ) : (
+                <Typography variant="body2" align="center" color="error">
+                  {error}
+                </Typography>
+              ) : weatherData ? ( // Verificar si weatherData no es null antes de acceder a sus propiedades
                 <Box display="flex" flexDirection="column" alignItems="center">
-                  <Typography variant="h6" align="center">Clima Actual</Typography>
+                  <Typography variant="h6" align="center">
+                    Clima Actual
+                  </Typography>
                   <Divider style={{ marginBottom: 10 }} />
-                  <img src={getWeatherIcon(weatherData.weather[0].icon)} alt="Weather Icon" width={80} style={{ marginBottom: 10 }} />
-                  <Typography variant="h4" color="primary" gutterBottom>{weatherData.name}</Typography>
-                  <Typography variant="h5" gutterBottom>{`${Math.round(weatherData.main.temp)} °C`}</Typography>
+                  <img
+                    src={getWeatherIcon(weatherData.weather[0].icon)}
+                    alt="Weather Icon"
+                    width={80}
+                    style={{ marginBottom: 10 }}
+                  />
+                  <Typography variant="h4" color="primary" gutterBottom>
+                    {weatherData.name}
+                  </Typography>
+                  <Typography variant="h5" gutterBottom>
+                    {`${Math.round(weatherData.main.temp)} °C`}
+                  </Typography>
                   <Typography variant="body1" color="textSecondary" gutterBottom>
                     {translateWeatherDescription(weatherData.weather[0].description)}
                   </Typography>
-                  <Typography variant="body2" color="textSecondary">{`Viento: ${Math.round(weatherData.wind.speed)} m/s`}</Typography>
+                  <Typography variant="body2" color="textSecondary">{`Viento: ${Math.round(
+                    weatherData.wind.speed
+                  )} m/s`}</Typography>
                   {/* Contador hasta el fin del día */}
-                  <Typography variant="body2" color="textSecondary" align="center" style={{ marginTop: 10 }}>
+                  <Typography
+                    variant="body2"
+                    color="textSecondary"
+                    align="center"
+                    style={{ marginTop: 10 }}
+                  >
                     {`Tiempo restante del día: ${timeRemaining}`}
                   </Typography>
                 </Box>
+              ) : (
+                <Typography variant="body2" align="center" color="error">
+                  Datos del clima no disponibles
+                </Typography>
               )}
             </CardContent>
           </Card>

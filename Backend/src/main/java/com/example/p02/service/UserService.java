@@ -1,43 +1,43 @@
+// UserService.java
 package com.example.p02.service;
 
-import java.util.List;
-import java.util.Optional;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.stereotype.Service;
-
+import com.example.p02.dto.UserDTO;
+import com.example.p02.mapper.UserMapper;
 import com.example.p02.model.User;
 import com.example.p02.repository.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserService {
-    private final UserRepository usuarioRepository;
 
     @Autowired
-    public UserService(UserRepository usuarioRepository) {
-        this.usuarioRepository = usuarioRepository;
-    }
- 
-    public List<User> getAllUsers(){
-        return usuarioRepository.findAll();
-    }
-    
-    public Optional<User>getUserbyId(Long id){
-        return usuarioRepository.findById(id);
-    }
-    
-    public User saveUsuario(User usuario) {
-        return usuarioRepository.save(usuario);
+    private UserRepository userRepository;
+
+    @Autowired
+    private UserMapper userMapper;
+
+    public void registerUser(UserDTO userDTO) {
+        if (userRepository.existsByEmail(userDTO.getEmail())) {
+            throw new IllegalArgumentException("El correo ya está registrado");
+        }
+
+        // Guardar el usuario
+        User user = userMapper.toEntity(userDTO);
+        userRepository.save(user);
     }
 
-    public void deleteUser(Long id){
-        usuarioRepository.deleteById(id);
-    }
-    
-    public List<Object[]> comentariosPorUsuario(){
-        return usuarioRepository.comentariosPorUsuario();
-    }
+    public UserDTO loginUser(String email, String password) {
+        // Buscar el usuario por email
+        User user = userRepository.findByEmail(email)
+                .orElseThrow(() -> new IllegalArgumentException("Usuario no encontrado"));
 
-    
+        // Comprobar la contraseña
+        if (!user.getPassword().equals(password)) {
+            throw new IllegalArgumentException("Credenciales incorrectas");
+        }
+
+        // Devolver el DTO del usuario
+        return userMapper.toDto(user);
+    }
 }

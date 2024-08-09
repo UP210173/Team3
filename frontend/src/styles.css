@@ -1,3 +1,4 @@
+
 *,
 *::after,
 *::before {
@@ -34,8 +35,8 @@ img {
 
 .photo-circle {
   border-radius: 50%;
-  width: 3rem;
-  height: 3rem;
+  width: 2.8rem;
+  height: 2.8rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -341,5 +342,51 @@ img {
 
   .politica-hero-content {
     width: 80%;
+  }
+}
+
+.news-card {
+  border: 1px solid #ddd;
+  height: 200px;
+  width: 100%;
+  margin-bottom: 2rem;
+  display: flex;
+}
+
+.news-card-image {
+  height: 200px;
+  width: 30%;
+}
+
+.news-card-content {
+  display: flex;
+  flex-direction: column;
+}
+
+@media ( max-width: 768px ) {
+  .news-card {
+    flex-direction: column;
+    height: 100%;
+  }
+
+  .news-card-image {
+    height: 300px;
+    width: 100%;
+  }
+
+}
+
+@media ( max-width: 768px ) {
+  .new-notice-progress {
+    display: none;
+  }
+
+  .new-notice-container {
+    padding: 0;
+  }
+
+  .new-notice-form {
+    width: 100%;
+    flex-direction: column;
   }
 }
