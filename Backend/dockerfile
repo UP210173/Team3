@@ -4,6 +4,6 @@ RUN addgroup backend && adduser -S -G backend backend
 USER backend
 WORKDIR /app
 #COPY --chown=backend /backend/build/libs/ .
-COPY Backend-0.0.1-SNAPSHOT.jar .
-ENTRYPOINT ["java","-jar","/app/Backend-0.0.1-SNAPSHOT.jar"]
+COPY P02-0.0.1-SNAPSHOT.jar .
+ENTRYPOINT ["java","-jar","/app/P02-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8080

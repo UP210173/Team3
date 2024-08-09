@@ -1,4 +1,4 @@
-USE p02;
+USE P02;
 
 INSERT INTO usuario (nombre, email, contrasena) VALUES  
 ('Cristian Morales', 'cristian.morales@example.com', '1234'),
